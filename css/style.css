@@ -17,6 +17,48 @@ body {
     width: 100%;
 }
 
+.header__background-shape1,
+.header__background-shape2,
+.header__background-shape3,
+.header__background-shape4 {
+    position: absolute;
+}
+
+.header__background-shape1 {
+    top: -3rem;
+    right: 0;
+    left: 0;
+    margin-right: 16rem;
+    width: 220px;
+    height: 265px;
+    z-index: -6;
+}
+
+.header__background-shape2 {
+    top: 0;
+    right: -4rem;
+    width: 278px;
+    height: 321px;
+    z-index: -6;
+    background-color: #f4f3f1;
+}
+
+.header__background-shape3 {
+    top: 2rem;
+    width: 237px;
+    height: 274px;
+    right: 0;
+    left: 0;
+    margin-right: 6rem;
+    z-index: -6;
+}
+
+.header__background-shape4 {
+    top: 10.5rem;
+    right: -2rem;
+    z-index: -5;
+}
+
 .container {
     margin: 5.5rem;
 }
@@ -28,6 +70,14 @@ body {
     border-radius: 1rem;
     align-items: center;
     /* padding: 0 1.5rem; */
+    position: relative;
+    z-index: -5;
+}
+
+.after-menu {
+    position: absolute;
+    bottom: 0;
+    right: 3.2rem;
 }
 
 .header__logo {
