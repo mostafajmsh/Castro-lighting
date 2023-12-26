@@ -9,16 +9,26 @@
   </head>
   <body>
     <header class="header">
-      <img class="header__background-shape1" src="images/Vector.png" alt="">
-      <img class="header__background-shape2" src="images/Vector2.png" alt="">
-      <img class="header__background-shape3" src="images/Vector3.png" alt="">
-      <img class="header__background-shape4" src="images/Vector4.png" alt="">
-
-      <div class="header__logo">
-        <img src="./images/1e61c58b47ad48f1931e5a877ce259dc.png" alt="" />
-        <p class="logo__title">CASTRO</p>
-        <p class="logo__text">LIGHTING</p>
-      </div>
+      <img
+        class="header__background-shape shape1"
+        src="images/Vector.png"
+        alt=""
+      />
+      <img
+        class="header__background-shape shape2"
+        src="images/Vector2.png"
+        alt=""
+      />
+      <img
+        class="header__background-shape shape3"
+        src="images/Vector3.png"
+        alt=""
+      />
+      <img
+        class="header__background-shape shape4"
+        src="images/Vector4.png"
+        alt=""
+      />
       <div class="header__top container">
         <div class="menu-icon" onclick="toggleMenu()">
           <div class="bar-long"></div>
@@ -44,6 +54,11 @@
               </li>
               <li class="header__menu-item">مشاوره نورپردازی</li>
             </ul>
+          </div>
+          <div class="header__logo">
+            <img src="./images/1e61c58b47ad48f1931e5a877ce259dc.png" alt="" />
+            <p class="logo__title">CASTRO</p>
+            <p class="logo__text">LIGHTING</p>
           </div>
           <div class="header__menu-left">
             <ul class="header__menu-list">
@@ -89,8 +104,18 @@
             </ul>
           </div>
         </nav>
-        <svg class="after-menu" xmlns="http://www.w3.org/2000/svg" width="57" height="14" viewBox="0 0 57 14" fill="none">
-          <path d="M24.9728 1.73268C27.1973 0.639923 29.8027 0.639921 32.0272 1.73267L57 14H0L24.9728 1.73268Z" fill="#F4F3F1"/>
+        <svg
+          class="after-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          width="57"
+          height="14"
+          viewBox="0 0 57 14"
+          fill="none"
+        >
+          <path
+            d="M24.9728 1.73268C27.1973 0.639923 29.8027 0.639921 32.0272 1.73267L57 14H0L24.9728 1.73268Z"
+            fill="#F4F3F1"
+          />
         </svg>
         <nav class="tablet__menu">
           <ul class="tablet__menu-list">
@@ -114,6 +139,11 @@
               <li class="tablet__header-item">وبلاگ</li>
               <li class="tablet__header-item">درباره ما</li>
             </ul>
+            <div class="header__logo">
+              <img src="./images/1e61c58b47ad48f1931e5a877ce259dc.png" alt="" />
+              <p class="logo__title">CASTRO</p>
+              <p class="logo__text">LIGHTING</p>
+            </div>
             <ul class="tablet__header-left">
               <li class="tablet__header-item">
                 <svg
@@ -180,6 +210,11 @@
             <li class="mobile__menu-item">درباره ما</li>
           </ul>
           <div class="mobile__header">
+            <div class="header__logo">
+              <img src="./images/1e61c58b47ad48f1931e5a877ce259dc.png" alt="" />
+              <p class="logo__title">CASTRO</p>
+              <p class="logo__text">LIGHTING</p>
+            </div>
             <ul class="mobile__header-left">
               <li class="mobile__header-item">
                 <svg
@@ -221,77 +256,37 @@
           </div>
         </nav>
       </div>
+      <div class="header__landing container">
+        <div class="header__landing-right">
+          <p class="landing__right-subtitle">
+            خانه تان را با لوسترهای ما روشن کنید
+          </p>
+          <p class="landing__right-title">زیبایی و روشنایی در دستان شما</p>
+          <p class="landing__right-text">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده <br />
+            از طراحان گرافیک است
+          </p>
+          <a class="landing__right-btn" href="#">
+            <p>مشاهده و خرید</p>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+          <img class="after-btn" src="images/Ornament 24.png" alt="" />
+        </div>
+        <div class="header__landing-left">
+          <img src="images/Rectangle 9.png" alt="" />
+          <div class="landing__left-text">
+            <img src="images/20230726214144_[fpdl 1.png" alt="" />
+            <div>
+              <p>+۵۰۰</p>
+              <span>پروژه نورپردازی</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <script src="./vendor/FontAwesome5/all.min.js"></script>
-    <script>
-      function toggleMenu() {
-        const menuIcon = document.querySelector(".menu-icon");
-        const tabletMenu = document.querySelector(".tablet__menu-list");
-        const mobileMenu = document.querySelector(".mobile__menu-list");
-        menuIcon.classList.toggle("menu-open");
-        if (menuIcon.classList.contains("menu-open")) {
-          tabletMenu.style.visibility = "visible";
-          tabletMenu.style.opacity = "1";
-          tabletMenu.style.right = "1.5rem";
-          mobileMenu.style.visibility = "visible";
-          mobileMenu.style.opacity = "1";
-          mobileMenu.style.right = "1.5rem";
-        } else {
-          tabletMenu.style.visibility = "hidden";
-          tabletMenu.style.opacity = "0";
-          tabletMenu.style.right = "-3rem";
-          mobileMenu.style.visibility = "hidden";
-          mobileMenu.style.opacity = "0";
-          mobileMenu.style.right = "-3rem";
-        }
-      }
-
-      function toggleDrop() {
-        const tabletMenuDropdown = document.querySelector(".menu__drop");
-        const dropdownElem = document.querySelector(".tablet__menu-dropdown");
-        const lastChild = document.querySelector(".last-child");
-        const dropIcon = document.querySelector(".tablet__dropdown-icon");
-
-        tabletMenuDropdown.classList.toggle("menu-open");
-
-        if (tabletMenuDropdown.classList.contains("menu-open")) {
-          dropdownElem.style.visibility = "visible";
-          dropdownElem.style.top = "4rem";
-          dropdownElem.style.opacity = "1";
-          lastChild.style.margin = "270px 0 0 0";
-          dropIcon.style.transform = "rotate(180deg)";
-        } else {
-          dropdownElem.style.visibility = "hidden";
-          dropdownElem.style.top = "-15rem";
-          dropdownElem.style.opacity = "0";
-          lastChild.style.margin = "0";
-          dropIcon.style.transform = "none";
-        }
-      }
-
-      function mobileToggleDrop() {
-        const tabletMenuDropdown = document.querySelector(".menu__drop");
-        const dropdownElem = document.querySelector(".mobile__menu-dropdown");
-        const lastChild = document.querySelector(".mobile__last-child");
-        const dropIcon = document.querySelector(".mobile__dropdown-icon");
-
-        tabletMenuDropdown.classList.toggle("menu-open");
-
-        if (tabletMenuDropdown.classList.contains("menu-open")) {
-          dropdownElem.style.visibility = "visible";
-          dropdownElem.style.top = "4rem";
-          dropdownElem.style.opacity = "1";
-          lastChild.style.margin = "220px 0 0 0";
-          dropIcon.style.transform = "rotate(180deg)";
-        } else {
-          dropdownElem.style.visibility = "hidden";
-          dropdownElem.style.top = "-15rem";
-          dropdownElem.style.opacity = "0";
-          lastChild.style.margin = "0";
-          dropIcon.style.transform = "none";
-        }
-      }
-    </script>
+    <script src="js/menu.js"></script>
   </body>
 </html>

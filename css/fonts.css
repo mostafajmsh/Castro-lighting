@@ -10,3 +10,7 @@
     font-family: Peyda;
     src: url(../fonts/Peyda-Regular.ttf);
 }
+@font-face {
+    font-family: PeydaBlack;
+    src: url(../fonts/Peyda-Black.ttf);
+}
