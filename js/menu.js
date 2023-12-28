@@ -6,17 +6,17 @@ function toggleMenu() {
     if (menuIcon.classList.contains("menu-open")) {
         tabletMenu.style.visibility = "visible";
         tabletMenu.style.opacity = "1";
-        tabletMenu.style.right = "1.5rem";
+        tabletMenu.style.right = "0";
         mobileMenu.style.visibility = "visible";
         mobileMenu.style.opacity = "1";
-        mobileMenu.style.right = "1.5rem";
+        mobileMenu.style.right = "0";
     } else {
         tabletMenu.style.visibility = "hidden";
         tabletMenu.style.opacity = "0";
-        tabletMenu.style.right = "-3rem";
+        tabletMenu.style.right = "-10rem";
         mobileMenu.style.visibility = "hidden";
         mobileMenu.style.opacity = "0";
-        mobileMenu.style.right = "-3rem";
+        mobileMenu.style.right = "-10rem";
     }
 }
 
@@ -32,7 +32,7 @@ function toggleDrop() {
         dropdownElem.style.visibility = "visible";
         dropdownElem.style.top = "4rem";
         dropdownElem.style.opacity = "1";
-        lastChild.style.margin = "270px 0 0 0";
+        lastChild.style.margin = "250px 0 0 0";
         dropIcon.style.transform = "rotate(180deg)";
     } else {
         dropdownElem.style.visibility = "hidden";
@@ -56,7 +56,7 @@ function mobileToggleDrop() {
         dropdownElem.style.visibility = "visible";
         dropdownElem.style.top = "4rem";
         dropdownElem.style.opacity = "1";
-        lastChild.style.margin = "220px 0 0 0";
+        lastChild.style.margin = "270px 0 0 0";
         dropIcon.style.transform = "rotate(180deg)";
     } else {
         dropdownElem.style.visibility = "hidden";
