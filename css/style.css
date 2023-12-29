@@ -578,6 +578,240 @@ body {
     background-color: var(--primary-color);
 }
 
+/*  */
+
+.products {
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    position: relative;
+}
+
+.products__bg-shape {
+    position: absolute;
+}
+
+.p-shape1 {
+    top: 0;
+    right: 18rem;
+}
+
+.p-shape2 {
+    top: 0;
+    right: 5rem;
+}
+
+.p-shape3 {
+    top: 0;
+}
+
+.p-shape4 {
+    right: -1rem;
+    top: 0;
+    bottom: 2rem;
+    margin: auto 0;
+}
+
+.products__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    padding-right: 5.5rem;
+    width: 40%;
+}
+
+.products__right-subtitle {
+    color: var(--primary-color);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
+}
+
+.products__right-title {
+    color: var(--dark-color);
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 38px;
+    margin-top: 2rem;
+}
+
+.products__right-text {
+    color: var(--dark-color);
+    text-align: right;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px;
+    margin-top: 2rem;
+}
+
+.swiper-btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    transform: rotate(180deg);
+    gap: 1rem;
+    margin-top: 2rem;
+
+}
+
+.all-products {
+    transform: rotate(180deg);
+    font-family: var(--primary-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    text-align: right;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px;
+    text-wrap: nowrap;
+    background-color: var(--dark-color);
+    border-radius: 10px;
+    gap: 7px;
+    padding: 15px 18px;
+}
+
+.swiper-btns .swiper-button-prev,
+.swiper-button-next {
+    position: unset;
+    border-radius: 10px;
+    border: 2px solid var(--dark-color);
+    width: 80px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.products__left {
+    width: 100%;
+    overflow: hidden;
+    margin-right: 3rem;
+}
+
+.mySwiper2 {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    /* margin-right: 2rem; */
+}
+
+.mySwiper2 .swiper-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.mySwiper2 .swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: unset;
+    margin-right: 20px;
+}
+
+.mySwiper2 .swiper-slide:nth-child(1) {
+    margin-right: 0;
+}
+
+.products__item {
+    padding: 14px 13px;
+    background-color: #ffffff;
+    border-top-right-radius: 10rem;
+    border-top-left-radius: 10rem;
+    border: 3px solid rgba(123, 17, 17, 0.20);
+    transition: all 0.2s linear;
+}
+
+.products__item:hover {
+    border: 3px solid var(--primary-color);
+    box-shadow: 0px 0px 0px 0px rgba(84, 84, 84, 0.10), 0px 9px 19px 0px rgba(84, 84, 84, 0.10), 0px 34px 34px 0px rgba(84, 84, 84, 0.09), 0px 77px 46px 0px rgba(84, 84, 84, 0.05), 0px 137px 55px 0px rgba(84, 84, 84, 0.01), 0px 214px 60px 0px rgba(84, 84, 84, 0.00);
+    transition: all 0.2s linear;
+}
+
+.products__item-title {
+    margin-top: .5rem;
+    color: var(--dark-color);
+    text-align: right;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
+}
+
+.products__item-score {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.products__item-score span {
+    color: #FFE500;
+    text-align: right;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.products__item-score p {
+    color: #585858;
+    text-align: right;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.products__item-price {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.products__item-price div {
+    width: 44px;
+    height: 44px;
+    border-radius: 3px;
+    background: #EEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.products__item-price p {
+    color: var(--primary-color);
+    text-align: right;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.products__item-price span {
+    color: #000;
+    text-align: right;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
 
 @media only screen and (max-width: 1260px) {
 

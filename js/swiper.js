@@ -1,11 +1,11 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 5,
     spaceBetween: 150,
-    loop: "true",
+    loop: true,
+    centeredSlides: true,
     autoplay: {
-        delay: 1500,
-        disableOnInteraction: "false",
-        loop: "true"
+        delay: 2500,
+        disableOnInteraction: false,
     },
     scrollbar: {
         dragClass: "swiper-scrollbar-drag",
@@ -30,4 +30,15 @@ var swiper = new Swiper(".mySwiper", {
             spaceBetween: 50,
         },
     },
+});
+
+var productsSwiper = new Swiper(".mySwiper2", {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    autoplay: false,
+    loop: false
 });
