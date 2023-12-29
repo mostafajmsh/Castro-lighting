@@ -12,6 +12,8 @@ body {
     font-size: 24px;
 }
 
+/*Start Header Menu Styles */
+
 .header {
     display: flex;
     flex-direction: column;
@@ -209,10 +211,61 @@ body {
     /* width: 100%; */
     color: var(--dark-color);
     text-wrap: nowrap;
+    position: relative;
+}
+
+.header__menu-item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    top: 3rem;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.2s linear;
+}
+
+.header__menu-item:hover::after {
+    width: 100%;
 }
 
 .header__menu-dropdown {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 1rem;
+    padding: 2rem 3rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s linear;
+}
+
+.header__menu-item:hover .header__menu-dropdown {
+    opacity: 1;
+    top: 2rem;
+    visibility: visible;
+    transition: all 0.2s linear;
+    background-color: var(--main-color);
+    z-index: -1;
+}
+
+.header__menu-dropdown .dropdown-item {
+    margin-top: 1rem;
+    position: relative;
+}
+
+.dropdown-item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    top: 3rem;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.2s linear;
+}
+
+.dropdown-item:hover::after {
+    width: 100%;
 }
 
 .menu__item-content {
@@ -237,7 +290,9 @@ body {
     height: 32px;
 }
 
-/* landing */
+/*Finish Header Menu Styles */
+
+/*Start Landing Section Styles */
 
 .header__landing {
     display: flex;
@@ -407,6 +462,123 @@ body {
     line-height: normal;
 }
 
+/*Finish Landing Section Styles */
+
+.groupping {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 4rem;
+    flex-direction: column;
+    position: relative;
+}
+
+.groupping__top {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.groupping__title {
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.groupping__top img {
+    width: max-content;
+    margin-top: 1rem;
+}
+
+.groupping__content {
+    margin-top: 4rem;
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.groupping__content-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.content__item-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.content__item-text p {
+    color: var(--dark-color);
+    text-align: right;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.content__item-text div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content__item-text div::before {
+    content: "";
+    background-color: rgba(123, 17, 17, 0.20);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: -0.5rem;
+}
+
+.swiper {
+    width: 100%;
+    height: 440px;
+    /* gap: 3rem; */
+    position: relative;
+}
+
+.swiper-wrapper {
+    /* gap: 4rem; */
+    height: 370px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-horizontal>.swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 22rem;
+    bottom: 0;
+    margin: auto;
+    /* margin: 25rem auto 0 auto; */
+    z-index: 50;
+    height: 5px;
+    width: 33%;
+    background-color: var(--main-color);
+}
+
+.swiper-scrollbar-drag {
+    background-color: var(--primary-color);
+}
+
+
 @media only screen and (max-width: 1260px) {
 
     .header__top {
@@ -568,6 +740,8 @@ body {
     }
 }
 
+/* Media Query For Mobile Size */
+
 @media only screen and (max-width: 804px) {
 
     .header__top {
@@ -630,12 +804,8 @@ body {
         /* padding-right: 5rem; */
         position: relative;
         transition: all 0.2s linear;
-        width: 100%;
+        width: max-content;
         align-items: center;
-    }
-
-    .tablet__menu-item a {
-        /* width: 100%; */
     }
 
     .tablet__menu-list .tablet__menu-item::after {
@@ -649,7 +819,7 @@ body {
     }
 
     .tablet__menu-list .tablet__menu-item:hover::after {
-        width: 40%;
+        width: 100%;
         transition: all 0.4s linear;
     }
 
@@ -667,12 +837,14 @@ body {
 
     .tablet__menu-dropdown {
         flex-direction: column;
-        margin-right: 2rem;
+        margin-right: 4rem;
         visibility: hidden;
         top: -15rem;
         bottom: 0;
         position: absolute;
         transition: all 0.2s linear;
+        width: 150px;
+        height: 250px;
     }
 
     .tablet__dropdown-icon {
@@ -683,6 +855,7 @@ body {
 
     .dropdown-item {
         padding-top: 1rem;
+        width: 100%;
     }
 
     .dropdown-item a {
@@ -815,6 +988,66 @@ body {
         width: unset;
     }
 
+    .groupping {
+        margin-top: 55rem;
+    }
+
+}
+
+/* Media Query For Mobile Size */
+
+.mobile__grouping-content {
+    display: none;
+}
+
+@media only screen and (max-width: 650px) {
+
+    .groupping__title {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .groupping__content {
+        display: none;
+    }
+
+    .mobile__grouping-content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 4rem;
+        gap: 4rem;
+    }
+
+    .mobile__grouping-content .groupping__content-item {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile__grouping-content .content__item-text {
+        width: 100%;
+    }
+
+    .mobile__grouping-content .content__item-text p {
+        text-align: right;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .mobile__grouping-content .content__item-text div::before {
+        width: 1rem;
+        height: 1rem;
+        right: -.25rem;
+        bottom: 2px;
+    }
+
+    .content__item-img {
+        width: 226px;
+        height: 266px;
+    }
 }
 
 @media only screen and (max-width: 608px) {
@@ -1027,6 +1260,10 @@ body {
     .landing__left-text img {
         width: 41px;
         height: 43px;
+    }
+
+    .groupping {
+        margin-top: 40rem;
     }
 
 }

@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Castro Lighting</title>
     <link rel="stylesheet" href="./vendor/FontAwesome5/all.min.css" />
+    <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- Start Header Template -->
     <header class="header">
       <img
         class="header__background-shape shape1"
@@ -29,6 +31,7 @@
         src="images/Vector4.png"
         alt=""
       />
+      <!-- Menu Template -->
       <div class="header__top container">
         <div class="menu-icon" onclick="toggleMenu()">
           <div class="bar-long"></div>
@@ -36,6 +39,19 @@
           <div class="bar-long"></div>
           <div class="bar"></div>
         </div>
+        <svg
+          class="after-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          width="57"
+          height="14"
+          viewBox="0 0 57 14"
+          fill="none"
+        >
+          <path
+            d="M24.9728 1.73268C27.1973 0.639923 29.8027 0.639921 32.0272 1.73267L57 14H0L24.9728 1.73268Z"
+            fill="#F4F3F1"
+          />
+        </svg>
         <nav class="header__menu">
           <div class="header__menu-right">
             <ul class="header__menu-list">
@@ -52,7 +68,9 @@
                   <li class="dropdown-item"><a href="#">لوستر برنزی</a></li>
                 </ul>
               </li>
-              <li class="header__menu-item"><a href="#">مشاوره نورپردازی</a></li>
+              <li class="header__menu-item">
+                <a href="#">مشاوره نورپردازی</a>
+              </li>
             </ul>
           </div>
           <div class="header__logo">
@@ -104,19 +122,6 @@
             </ul>
           </div>
         </nav>
-        <svg
-          class="after-menu"
-          xmlns="http://www.w3.org/2000/svg"
-          width="57"
-          height="14"
-          viewBox="0 0 57 14"
-          fill="none"
-        >
-          <path
-            d="M24.9728 1.73268C27.1973 0.639923 29.8027 0.639921 32.0272 1.73267L57 14H0L24.9728 1.73268Z"
-            fill="#F4F3F1"
-          />
-        </svg>
         <nav class="tablet__menu">
           <ul class="tablet__menu-list">
             <li class="tablet__menu-item"><a href="#">صفحه اصلی</a></li>
@@ -132,7 +137,9 @@
                 <li class="dropdown-item"><a href="#">لوستر برنزی</a></li>
               </ul>
             </li>
-            <li class="tablet__menu-item last-child"><a href="#">مشاوره نورپردازی</a></li>
+            <li class="tablet__menu-item last-child">
+              <a href="#">مشاوره نورپردازی</a>
+            </li>
           </ul>
           <div class="tablet__header">
             <ul class="tablet__header-right">
@@ -256,6 +263,8 @@
           </div>
         </nav>
       </div>
+
+      <!-- Landing Template -->
       <div class="header__landing container">
         <div class="header__landing-right">
           <p class="landing__right-subtitle">
@@ -293,7 +302,127 @@
         </div>
       </div>
     </header>
+    <!-- Finish Header Template -->
 
+    <!-- Start Main Section Template -->
+    <main>
+      <div class="groupping">
+        <div class="groupping__top">
+          <p class="groupping__title">دسته بندی لوسترها</p>
+          <img class="after-title" src="images/Ornament 26.png" alt="" />
+        </div>
+        <div class="groupping__content">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="groupping__content-item">
+                  <img src="images/Rectangle 8.png" alt="" />
+                  <div class="content__item-text">
+                    <p>لوستر و آویز مدرن</p>
+                    <div>
+                      <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="groupping__content-item">
+                  <img src="images/Rectangle 91.png" alt="" />
+                  <div class="content__item-text">
+                    <p>لوستر مولکولی</p>
+                    <div>
+                      <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="groupping__content-item">
+                  <img src="images/Rectangle 10.png" alt="" />
+                  <div class="content__item-text">
+                    <p>دیوارکوب</p>
+                    <div>
+                      <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="groupping__content-item">
+                  <img src="images/Rectangle 11.png" alt="" />
+                  <div class="content__item-text">
+                    <p>آباژور رومیزی</p>
+                    <div>
+                      <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </div>
+        <div class="mobile__grouping-content">
+          <div class="groupping__content-item">
+            <img
+              class="content__item-img"
+              src="images/Rectangle 8.png"
+              alt=""
+            />
+            <div class="content__item-text">
+              <p>لوستر و آویز مدرن</p>
+              <div>
+                <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="groupping__content-item">
+            <img
+              class="content__item-img"
+              src="images/Rectangle 91.png"
+              alt=""
+            />
+            <div class="content__item-text">
+              <p>لوستر مولکولی</p>
+              <div>
+                <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="groupping__content-item">
+            <img
+              class="content__item-img"
+              src="images/Rectangle 10.png"
+              alt=""
+            />
+            <div class="content__item-text">
+              <p>دیوارکوب</p>
+              <div>
+                <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="groupping__content-item">
+            <img
+              class="content__item-img"
+              src="images/Rectangle 11.png"
+              alt=""
+            />
+            <div class="content__item-text">
+              <p>آباژور رومیزی</p>
+              <div>
+                <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Finish Main Section Template -->
+
+    <script src="vendor/SwiperSlider/swiper.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/utils.js"></script>
     <script src="./vendor/FontAwesome5/all.min.js"></script>
     <script src="js/menu.js"></script>
   </body>
