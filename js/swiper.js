@@ -65,6 +65,7 @@ var productsSwiper = new Swiper(".mySwiper2", {
             spaceBetween: 60,
         },
         805: {
+            centeredSlides: false,
             slidesPerView: 2,
             spaceBetween: 60,
         },
