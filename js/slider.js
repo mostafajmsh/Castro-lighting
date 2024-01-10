@@ -46,38 +46,12 @@ var productsSwiper = new Swiper(".mySwiper2", {
             spaceBetween: 10,
         },
         520: {
-            centeredSlides: true,
-            slidesPerView: 3,
-            spaceBetween: 60,
-        },
-        650: {
-            centeredSlides: false,
             slidesPerView: 2,
             spaceBetween: 10,
         },
-        690: {
-            centeredSlides: true,
+        1200: {
             slidesPerView: 3,
-            spaceBetween: 60,
-        },
-        805: {
-            centeredSlides: false,
-            slidesPerView: 2,
-            spaceBetween: 60,
-        },
-        850: {
-            centeredSlides: false,
-            slidesPerView: 2,
             spaceBetween: 10,
-        },
-        1078: {
-            centeredSlides: false,
-            slidesPerView: 3,
-            spaceBetween: 250,
-        },
-        1261: {
-            slidesPerView: 3,
-            spaceBetween: 30,
         },
     },
 });

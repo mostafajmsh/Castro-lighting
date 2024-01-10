@@ -1576,8 +1576,8 @@ footer {
         margin-right: 20px;
     }
 
-    .mySwiper2 .swiper-slide:nth-child(1) {
-        margin-right: 6rem;
+    .products__item-price p {
+        font-size: 20px;
     }
 
     .articles__content {
@@ -1771,10 +1771,6 @@ footer {
     .swiper-button-prev::after,
     .swiper-button-next::after {
         font-size: 1.2rem;
-    }
-
-    .products__item img:first-child {
-        width: 220px;
     }
 
     .basket-icon {
@@ -2113,16 +2109,8 @@ footer {
         margin-right: 2rem;
     }
 
-    .mySwiper2 .swiper-slide:nth-child(1) {
-        margin-right: 1rem;
-    }
-
     .products__item {
         padding: 10px 9px;
-    }
-
-    .products__item img:first-child {
-        width: 160px;
     }
 
     .products__item-title {
@@ -2437,12 +2425,8 @@ footer {
         margin-right: 0;
     }
 
-    .mySwiper2 .swiper-slide:nth-child(1) {
-        margin-right: 0;
-    }
-
-    .products__item img:first-child {
-        width: 112px;
+    .products__item-cover {
+        height: 150px;
     }
 
     .products__item-title {
