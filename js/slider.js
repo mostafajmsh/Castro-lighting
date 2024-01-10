@@ -1,10 +1,7 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    spaceBetween: 150,
-    loop: true,
-    centeredSlides: true,
+    speed: 800,
     autoplay: {
-        delay: 2500,
+        delay: 1500,
         disableOnInteraction: false,
     },
     scrollbar: {
@@ -33,8 +30,7 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 var productsSwiper = new Swiper(".mySwiper2", {
-    slidesPerView: 5,
-    spaceBetween: 10,
+    speed: 800,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -81,7 +77,7 @@ var productsSwiper = new Swiper(".mySwiper2", {
         },
         1261: {
             slidesPerView: 3,
-            spaceBetween: 150,
+            spaceBetween: 30,
         },
     },
 });

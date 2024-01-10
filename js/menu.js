@@ -1,4 +1,4 @@
-function toggleMenu() {
+const toggleMenu = () => {
     const menuIcon = document.querySelector(".menu-icon");
     const tabletMenu = document.querySelector(".tablet__menu-list");
     const mobileMenu = document.querySelector(".mobile__menu-list");
@@ -32,7 +32,7 @@ function toggleDrop() {
         dropdownElem.style.visibility = "visible";
         dropdownElem.style.top = "4rem";
         dropdownElem.style.opacity = "1";
-        lastChild.style.margin = "250px 0 0 0";
+        lastChild.style.margin = "200px 0 0 0";
         dropIcon.style.transform = "rotate(180deg)";
     } else {
         dropdownElem.style.visibility = "hidden";
@@ -56,7 +56,7 @@ function mobileToggleDrop() {
         dropdownElem.style.visibility = "visible";
         dropdownElem.style.top = "4rem";
         dropdownElem.style.opacity = "1";
-        lastChild.style.margin = "270px 0 0 0";
+        lastChild.style.margin = "200px 0 0 0";
         dropIcon.style.transform = "rotate(180deg)";
     } else {
         dropdownElem.style.visibility = "hidden";
