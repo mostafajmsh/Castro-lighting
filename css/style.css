@@ -801,8 +801,9 @@ button {
     font-style: normal;
     font-weight: bold;
     line-height: 38px;
-    text-wrap: nowrap;
-    overflow:scroll;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .products__item-score {
