@@ -534,7 +534,6 @@ let categories = [
     }
 ]
 
-// SHOW MENU DROPDOWN ITEMS
 const insertMenuDropdownItemsHtmlTemplate = (categories, parentElement) => {
     parentElement.innerHTML = ''
     categories.forEach(cat => {
@@ -586,8 +585,6 @@ const insertMobileProductsGroupingHtmlTemplate = (products, parentElement) => {
     })
 }
 
-// SHOW RANDOM PRODUCTS IN NEW PRODUCTS SECTION
-
 const insertNewProductsHtmlTemplate = (products, parentElement) => {
     parentElement.innerHTML = ''
     products.slice(0, 9).map((product) => {
@@ -619,6 +616,46 @@ const insertNewProductsHtmlTemplate = (products, parentElement) => {
     })
 }
 
+const insertAllProductsHtmlTemplate = (products, parentElement) => {
+    parentElement.innerHTML = ''
+    products.forEach((product) => {
+        parentElement.insertAdjacentHTML('beforeend', `
+        <div class="products-item">
+        <div class="products-item__image-box">
+          <img
+            class="product-cover"
+            src="${product.cover}"
+            alt=""
+          />
+        </div>
+        <div class="products-item__content">
+          <p class="product-title">${product.name}</p>
+          <div class="products__item-category">
+            <p>_ ${product.categoryName}</p>
+            <div class="products__item-score">
+              <span>${product.score}</span>
+              <img src="images/Iconsax/Bold/star1.png" alt="" />
+            </div>
+          </div>
+          <div class="product__price-wrapper">
+            <p class="product__price-label">قیمت:</p>
+            <p class="product-price">${product.price.toLocaleString()} <span>تومان</span></p>
+          </div>
+          <a class="item__more-info" href="#">
+            <img
+              class="basket-icon"
+              src="images/Iconsax/Outline/bag2.png"
+              alt=""
+            />
+            <p>مشاهده و خرید</p>
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+        ` )
+    })
+}
+
 const shuffledArray = products.sort((a, b) => 0.5 - Math.random());
 
 export {
@@ -628,5 +665,6 @@ export {
     insertMobileProductsGroupingHtmlTemplate,
     insertNewProductsHtmlTemplate,
     insertProductsGroupingHtmlTemplate,
+    insertAllProductsHtmlTemplate,
     shuffledArray
 }
