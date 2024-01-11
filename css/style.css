@@ -210,7 +210,7 @@ button {
     font-family: var(--primary-font);
     justify-content: center;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 33.6px;
     /* width: 100%; */
     color: var(--dark-color);
@@ -241,6 +241,8 @@ button {
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s linear;
+    width: 270px;
+    right: 0;
 }
 
 .header__menu-item:hover .header__menu-dropdown {
@@ -1498,12 +1500,21 @@ footer {
     .offer__right-title {
         font-size: 42px;
     }
+
+    .header__menu-dropdown {
+        width: 250px;
+    }
 }
 
 @media only screen and (max-width: 1260px) {
 
     .header__top {
         height: 95px;
+    }
+
+    .header__menu-dropdown {
+        width: 220px;
+        right: -1rem;
     }
 
     .header__menu-item {
@@ -1622,6 +1633,17 @@ footer {
 
 @media only screen and (max-width: 1177px) {
 
+    .after-menu {
+        width: 40px;
+        height: 4px;
+        right: 2rem;
+    }
+
+    .header__menu-dropdown {
+        width: 200px;
+        right: -1rem;
+    }
+
     .about__title-text {
         font-size: 40px;
     }
@@ -1705,6 +1727,20 @@ footer {
         font-weight: 400;
         line-height: normal;
         letter-spacing: 0.84px;
+    }
+
+    .header__menu-dropdown {
+        width: 160px;
+        padding-right: 1rem;
+        right: -1rem;
+    }
+
+    .header__menu .dropdown-item {
+        margin: 0;
+    }
+
+    .dropdown-item::after {
+        top: 2rem;
     }
 
     .header__landing {
