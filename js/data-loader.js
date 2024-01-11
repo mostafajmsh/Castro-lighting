@@ -596,7 +596,9 @@ shuffledArray.slice(0, 9).map((product) => {
     productsWrapper.innerHTML += `
     <div class="swiper-slide">
         <div class="products__item">
-            <img class="products__item-cover" src="${product.cover}" alt="" />
+            <div class="item__image-wrapper">
+                <img class="products__item-cover" src="${product.cover}" alt="" />
+            </div>
             <p class="products__item-title">${product.name}</p>
             <div class="products__item-score">
                 <span>${product.score}</span>

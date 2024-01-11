@@ -528,7 +528,8 @@ button {
     border-top-left-radius: 10rem;
     width: 100%;
     height: 100%;
-    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
 
 .content__item-text {
@@ -786,11 +787,23 @@ button {
     transition: all 0.2s linear;
 }
 
-.products__item-cover {
+.item__image-wrapper {
     width: 100%;
-    height: 238.33px;
+    height: 255px;
     border-top-right-radius: 10rem;
     border-top-left-radius: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.products__item-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 10rem;
+    border-top-left-radius: 10rem;
+    object-position: 50% 50%;
 }
 
 .products__item-title {
@@ -2426,13 +2439,12 @@ footer {
         margin-right: 0;
     }
 
-    .products__item-cover {
-        height: 150px;
+    .item__image-wrapper {
+        height: 200px;
     }
 
     .products__item-title {
         font-size: 12px;
-        margin: 0;
         line-height: 0.8rem;
     }
 
@@ -3020,6 +3032,10 @@ footer {
 
     .mySwiper2 {
         width: 100%;
+    }
+
+    .item__image-wrapper {
+        height: 160px;
     }
 
     .about {
