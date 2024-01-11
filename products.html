@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Castro Lighting</title>
+    <title>PRODUCTS</title>
     <link rel="stylesheet" href="./vendor/FontAwesome5/all.min.css" />
-    <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="css/products.css" />
   </head>
   <body>
-    <!-- Start Header Template -->
     <header class="header">
       <img
         class="header__background-shape shape1"
@@ -248,302 +246,320 @@
           </div>
         </nav>
       </div>
-
-      <!-- Landing Template -->
-      <div class="header__landing container">
-        <div class="header__landing-right">
-          <p class="landing__right-subtitle">
-            خانه تان را با لوسترهای ما روشن کنید
-          </p>
-          <p class="landing__right-title">زیبایی و روشنایی در دستان شما</p>
-          <div>
-            <p class="landing__right-text">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است
-            </p>
-            <a class="landing__right-btn" href="#">
-              <p>مشاهده و خرید</p>
-              <i class="fas fa-arrow-left"></i>
-            </a>
-            <img class="after-btn" src="images/Ornament 24.png" alt="" />
-          </div>
-        </div>
-        <div class="header__landing-left">
-          <div class="landing__left-content">
-            <img class="before-img" src="images/Ornament 21.png" alt="" />
-            <img
-              class="landing__left-image"
-              src="images/Rectangle 9.png"
-              alt=""
-            />
-            <div class="landing__left-text">
-              <img src="images/20230726214144_[fpdl 1.png" alt="" />
-              <div>
-                <p>۵۰۰+</p>
-                <span>پروژه نورپردازی</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </header>
-    <!-- Finish Header Template -->
-
-    <!-- Start Main Section Template -->
     <main>
-      <section class="groupping">
-        <div class="groupping__top">
-          <p class="groupping__title">دسته بندی لوسترها</p>
-          <img class="after-title" src="images/Ornament 26.png" alt="" />
-        </div>
-        <div class="groupping__content">
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper products__groupping-wrapper">
-              <!-- Data Loaded From JS -->
-            </div>
-            <div class="swiper-scrollbar"></div>
-          </div>
-        </div>
-        <div class="mobile__grouping-content">
-          <!-- Data Loaded From JS -->
-        </div>
-      </section>
-      <section class="products">
-        <img
-          class="products__bg-shape p-shape1"
-          src="images/Vector-pro1.png"
-          alt=""
-        />
-        <img
-          class="products__bg-shape p-shape2"
-          src="images/Vector-pro2.png"
-          alt=""
-        />
-        <img
-          class="products__bg-shape p-shape3"
-          src="images/Vector-pro3.png"
-          alt=""
-        />
-        <img
-          class="products__bg-shape p-shape4"
-          src="images/Vector-pro4.png"
-          alt=""
-        />
-        <div class="products__right">
-          <p class="products__right-subtitle">جدیدترین</p>
-          <p class="products__right-title">محصولات</p>
-          <p class="products__right-text">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است
+      <section class="products-section">
+        <div class="products__section-top-bar container">
+          <p class="products__top-bar-title">محصولات ما</p>
+          <p class="products__top-bar-subtitle">
+            طرح های نورپردازی چشم نواز برای ترکیب فضای زندگی شما
           </p>
-          <div class="swiper-btns">
-            <div
-              class="swiper-button-next"
-              tabindex="0"
-              role="button"
-              aria-label="Next slide"
-              aria-controls="swiper-wrapper-74d69803342a9f56"
-              aria-disabled="false"
-            ></div>
-            <div
-              class="swiper-button-prev swiper-button-disabled"
-              tabindex="-1"
-              role="button"
-              aria-label="Previous slide"
-              aria-controls="swiper-wrapper-72335b281edfc4a9"
-              aria-disabled="true"
-            ></div>
-            <a href="./products.html" class="all-products button">
-              <p>مشاهده همه</p>
-              <img src="images/Iconsax/Linear/arrowleft.png" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="products__left">
-          <div class="swiper mySwiper2">
-            <div class="swiper-wrapper products-wrapper">
-              <!-- Data Loaded From JS -->
+          <div class="products__top-bar-filtering container">
+            <div class="products-top-bar__selection">
+              <span class="products-top-bar__selection-title">
+                مرتب سازی پیش فرض
+                <i
+                  class="fas fa-angle-down products-top-bar__selection-icon"
+                ></i>
+              </span>
+              <ul class="products-top-bar__selection-list">
+                <li
+                  class="products-top-bar__selection-item products-top-bar__selection-item--active"
+                  data-key="default"
+                >
+                  مرتب سازی پیش فرض
+                </li>
+                <li class="products-top-bar__selection-item" data-key="score">
+                  مرتب سازی بر اساس امتیاز
+                </li>
+                <li class="products-top-bar__selection-item" data-key="free">
+                  مرتب سازی بر اساس ارزان ترین
+                </li>
+                <li class="products-top-bar__selection-item" data-key="money">
+                  مرتب سازی بر اساس گران ترین
+                </li>
+              </ul>
             </div>
-          </div>
-        </div>
-      </section>
-      <section class="about">
-        <img class="before-sec" src="images/Ornament 244.png" alt="" />
-        <div class="about__contents container">
-          <div class="about__right">
-            <div class="about__right-title">
-              <img
-                src="images/Ornament 266.jpg"
-                alt=""
-                class="about__title-img"
+            <div class="products__category-selection">
+              <span class="products-category__selection-title">
+                نمایش همه محصولات
+                <i
+                  class="fas fa-angle-down products-category__selection-icon"
+                ></i>
+              </span>
+              <ul class="products-category__selection-list">
+                <li
+                  class="products-category__selection-item products-category__selection-item--active"
+                  data-key="all"
+                >
+                  نمایش همه محصولات
+                </li>
+                <li class="products-category__selection-item" data-key="modern">
+                  لوستر مدرن
+                </li>
+                <li
+                  class="products-category__selection-item"
+                  data-key="crystal"
+                >
+                  لوستر کریستالی
+                </li>
+                <li class="products-category__selection-item" data-key="rostik">
+                  لوستر روستیک
+                </li>
+                <li
+                  class="products-category__selection-item"
+                  data-key="molecular"
+                >
+                  لوستر مولکولی
+                </li>
+                <li class="products-category__selection-item" data-key="table">
+                  چراغ رومیزی
+                </li>
+                <li class="products-category__selection-item" data-key="wall">
+                  چراغ دیواری
+                </li>
+              </ul>
+            </div>
+            <form action="#" class="products-top-bar__form">
+              <input
+                type="text"
+                class="products-top-bar__input"
+                placeholder="جستجوی محصولات ..."
               />
-              <p class="about__title-text">
-                درباره
-                <span>برند ما</span>
-              </p>
-            </div>
-            <p class="about__right-text">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی
-              نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
-            </p>
-            <div class="btn-wrapper">
-              <button class="about__btn">
-                درباره ما
-                <img src="images/Iconsax/Linear/arrowleft.png" alt="" />
-              </button>
-              <a class="about__products" href="#">
-                <p>محصولات</p>
-                <div>
-                  <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
-                </div>
-              </a>
-            </div>
+              <i class="fas fa-search products-top-bar__search-icon"></i>
+            </form>
           </div>
-          <div class="about__left">
-            <div class="left__img-wrapper">
-              <img class="red-path" src="images/Path.png" alt="" />
-              <img class="left__main-img" src="images/Ellipse 3.png" alt="" />
-              <div class="icon-holder">
+        </div>
+        <div class="products__section-main container">
+          <div class="products-wrapper">
+            <div class="products-item">
+              <div class="products-item__image-box">
                 <img
-                  class="play-icon"
-                  src="images/basil_play-solid.png"
+                  class="product-cover"
+                  src="images/1445c14547a8ed77960797939bd8f5ef11f41245_1693992762.jpg"
                   alt=""
                 />
               </div>
-              <img class="main-line" src="images/Line 2.png" alt="" />
-              <img class="main-arrow" src="images/Vector 37.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="offer">
-        <img
-          src="images/Rectangle 41.png"
-          alt=""
-          class="offer__right-bg r-shape1"
-        />
-        <img
-          src="images/Rectangle 40.png"
-          alt=""
-          class="offer__right-bg r-shape2"
-        />
-        <img
-          src="images/Rectangle 42.png"
-          alt=""
-          class="offer__right-bg r-shape3"
-        />
-        <div class="offer__right">
-          <p class="offer__right-title">خرید انواع لوسترهای مولکولی</p>
-          <p class="offer__right-subtitle">با تخفیف ویژه</p>
-          <a class="offer_link-btn" href="#">
-            مشاهده و خرید
-            <img src="images/Iconsax/Linear/arrowleft2.png" alt="" />
-          </a>
-        </div>
-        <div class="offer__left">
-          <img class="offer__before-img" src="images/Path-w.png" alt="" />
-          <img class="main__img-bg" src="images/Ellipse 6.png" alt="" />
-          <img class="offer__main-img" src="images/modern-galaxy.png" alt="" />
-          <img class="offer__after-img" src="images/Path-w.png" alt="" />
-        </div>
-        <img
-          src="images/Rectangle 45.png"
-          alt=""
-          class="offer__left-bg l-shape1"
-        />
-        <img
-          src="images/Rectangle 44.png"
-          alt=""
-          class="offer__left-bg l-shape2"
-        />
-        <img
-          src="images/Rectangle 46.png"
-          alt=""
-          class="offer__left-bg l-shape3"
-        />
-      </section>
-      <section class="articles">
-        <p class="articles__subtitle">مطالبی برای خواندن</p>
-        <p class="articles__title">مقالات ما</p>
-        <div class="articles__content container">
-          <div class="articles__right">
-            <img
-              class="articles__right-main-img"
-              src="images/image 1.png"
-              alt=""
-            />
-            <div class="article__text-wrapper">
-              <p class="article__title">
-                برای خرید چراغ استخری به چه مواردی باید توجه شود؟
-              </p>
-              <div class="article__items">
-                <p class="article__text">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  استفاده از طراحان گرافیک است
-                </p>
-                <a class="article__link-btn" href="#">
-                  <img src="images/Iconsax/Linear/arrowleft.png" alt="" />
+              <div class="products-item__content">
+                <p class="product-title">چراغ دیواری کاکتوس</p>
+                <div class="products__item-category">
+                  <p>_ چراغ دیواری</p>
+                  <div class="products__item-score">
+                    <span>4.5</span>
+                    <img src="images/Iconsax/Bold/star1.png" alt="" />
+                  </div>
+                </div>
+                <div class="product__price-wrapper">
+                  <p class="product__price-label">قیمت:</p>
+                  <p class="product-price">349000 <span>تومان</span></p>
+                </div>
+                <a class="item__more-info" href="#">
+                  <img
+                    class="basket-icon"
+                    src="images/Iconsax/Outline/bag2.png"
+                    alt=""
+                  />
+                  <p>مشاهده و خرید</p>
+                  <i class="fa-arrow-left"></i>
                 </a>
               </div>
             </div>
-          </div>
-          <div class="articles__left">
-            <div class="article">
-              <div class="article__right">
-                <img src="images/Rectangle 48.png" alt="" />
+            <div class="products-item">
+                <div class="products-item__image-box">
+                  <img
+                    class="product-cover"
+                    src="images/1445c14547a8ed77960797939bd8f5ef11f41245_1693992762.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="products-item__content">
+                  <p class="product-title">چراغ دیواری کاکتوس</p>
+                  <div class="products__item-category">
+                    <p>_ چراغ دیواری</p>
+                    <div class="products__item-score">
+                      <span>4.5</span>
+                      <img src="images/Iconsax/Bold/star1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="product__price-wrapper">
+                    <p class="product__price-label">قیمت:</p>
+                    <p class="product-price">349000 <span>تومان</span></p>
+                  </div>
+                  <a class="item__more-info" href="#">
+                    <img
+                      class="basket-icon"
+                      src="images/Iconsax/Outline/bag2.png"
+                      alt=""
+                    />
+                    <p>مشاهده و خرید</p>
+                    <i class="fa-arrow-left"></i>
+                  </a>
+                </div>
               </div>
-              <div class="article__left">
-                <p class="article__left-title">ایده نورپردازی با چراغ سقفی</p>
-                <a class="article__link" href="#">
-                  <p>مشاهده</p>
-                  <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
-                </a>
+              <div class="products-item">
+                <div class="products-item__image-box">
+                  <img
+                    class="product-cover"
+                    src="images/1445c14547a8ed77960797939bd8f5ef11f41245_1693992762.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="products-item__content">
+                  <p class="product-title">چراغ دیواری کاکتوس</p>
+                  <div class="products__item-category">
+                    <p>_ چراغ دیواری</p>
+                    <div class="products__item-score">
+                      <span>4.5</span>
+                      <img src="images/Iconsax/Bold/star1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="product__price-wrapper">
+                    <p class="product__price-label">قیمت:</p>
+                    <p class="product-price">349000 <span>تومان</span></p>
+                  </div>
+                  <a class="item__more-info" href="#">
+                    <img
+                      class="basket-icon"
+                      src="images/Iconsax/Outline/bag2.png"
+                      alt=""
+                    />
+                    <p>مشاهده و خرید</p>
+                    <i class="fa-arrow-left"></i>
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="article">
-              <div class="article__right">
-                <img src="images/Rectangle 50.png" alt="" />
+              <div class="products-item">
+                <div class="products-item__image-box">
+                  <img
+                    class="product-cover"
+                    src="images/1445c14547a8ed77960797939bd8f5ef11f41245_1693992762.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="products-item__content">
+                  <p class="product-title">چراغ دیواری کاکتوس</p>
+                  <div class="products__item-category">
+                    <p>_ چراغ دیواری</p>
+                    <div class="products__item-score">
+                      <span>4.5</span>
+                      <img src="images/Iconsax/Bold/star1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="product__price-wrapper">
+                    <p class="product__price-label">قیمت:</p>
+                    <p class="product-price">349000 <span>تومان</span></p>
+                  </div>
+                  <a class="item__more-info" href="#">
+                    <img
+                      class="basket-icon"
+                      src="images/Iconsax/Outline/bag2.png"
+                      alt=""
+                    />
+                    <p>مشاهده و خرید</p>
+                    <i class="fa-arrow-left"></i>
+                  </a>
+                </div>
               </div>
-              <div class="article__left">
-                <p class="article__left-title">ایده نورپردازی با چراغ سقفی</p>
-                <a class="article__link" href="#">
-                  <p>مشاهده</p>
-                  <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
-                </a>
+              <div class="products-item">
+                <div class="products-item__image-box">
+                  <img
+                    class="product-cover"
+                    src="images/1445c14547a8ed77960797939bd8f5ef11f41245_1693992762.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="products-item__content">
+                  <p class="product-title">چراغ دیواری کاکتوس</p>
+                  <div class="products__item-category">
+                    <p>_ چراغ دیواری</p>
+                    <div class="products__item-score">
+                      <span>4.5</span>
+                      <img src="images/Iconsax/Bold/star1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="product__price-wrapper">
+                    <p class="product__price-label">قیمت:</p>
+                    <p class="product-price">349000 <span>تومان</span></p>
+                  </div>
+                  <a class="item__more-info" href="#">
+                    <img
+                      class="basket-icon"
+                      src="images/Iconsax/Outline/bag2.png"
+                      alt=""
+                    />
+                    <p>مشاهده و خرید</p>
+                    <i class="fa-arrow-left"></i>
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="article">
-              <div class="article__right">
-                <img src="images/Rectangle 51.png" alt="" />
+              <div class="products-item">
+                <div class="products-item__image-box">
+                  <img
+                    class="product-cover"
+                    src="images/1445c14547a8ed77960797939bd8f5ef11f41245_1693992762.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="products-item__content">
+                  <p class="product-title">چراغ دیواری کاکتوس</p>
+                  <div class="products__item-category">
+                    <p>_ چراغ دیواری</p>
+                    <div class="products__item-score">
+                      <span>4.5</span>
+                      <img src="images/Iconsax/Bold/star1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="product__price-wrapper">
+                    <p class="product__price-label">قیمت:</p>
+                    <p class="product-price">349000 <span>تومان</span></p>
+                  </div>
+                  <a class="item__more-info" href="#">
+                    <img
+                      class="basket-icon"
+                      src="images/Iconsax/Outline/bag2.png"
+                      alt=""
+                    />
+                    <p>مشاهده و خرید</p>
+                    <i class="fa-arrow-left"></i>
+                  </a>
+                </div>
               </div>
-              <div class="article__left">
-                <p class="article__left-title">ایده نورپردازی با چراغ سقفی</p>
-                <a class="article__link" href="#">
-                  <p>مشاهده</p>
-                  <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
-                </a>
+              <div class="products-item">
+                <div class="products-item__image-box">
+                  <img
+                    class="product-cover"
+                    src="images/1445c14547a8ed77960797939bd8f5ef11f41245_1693992762.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="products-item__content">
+                  <p class="product-title">چراغ دیواری کاکتوس</p>
+                  <div class="products__item-category">
+                    <p>_ چراغ دیواری</p>
+                    <div class="products__item-score">
+                      <span>4.5</span>
+                      <img src="images/Iconsax/Bold/star1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="product__price-wrapper">
+                    <p class="product__price-label">قیمت:</p>
+                    <p class="product-price">349000 <span>تومان</span></p>
+                  </div>
+                  <a class="item__more-info" href="#">
+                    <img
+                      class="basket-icon"
+                      src="images/Iconsax/Outline/bag2.png"
+                      alt=""
+                    />
+                    <p>مشاهده و خرید</p>
+                    <i class="fa-arrow-left"></i>
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="article">
-              <div class="article__right">
-                <img src="images/Rectangle 52.png" alt="" />
-              </div>
-              <div class="article__left">
-                <p class="article__left-title">ایده نورپردازی با چراغ سقفی</p>
-                <a class="article__link" href="#">
-                  <p>مشاهده</p>
-                  <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
     </main>
-    <!-- Finish Main Section Template -->
-
-    <!-- Start Footer Section Template -->
     <footer>
       <div class="footer__contents container">
         <div class="footer__right">
@@ -658,14 +674,10 @@
         </div>
       </div>
     </footer>
-    <!-- Finish Footer Section Template -->
 
-    <script src="js/data-loader.js" type="module"></script>
     <script src="./vendor/FontAwesome5/all.min.js"></script>
     <script src="./js/menu-events.js"></script>
-    <script src="vendor/SwiperSlider/swiper.js"></script>
-    <script src="js/slider.js"></script>
+    <script src="./js/data-loader.js"></script>
     <script src="./js/menu-data.js" type="module"></script>
-    <script src="./js/index.js" type="module"></script>
   </body>
 </html>

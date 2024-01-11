@@ -53,5 +53,9 @@ var productsSwiper = new Swiper(".mySwiper2", {
             slidesPerView: 3,
             spaceBetween: 10,
         },
+        1300: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
     },
 });

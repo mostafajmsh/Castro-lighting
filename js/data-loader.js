@@ -534,88 +534,99 @@ let categories = [
     }
 ]
 
-const MenuDropdownElem = document.querySelectorAll('.dropdown')
-const productsGroupingElem = document.querySelector('.products__groupping-wrapper')
-const mobileProductsGroupingElem = document.querySelector('.mobile__grouping-content')
-
 // SHOW MENU DROPDOWN ITEMS
-const categoryItems = Object.values(categories)
-const dropItems = categoryItems.map(item => {
-    MenuDropdownElem.forEach(drop => {
-
-        drop.innerHTML += `<li class="dropdown-item"><a href="#">${item.name}</a></li>`
-
+const insertMenuDropdownItemsHtmlTemplate = (categories, parentElement) => {
+    parentElement.innerHTML = ''
+    categories.forEach(cat => {
+        parentElement.forEach(parent => {
+            parent.insertAdjacentHTML('beforeend', `
+            <li class="dropdown-item"><a href="#">${cat.name}</a></li>
+        ` )
+        })
     })
+}
 
-})
+const insertProductsGroupingHtmlTemplate = (products, parentElement) => {
+    parentElement.innerHTML = ''
+    products.forEach(item => {
+        parentElement.insertAdjacentHTML('beforeend', `
+        <div class="swiper-slide">
+            <div class="groupping__content-item">
+                <img class="category-cover" src="${item.cover}" alt="" />
+                <div class="content__item-text">
+                    <p>${item.name}</p>
+                    <div>
+                        <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        ` )
+    })
+}
 
-// SHOW PRODUCT CATEGORIES
-
-const productsGroupingItems = categoryItems.map((item) => {
-
-    productsGroupingElem.innerHTML += `
-    <div class="swiper-slide">
+const insertMobileProductsGroupingHtmlTemplate = (products, parentElement) => {
+    parentElement.innerHTML = ''
+    products.forEach(item => {
+        parentElement.insertAdjacentHTML('beforeend', `
         <div class="groupping__content-item">
-            <img class="category-cover" src="${item.cover}" alt="" />
+            <img
+                class="content__item-img"
+                src="${item.cover}"
+                alt=""
+            />
             <div class="content__item-text">
                 <p>${item.name}</p>
                 <div>
-                    <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                    <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
                 </div>
             </div>
         </div>
-    </div>
-    `
-    mobileProductsGroupingElem.innerHTML += `
-    <div class="groupping__content-item">
-        <img
-            class="content__item-img"
-            src="${item.cover}"
-            alt=""
-        />
-        <div class="content__item-text">
-            <p>${item.name}</p>
-            <div>
-                <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
-            </div>
-        </div>
-    </div>
-    `
-})
+        ` )
+    })
+}
 
 // SHOW RANDOM PRODUCTS IN NEW PRODUCTS SECTION
 
-const productsWrapper = document.querySelector('.products-wrapper')
-console.log(products);
-
-productsWrapper.innerHTML = "";
+const insertNewProductsHtmlTemplate = (products, parentElement) => {
+    parentElement.innerHTML = ''
+    products.slice(0, 9).map((product) => {
+        parentElement.insertAdjacentHTML('beforeend', `
+        <div class="swiper-slide">
+            <div class="products__item">
+                <div class="item__image-wrapper">
+                    <img class="products__item-cover" src="${product.cover}" alt="" />
+                </div>
+                <p class="products__item-title">${product.name}</p>
+                <div class="products__item-score">
+                    <span>${product.score}</span>
+                    <img src="images/Iconsax/Bold/star1.png" alt="" />
+                    <p>_ ${product.categoryName}</p>
+                </div>
+                <div class="products__item-price">
+                    <div>
+                        <img
+                        class="basket-icon"
+                        src="images/Iconsax/Outline/bag2.png"
+                        alt=""
+                        />
+                    </div>
+                    <p lang="fa-IR">${product.price.toLocaleString()} <span>تومان</span></p>
+                </div>
+            </div>
+        </div>
+        ` )
+    })
+}
 
 const shuffledArray = products.sort((a, b) => 0.5 - Math.random());
 
-shuffledArray.slice(0, 9).map((product) => {
-    productsWrapper.innerHTML += `
-    <div class="swiper-slide">
-        <div class="products__item">
-            <div class="item__image-wrapper">
-                <img class="products__item-cover" src="${product.cover}" alt="" />
-            </div>
-            <p class="products__item-title">${product.name}</p>
-            <div class="products__item-score">
-                <span>${product.score}</span>
-                <img src="images/Iconsax/Bold/star1.png" alt="" />
-                <p>_ ${product.categoryName}</p>
-            </div>
-            <div class="products__item-price">
-                <div>
-                    <img
-                    class="basket-icon"
-                    src="images/Iconsax/Outline/bag2.png"
-                    alt=""
-                    />
-                </div>
-                <p lang="fa-IR">${product.price.toLocaleString()} <span>تومان</span></p>
-            </div>
-        </div>
-    </div>
-  `
-});
+export {
+    products,
+    categories,
+    insertMenuDropdownItemsHtmlTemplate,
+    insertMobileProductsGroupingHtmlTemplate,
+    insertNewProductsHtmlTemplate,
+    insertProductsGroupingHtmlTemplate,
+    shuffledArray
+}
