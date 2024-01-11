@@ -737,6 +737,10 @@ button {
     font-size: 1.5rem;
 }
 
+.all-products p {
+    color: #ffffff;
+}
+
 .products__left {
     width: 100%;
     overflow: hidden;
