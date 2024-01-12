@@ -658,6 +658,46 @@ const insertAllProductsHtmlTemplate = (products, parentElement) => {
 
 const shuffledArray = products.sort((a, b) => 0.5 - Math.random());
 
+const getUrlParam = (key) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(key);
+  };
+
+const addParamToUrl = (param, value) => {
+    console.log(param, value)
+    let url = new URL(location.href)
+    let searchParams = url.searchParams
+  
+    searchParams.set(param, value)
+    url.search = searchParams.toString()
+    location.href = url.toString()
+  }
+
+const paginateItems = (array, itemsPerPage, paginateParentElem, currentPage) => {
+    paginateParentElem.innerHTML = ''
+    let endIndex = itemsPerPage * currentPage
+    let startIndex = endIndex - itemsPerPage
+    let paginatedItems = array.slice(startIndex, endIndex)
+    let paginatedCount = Math.ceil(array.length / itemsPerPage)
+  
+    for (let i = 1; i < paginatedCount + 1; i++) {
+      paginateParentElem.insertAdjacentHTML('beforeend', `
+        <li class="products__pagination-item">
+          ${i === +currentPage ?
+          `
+              <a class="products__pagination-link products__pagination-link--active" onclick="addParamToUrl('page', ${i})">${i}</a>
+            ` :
+          `
+              <a class="products__pagination-link" onclick="addParamToUrl('page', ${i})">${i}</a>
+            `
+        }
+        </li>
+      `)
+    }
+  
+    return paginatedItems
+  }
+
 export {
     products,
     categories,
@@ -666,5 +706,8 @@ export {
     insertNewProductsHtmlTemplate,
     insertProductsGroupingHtmlTemplate,
     insertAllProductsHtmlTemplate,
-    shuffledArray
+    shuffledArray,
+    addParamToUrl,
+    getUrlParam,
+    paginateItems
 }
