@@ -1,0 +1,22 @@
+{
+  "name": "castro-lighting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mostafajmsh/Castro-lighting.git"
+  },
+  "author": "mostafajmsh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mostafajmsh/Castro-lighting/issues"
+  },
+  "homepage": "https://github.com/mostafajmsh/Castro-lighting#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.3"
+  }
+}
