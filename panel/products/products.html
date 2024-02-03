@@ -3,34 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>panel</title>
-    <link rel="stylesheet" href="css/panel.css" />
-    <link rel="stylesheet" href="css/reset.css" />
+    <title>داشبورد</title>
+    <link rel="stylesheet" href="./products.css" />
+    <link rel="stylesheet" href="../../vendor/FontAwesome5/all.min.css" />
+    <link rel="stylesheet" href="../../vendor/SwiperSlider/swiper.css" />
   </head>
   <body>
+    <div class="bg-circle"></div>
+    <div class="bg-circle-one"></div>
     <div class="container">
-      <p class="title">افزودن محصول</p>
-      <form class="product__creator-form" action="#">
-        <div class="wrapper">
-          <div class="form-right">
-            <div class="name-wrapper">
-              <label class="label" for="category">نام محصول</label>
-              <input class="name" type="text" placeholder="نام محصول" />
-            </div>
-            <div class="price-wrapper">
-              <label class="label" for="category">قیمت محصول</label>
+      <div class="menu">
+        <div class="profile">
+          <div class="profile-image">
+            <img src="../img/IMG_9692.png" alt="" />
+          </div>
+          <p class="profile-title">مصطفی جمشیدی</p>
+          <p class="profile-email">mostafajamshidi@info.com</p>
+        </div>
+        <ul class="menu-list">
+          <li href="" class="menu-item">
+            <i class="fas fa-home"></i
+            ><a class="menu-item__link" href="../main/main.html">صفحه اصلی</a>
+          </li>
+          <li href="" class="menu-item active">
+            <i class="fas fa-tags"></i>
+            <a class="menu-item__link" href="./products.html">محصولات</a>
+          </li>
+          <li href="" class="menu-item">
+            <i class="fas fa-user"></i>
+            <a class="menu-item__link" href="#">کاربران</a>
+          </li>
+          <li href="" class="menu-item">
+            <i class="fas fa-object-group"></i>
+            <a class="menu-item__link" href="#">دسته بندی ها</a>
+          </li>
+          <li href="" class="menu-item">
+            <i class="fas fa-blog"></i>
+            <a class="menu-item__link" href="#">مقالات</a>
+          </li>
+        </ul>
+        <div class="header__logo">
+          <img src="../../images/1e61c58b47ad48f1931e5a877ce259dc.png" alt="" />
+          <p class="logo__title">CASTRO</p>
+          <p class="logo__text">LIGHTING</p>
+        </div>
+      </div>
+      <div class="products-table">
+        
+      </div>
+      <form class="form" action="#">
+        <p class="form-title">افزودن محصولات جدید</p>
+        <div class="form-top">
+          <div class="form__top-right">
+            <div class="choose-image">
+              <label class="label" for="cover">عکس محصول</label>
               <input
-                class="price"
-                type="text"
-                placeholder="قیمت محصول(تومان)"
+                class="cover-selection"
+                type="file"
+                placeholder="Choose File"
               />
             </div>
-            <div class="choose">
-              <label class="label" for="cover">عکس محصول</label>
-              <input class="cover" type="file" placeholder="Choose File" />
+            <div class="price-wrapper">
+              <label class="label" for="price">قیمت محصول</label>
+              <input
+                class="price-input"
+                type="text"
+                placeholder="قیمت محصول را وارد کنید (تومان)"
+              />
             </div>
           </div>
-          <div class="form-left">
+          <div class="form__top-left">
             <div class="category-selector">
               <label class="label" for="category">دسته بندی محصول</label>
               <select name="category" class="category">
@@ -46,20 +88,43 @@
             </div>
             <div class="score-wrapper">
               <label class="label" for="category">امتیاز محصول</label>
-              <input class="score" type="text" placeholder="امتیاز محصول" />
+              <input
+                class="score-input"
+                type="text"
+                placeholder="امتیاز محصول را وارد کنید..."
+              />
             </div>
           </div>
         </div>
-        <div class="description-wrapper">
-          <label for="product-description">توضیحات محصول</label>
+        <div class="form-center">
+          <div class="form__center-top">
+            <div class="name__input-wrapper">
+              <label class="label" for="name">نام محصول</label>
+              <input
+                class="name-input"
+                type="text"
+                placeholder="نام محصول را وارد کنید..."
+              />
+            </div>
+            <div class="count__input-wrapper">
+              <label class="label" for="count">تعداد محصول</label>
+              <input
+                class="count-input"
+                type="text"
+                placeholder="تعداد محصول را وارد کنید..."
+              />
+            </div>
+          </div>
           <textarea
             name=""
             id="product-description"
-            cols="50"
-            rows="10"
+            cols="80"
+            rows="5"
+            placeholder="توضیحات محصول را وارد کنید..."
           ></textarea>
           <div class="btn-wrapper">
-            <input type="submit" id="save" />
+            <button class="save-btn">ثبت محصول</button>
+            <button class="products__table-btn">مشاهده و ویرایش محصولات</button>
           </div>
         </div>
       </form>
@@ -131,8 +196,9 @@
         </div>
       </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./js/panel.js" type="module"></script>
   </body>
+
+  <script src="../../vendor/FontAwesome5/all.min.js"></script>
+  <script src="../../vendor/SwiperSlider/swiper.js"></script>
+  <script src="./products.js" type="module"></script>
 </html>
