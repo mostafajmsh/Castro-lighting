@@ -330,3 +330,64 @@ button {
     -o-transition: all .4s ease;
     transition: all .4s ease;
 }
+
+/* table */
+
+.products-table {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 1rem;
+    padding-top: 0;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    max-height: 580px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    width: 100%;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed rgb(219, 213, 213);
+}
+
+th {
+    padding: 2rem 1rem;
+    font-family: 'PeydaBlack';
+}
+
+tr {
+    border-bottom: 1px dashed rgb(219, 213, 213);
+}
+
+tr, tbody {
+    width: 100%;
+}
+
+tbody {
+    height: 200px;
+}
+
+td{
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.edit-btn {
+    border: none;
+    padding: .6rem .8rem;
+    border-radius: .5rem;
+    font-family: var(--primary-font);
+}
+
+.delete-btn {
+    border: none;
+    padding: .6rem .8rem;
+    border-radius: .5rem;
+    background-color: rgb(240, 109, 109);
+    color: #ffffff;
+    font-family: var(--primary-font);
+}
