@@ -1,11 +1,17 @@
 import { supabase } from '../../js/database.js'
+import { getAllProducts } from '../../js/data-loader.js'
 
 const $ = document
+let formElem = $.querySelector('form')
+let tableElem = $.querySelector('.products-table')
+let tableBody = $.querySelector('tbody')
 let saveBtnElem = $.querySelector('.save-btn');
 let successCard = $.querySelector('.success');
 let errorCard = $.querySelector('.danger');
 let statusCardBtn = $.querySelector('#successBtn')
 let errorCardBtn = $.querySelector('#errorBtn')
+let productsTableBtn = $.querySelector('.products__table-btn')
+let backBtn = $.querySelector('.back-btn')
 
 statusCardBtn.addEventListener('click', () => {
     successCard.style.visibility = 'hidden'
@@ -58,4 +64,38 @@ saveBtnElem.addEventListener('click', async e => {
         errorCard.style.visibility = 'visible'
         errorCard.style.opacity = '1'
     }
+})
+
+productsTableBtn.addEventListener('click', () => {
+    formElem.style.display = 'none'
+    tableElem.style.display = 'block'
+    backBtn.style.display = 'flex'
+})
+
+backBtn.addEventListener('click', () => {
+    formElem.style.display = 'flex'
+    tableElem.style.display = 'none'
+    backBtn.style.display = 'none'
+})
+
+window.addEventListener('load', () => {
+
+    tableBody.innerHTML = ''
+
+    getAllProducts().then(products => {
+        console.log(products);
+        products.forEach(product => {
+            tableBody.insertAdjacentHTML('beforeend', `
+            <tr>
+                <td>${product.id}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.categoryName}</td>
+                <td>۵</td>
+                <td><button class="edit-btn">ویرایش محصول</button></td>
+                <td><button class="delete-btn">حذف محصول</button></td>
+            </tr>
+            `)
+        });
+    })
 })
