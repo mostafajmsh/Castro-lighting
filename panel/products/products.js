@@ -87,10 +87,8 @@ backBtn.addEventListener('click', () => {
     backBtn.style.display = 'none'
 })
 
-window.addEventListener('load', () => {
-
+const showProductsInTable = () => {
     tableBody.innerHTML = ''
-
     getAllProducts().then(products => {
         console.log(products);
         products.forEach(product => {
@@ -108,6 +106,12 @@ window.addEventListener('load', () => {
         });
 
     })
+}
+
+window.addEventListener('load', () => {
+
+    showProductsInTable()
+
 })
 
 const deleteProduct = (productID) => {
@@ -147,6 +151,7 @@ cancelDeleteBtn.addEventListener('click', function () {
 deleteStatusCardBtn.addEventListener('click', () => {
     deleteSuccessCard.style.visibility = 'hidden'
     deleteSuccessCard.style.opacity = '0'
+    showProductsInTable()
 })
 
 deleteErrorCardBtn.addEventListener('click', () => {
