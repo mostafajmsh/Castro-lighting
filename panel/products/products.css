@@ -6,6 +6,7 @@
 
 button {
     cursor: pointer;
+    font-family: var(--primary-font);
 }
 
 .form {
@@ -184,7 +185,8 @@ button {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
 }
 
-.success #upper-side {
+.success #upper-side,
+.delete-success #upper-side {
     padding: 2em;
     background-color: #8BC34A;
     display: flex;
@@ -197,14 +199,16 @@ button {
     width: 100%;
 }
 
-.success #checkmark {
+.success #checkmark,
+.delete-success #checkmark {
     font-weight: lighter;
     fill: #fff;
     margin: -3.5em auto auto 80px;
     transform: translateX(60px);
 }
 
-.success #status {
+.success #status,
+.delete-success #status {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -213,7 +217,8 @@ button {
     margin-bottom: 0;
 }
 
-.success #lower-side {
+.success #lower-side,
+.delete-success #lower-side {
     padding: 2rem;
     /* background: #fff; */
     display: flex;
@@ -224,13 +229,15 @@ button {
     border-bottom-left-radius: 8px;
 }
 
-.success #message {
+.success #message,
+.delete-success #message {
     color: #757575;
     letter-spacing: 1px;
     font-family: var(--primary-font);
 }
 
-#successBtn {
+#successBtn,
+#delete-successBtn {
     text-decoration: none;
     background: #8bc34a;
     color: #fff;
@@ -249,7 +256,8 @@ button {
 
 }
 
-#successBtn:hover {
+#successBtn:hover,
+#delete-successBtn:hover {
     -webkit-box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
     -moz-box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
     box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
@@ -259,7 +267,8 @@ button {
     transition: all .4s ease;
 }
 
-.danger #upper-side {
+.danger #upper-side,
+.delete-danger #upper-side {
     padding: 2em;
     background-color: #c34a4a;
     display: flex;
@@ -272,14 +281,16 @@ button {
     width: 100%;
 }
 
-.danger #checkmark {
+.danger #checkmark,
+.delete-danger #checkmark {
     font-weight: lighter;
     fill: #fff;
     margin: -3.5em auto auto 80px;
     transform: translateX(60px);
 }
 
-.danger #status {
+.danger #status,
+.delete-danger #status {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -288,7 +299,8 @@ button {
     margin-bottom: 0;
 }
 
-.danger #lower-side {
+.danger #lower-side,
+.delete-danger #lower-side {
     padding: 2rem;
     /* background: #fff; */
     display: flex;
@@ -300,13 +312,15 @@ button {
     border-bottom-left-radius: 8px;
 }
 
-.danger #message {
+.danger #message,
+.delete-danger #message {
     color: #757575;
     letter-spacing: 1px;
     font-family: var(--primary-font);
 }
 
-#errorBtn {
+#errorBtn,
+#delete-errorBtn {
     text-decoration: none;
     background: #c34a4a;
     color: #fff;
@@ -325,7 +339,8 @@ button {
 
 }
 
-#errorBtn:hover {
+#errorBtn:hover,
+#delete-errorBtn:hover {
     -webkit-box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
     -moz-box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
     box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
@@ -408,6 +423,7 @@ tbody {
 td{
     text-align: center;
     padding: 1rem 0;
+    max-width: 150px;
 }
 
 .edit-btn {
@@ -450,4 +466,50 @@ td{
     background-color: #ffffff;
     color: #3d3d3d;
     transition: all .2s ease;
+}
+
+.confirm__delete-modal {
+    border-radius: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 200px;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    left: 0;
+    padding: 2rem;
+    margin: auto;
+    background-color: #ffffff;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all .4s ease;
+}
+
+.btns-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cancel-delete {
+    padding: .4rem 1rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #dbdbda;
+    font-size: 1.5rem;
+}
+
+.confirm-delete {
+    padding: .4rem 1.2rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #3d5654;
+    color: #ffffff;
+    font-size: 1.5rem;
 }

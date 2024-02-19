@@ -12,6 +12,13 @@ let statusCardBtn = $.querySelector('#successBtn')
 let errorCardBtn = $.querySelector('#errorBtn')
 let productsTableBtn = $.querySelector('.products__table-btn')
 let backBtn = $.querySelector('.back-btn')
+let confirmDeleteModal = $.querySelector('.confirm__delete-modal')
+let cancelDeleteBtn = $.querySelector('.cancel-delete')
+let confirmDeleteBtn = $.querySelector('.confirm-delete')
+let deleteSuccessCard = $.querySelector('.delete-success');
+let deleteErrorCard = $.querySelector('.delete-danger');
+let deleteStatusCardBtn = $.querySelector('#delete-successBtn')
+let deleteErrorCardBtn = $.querySelector('#delete-errorBtn')
 
 statusCardBtn.addEventListener('click', () => {
     successCard.style.visibility = 'hidden'
@@ -34,6 +41,7 @@ saveBtnElem.addEventListener('click', async e => {
     let coverInputElem = $.querySelector('.cover-selection');
     let category = $.querySelector('.category').value.trim();
     let categoryName = $.querySelector(`option.${category}`).innerHTML;
+    let countInputElem = $.querySelector('.count-input')
 
     const { data, error } = await supabase
         .from('products')
@@ -45,7 +53,8 @@ saveBtnElem.addEventListener('click', async e => {
                 category,
                 score: scoreInputElem.value.trim(),
                 categoryName,
-                description: descriptionInputElem.value.trim()
+                description: descriptionInputElem.value.trim(),
+                count: countInputElem.value.trim()
             },
         ])
         .select()
@@ -87,15 +96,60 @@ window.addEventListener('load', () => {
         products.forEach(product => {
             tableBody.insertAdjacentHTML('beforeend', `
             <tr>
-                <td>${product.id}</td>
+                <td id="product-id">${product.id}</td>
                 <td>${product.name}</td>
                 <td>${product.price}</td>
                 <td>${product.categoryName}</td>
-                <td>۵</td>
+                <td>${product.count}</td>
                 <td><button class="edit-btn">ویرایش محصول</button></td>
-                <td><button class="delete-btn">حذف محصول</button></td>
+                <td><button class="delete-btn" onclick="deleteProduct('${product.id}')">حذف محصول</button></td>
             </tr>
             `)
         });
+
     })
+})
+
+const deleteProduct = (productID) => {
+
+    confirmDeleteModal.style.display = 'flex';
+    confirmDeleteBtn.addEventListener('click', async function () {
+
+        confirmDeleteBtn.innerHTML = 'در حال بررسی...';
+        confirmDeleteBtn.style.opacity = '0.8'
+
+        const { error } = await supabase
+            .from('products')
+            .delete()
+            .eq('id', productID)
+        if (error) {
+            console.log(error);
+            deleteErrorCard.style.visibility = 'visible'
+            deleteErrorCard.style.opacity = '1'
+        } else {
+            console.log('ok');
+            deleteSuccessCard.style.visibility = 'visible'
+            deleteSuccessCard.style.opacity = '1'
+            confirmDeleteBtn.innerHTML = 'بله';
+            confirmDeleteBtn.style.opacity = '1'
+        }
+        confirmDeleteModal.style.display = 'none'
+    })
+
+}
+
+window.deleteProduct = deleteProduct
+
+cancelDeleteBtn.addEventListener('click', function () {
+    confirmDeleteModal.style.display = 'none'
+})
+
+deleteStatusCardBtn.addEventListener('click', () => {
+    deleteSuccessCard.style.visibility = 'hidden'
+    deleteSuccessCard.style.opacity = '0'
+})
+
+deleteErrorCardBtn.addEventListener('click', () => {
+    deleteErrorCard.style.visibility = 'hidden'
+    deleteErrorCard.style.opacity = '0'
 })
