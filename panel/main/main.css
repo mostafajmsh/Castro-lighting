@@ -8,9 +8,11 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     /* overflow-y: hidden; */
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 body {
@@ -20,7 +22,7 @@ body {
 }
 
 .container {
-    margin: 5.5rem auto;
+    margin: 4rem auto;
     background-color: #f4f3f1;
     box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.148);
     border-radius: 2rem;
@@ -221,7 +223,7 @@ body {
     margin-right: 15px;
 }
 
-.status-title::before{
+.status-title::before {
     position: absolute;
     content: '';
     right: -15px;
@@ -246,13 +248,15 @@ body {
     color: #989897;
 }
 
-.money-green{
+.money-green {
     color: green;
 }
-.money-blue{
+
+.money-blue {
     color: blue;
 }
-.money-red{
+
+.money-red {
     color: red;
 }
 

@@ -70,6 +70,122 @@
         <i class="fas fa-arrow-right"></i>
         بازگشت
       </button>
+      <div class="edit__product-modal">
+        <form action="#" class="product-editor">
+          <p class="form-title">ویرایش محصول</p>
+          <div class="field-selection-wrapper">
+            <label class="label" for="field-selection"
+              >ستون مورد نظر را جهت تغییر انتخاب نمایید</label
+            >
+            <select name="field-selection" id="field-selection">
+              <option class="field" id="name-message" value="name">نام محصول</option>
+              <option class="field" id="category-message" value="category">دسته بندی محصول</option>
+              <option class="field" id="price-message" value="price">قیمت محصول</option>
+              <option class="field" id="score-message" value="score">امتیاز محصول</option>
+              <option class="field" id="count-message" value="count">تعداد محصول</option>
+              <option class="field" id="description-message" value="description">توضیحات محصول</option>
+              <option class="field" id="cover-message" value="cover">عکس محصول</option>
+            </select>
+          </div>
+          <div class="name-editor">
+            <label class="label" for="product-name"
+              >نام جدید محصول را وارد کنید</label
+            >
+            <input
+              class="product-name"
+              type="text"
+              placeholder="نام محصول را وارد کنید"
+            />
+            <span id="name-message" class="error-message">
+              مقدار جدید نمیتواند خالی باشد!!!
+            </span>
+          </div>
+          <div class="category-editor">
+            <label class="label" for="product-new-category"
+              >دسته بندی جدید محصول را وارد کنید</label
+            >
+            <select name="category" class="product-new-category">
+              <option class="modern" value="modern">لوستر مدرن</option>
+              <option class="crystal" value="crystal">لوستر کریستالی</option>
+              <option class="rostik" value="rostik">لوستر روستیک</option>
+              <option class="molecular" value="molecular">لوستر ملکولی</option>
+              <option class="table" value="table">چراغ رومیزی</option>
+              <option class="wall" value="wall">چراغ دیواری</option>
+            </select>
+          </div>
+          <div class="price-editor">
+            <label class="label" for="product-price"
+              >قیمت جدید محصول را وارد کنید</label
+            >
+            <input
+              class="product-price"
+              type="text"
+              placeholder="قیمت محصول را وارد کنید"
+            />
+            <span id="price-message" class="error-message">
+              مقدار جدید نمیتواند خالی باشد!!!
+            </span>
+          </div>
+          <div class="score-editor">
+            <label class="label" for="product-score"
+              >امتیاز جدید محصول را وارد کنید</label
+            >
+            <input
+              class="product-score"
+              type="text"
+              placeholder="امتیاز محصول را وارد کنید"
+            />
+            <span id="score-message" class="error-message">
+              مقدار جدید نمیتواند خالی باشد!!!
+            </span>
+          </div>
+          <div class="count-editor">
+            <label class="label" for="product-count"
+              >تعداد جدید محصول را وارد کنید</label
+            >
+            <input
+              class="product-count"
+              type="text"
+              placeholder="تعداد محصول را وارد کنید"
+            />
+            <span id="count-message" class="error-message">
+              مقدار جدید نمیتواند خالی باشد!!!
+            </span>
+          </div>
+          <div class="cover-editor">
+            <label class="label" for="new-cover-selection"
+              >عکس جدید محصول را انتخاب نمایید</label
+            >
+            <input
+              class="new-cover-selection"
+              type="file"
+              placeholder="Choose File"
+            />
+            <span id="cover-message" class="error-message">
+              مقدار جدید نمیتواند خالی باشد!!!
+            </span>
+          </div>
+          <div class="description-editor">
+            <label class="label" for="product-new-description"
+              >توضیحات جدید محصول را وارد کنید</label
+            >
+            <textarea
+              name=""
+              id="product-new-description"
+              cols="40"
+              rows="5"
+              placeholder="توضیحات محصول را وارد کنید..."
+            ></textarea>
+            <span id="description-message" class="error-message">
+              مقدار جدید نمیتواند خالی باشد!!!
+            </span>
+          </div>
+          <div class="editor-btn-wrapper">
+            <button class="update-btn">ویرایش محصول</button>
+            <button class="close-editor">بازگشت</button>
+          </div>
+        </form>
+      </div>
       <div class="confirm__delete-modal">
         <p>آیا از حذف محصول اطمینان دارید؟</p>
         <div class="btns-wrapper">
@@ -77,75 +193,7 @@
           <button class="confirm-delete">بله</button>
         </div>
       </div>
-      <div id="card" class="animated fadeIn delete-success">
-        <div id="upper-side">
-          <?xml version="1.0" encoding="utf-8"?>
-          <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-          <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-          <svg
-            version="1.1"
-            id="checkmark"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            xml:space="preserve"
-          >
-            <path
-              d="M131.583,92.152l-0.026-0.041c-0.713-1.118-2.197-1.447-3.316-0.734l-31.782,20.257l-4.74-12.65
-          c-0.483-1.29-1.882-1.958-3.124-1.493l-0.045,0.017c-1.242,0.465-1.857,1.888-1.374,3.178l5.763,15.382
-          c0.131,0.351,0.334,0.65,0.579,0.898c0.028,0.029,0.06,0.052,0.089,0.08c0.08,0.073,0.159,0.147,0.246,0.209
-          c0.071,0.051,0.147,0.091,0.222,0.133c0.058,0.033,0.115,0.069,0.175,0.097c0.081,0.037,0.165,0.063,0.249,0.091
-          c0.065,0.022,0.128,0.047,0.195,0.063c0.079,0.019,0.159,0.026,0.239,0.037c0.074,0.01,0.147,0.024,0.221,0.027
-          c0.097,0.004,0.194-0.006,0.292-0.014c0.055-0.005,0.109-0.003,0.163-0.012c0.323-0.048,0.641-0.16,0.933-0.346l34.305-21.865
-          C131.967,94.755,132.296,93.271,131.583,92.152z"
-            />
-            <circle
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="5"
-              stroke-miterlimit="10"
-              cx="109.486"
-              cy="104.353"
-              r="32.53"
-            />
-          </svg>
-          <h3 id="status">Success</h3>
-        </div>
-        <div id="lower-side">
-          <p id="message">محصول انتخاب شده با موفقیت حذف شد</p>
-          <a href="#" id="delete-successBtn">ادامه</a>
-        </div>
-      </div>
-      <div id="card" class="animated fadeIn delete-danger">
-        <div id="upper-side">
-          <?xml version="1.0" encoding="utf-8"?>
-          <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-          <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
-            />
-          </svg>
-
-          <h3 id="status">Unsuccess</h3>
-        </div>
-        <div id="lower-side">
-          <p id="message">خطایی رخ داد</p>
-          <a href="#" id="delete-errorBtn">امتحان مجدد</a>
-        </div>
-      </div>
-
-      <form class="form" action="#">
+      <form class="new-product-form" action="#">
         <p class="form-title">افزودن محصولات جدید</p>
         <div class="form-top">
           <div class="form__top-right">
@@ -222,71 +270,13 @@
           </div>
         </div>
       </form>
-      <div id="card" class="animated fadeIn success">
+      <div id="card" class="animated fadeIn status-modal">
         <div id="upper-side">
-          <?xml version="1.0" encoding="utf-8"?>
-          <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-          <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-          <svg
-            version="1.1"
-            id="checkmark"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            xml:space="preserve"
-          >
-            <path
-              d="M131.583,92.152l-0.026-0.041c-0.713-1.118-2.197-1.447-3.316-0.734l-31.782,20.257l-4.74-12.65
-          c-0.483-1.29-1.882-1.958-3.124-1.493l-0.045,0.017c-1.242,0.465-1.857,1.888-1.374,3.178l5.763,15.382
-          c0.131,0.351,0.334,0.65,0.579,0.898c0.028,0.029,0.06,0.052,0.089,0.08c0.08,0.073,0.159,0.147,0.246,0.209
-          c0.071,0.051,0.147,0.091,0.222,0.133c0.058,0.033,0.115,0.069,0.175,0.097c0.081,0.037,0.165,0.063,0.249,0.091
-          c0.065,0.022,0.128,0.047,0.195,0.063c0.079,0.019,0.159,0.026,0.239,0.037c0.074,0.01,0.147,0.024,0.221,0.027
-          c0.097,0.004,0.194-0.006,0.292-0.014c0.055-0.005,0.109-0.003,0.163-0.012c0.323-0.048,0.641-0.16,0.933-0.346l34.305-21.865
-          C131.967,94.755,132.296,93.271,131.583,92.152z"
-            />
-            <circle
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="5"
-              stroke-miterlimit="10"
-              cx="109.486"
-              cy="104.353"
-              r="32.53"
-            />
-          </svg>
-          <h3 id="status">Success</h3>
+          <!-- Data Loaded From Js -->
         </div>
         <div id="lower-side">
           <p id="message">محصول جدید با موفقیت اضافه شد</p>
-          <a href="#" id="successBtn">ادامه</a>
-        </div>
-      </div>
-      <div id="card" class="animated fadeIn danger">
-        <div id="upper-side">
-          <?xml version="1.0" encoding="utf-8"?>
-          <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-          <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
-            />
-          </svg>
-
-          <h3 id="status">Unsuccess</h3>
-        </div>
-        <div id="lower-side">
-          <p id="message">خطا در ارتباط با سرور</p>
-          <a href="#" id="errorBtn">امتحان مجدد</a>
+          <a href="#" id="statusBtn">ادامه</a>
         </div>
       </div>
     </div>
@@ -295,4 +285,5 @@
   <script src="../../vendor/FontAwesome5/all.min.js"></script>
   <script src="../../vendor/SwiperSlider/swiper.js"></script>
   <script src="./products.js" type="module"></script>
+  <script src="../js/utils.js" type="module"></script>
 </html>
