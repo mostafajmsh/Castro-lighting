@@ -20,6 +20,7 @@ let confirmDeleteModal = $.querySelector('.confirm__delete-modal');
 let cancelDeleteBtn = $.querySelector('.cancel-delete');
 let confirmDeleteBtn = $.querySelector('.confirm-delete');
 
+// Save New Products In Database
 saveBtnElem.addEventListener('click', async e => {
     e.preventDefault()
     saveBtnElem.innerHTML = 'در حال ثبت...';
@@ -66,6 +67,7 @@ saveBtnElem.addEventListener('click', async e => {
     }
 })
 
+// Show And Hide Products Table
 productsTableBtn.addEventListener('click', () => {
     newProductFormElem.style.display = 'none';
     tableElem.style.display = 'block';
@@ -78,6 +80,7 @@ backBtn.addEventListener('click', () => {
     backBtn.style.display = 'none';
 })
 
+// Show All Products In Products Table
 const showProductsInTable = () => {
     tableBody.innerHTML = ''
     getAllProducts().then(productsArray => {
