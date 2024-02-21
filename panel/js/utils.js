@@ -1,13 +1,15 @@
-import { showProductsInTable } from "../products/products.js"
 import { supabase } from '../../js/database.js'
-import { updateBtn, errorMessage,
+import {
+  showProductsInTable,
+  updateBtn,
   productNameEditorInput,
   productPriceEditorInput,
   productScoreEditorInput,
   productCountEditorInput,
   productNewDescriptionEditorInput,
   productNewCategoryEditorInput,
-  productNewCoverSelection } from '../products/products.js'
+  productNewCoverSelection
+} from '../products/products.js'
 
 const getAllProducts = async () => {
   let { data: products, error } = await supabase
@@ -69,6 +71,7 @@ class="w-6 h-6"
 `
 const successColor = '#8BC34A'
 const dangerColor = '#c34a4a'
+let errorMessage = $.querySelectorAll('.error-message')
 
 const statusModalChanger = (status, message, topBgColor, icon, btnText) => {
 

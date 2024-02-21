@@ -1,5 +1,13 @@
 import { supabase } from '../../js/database.js'
-import { successColor, successIcon, dangerColor, dangerIcon, statusModalChanger, productEditorHandler, getAllProducts } from '../js/utils.js';
+import {
+    successColor,
+    successIcon,
+    dangerColor,
+    dangerIcon,
+    statusModalChanger,
+    productEditorHandler,
+    getAllProducts
+} from '../js/utils.js';
 
 const $ = document
 let newProductFormElem = $.querySelector('.new-product-form');
@@ -53,6 +61,8 @@ saveBtnElem.addEventListener('click', async e => {
         coverInputElem.value = '';
     } else {
         statusModalChanger('ERROR', 'خطا در ارتباط با سرور', dangerColor, dangerIcon, 'امتحان مجدد')
+        saveBtnElem.innerHTML = 'ثبت محصول';
+        saveBtnElem.style.opacity = '1';
     }
 })
 
@@ -68,7 +78,7 @@ backBtn.addEventListener('click', () => {
     backBtn.style.display = 'none';
 })
 
-export const showProductsInTable = () => {
+const showProductsInTable = () => {
     tableBody.innerHTML = ''
     getAllProducts().then(productsArray => {
         productsArray.forEach(product => {
@@ -89,9 +99,8 @@ export const showProductsInTable = () => {
 }
 
 window.addEventListener('load', () => {
-
+    tableBody.innerHTML = ''
     showProductsInTable()
-
 })
 
 // Delete Btn Logic
@@ -217,7 +226,6 @@ let productNewCategoryEditorInput = $.querySelector('.product-new-category')
 let productNewCoverSelection = $.querySelector('.new-cover-selection')
 let updateBtn = $.querySelector('.update-btn')
 let closeEditorBtn = $.querySelector('.close-editor')
-let errorMessage = $.querySelectorAll('.error-message')
 
 closeEditorBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -280,8 +288,8 @@ const editProduct = (productID) => {
 window.editProduct = editProduct
 
 export {
+    showProductsInTable,
     updateBtn,
-    errorMessage,
     productNameEditorInput,
     productPriceEditorInput,
     productScoreEditorInput,
