@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>داشبورد</title>
+    <link rel="stylesheet" href="./users.css" />
+    <link rel="stylesheet" href="../../vendor/FontAwesome5/all.min.css" />
+    <link rel="stylesheet" href="../../vendor/SwiperSlider/swiper.css" />
+  </head>
+  <body>
+    <div class="bg-circle"></div>
+    <div class="bg-circle-one"></div>
+    <div class="container">
+      <div class="menu">
+        <div class="profile">
+          <div class="profile-image">
+            <img src="../img/IMG_9692.png" alt="" />
+          </div>
+          <p class="profile-title">مصطفی جمشیدی</p>
+          <p class="profile-email">mostafajamshidi@info.com</p>
+        </div>
+        <ul class="menu-list">
+          <li href="" class="menu-item">
+            <i class="fas fa-home"></i
+            ><a class="menu-item__link" href="../main/main.html">صفحه اصلی</a>
+          </li>
+          <li href="" class="menu-item">
+            <i class="fas fa-tags"></i>
+            <a class="menu-item__link" href="../products/products.html"
+              >محصولات</a
+            >
+          </li>
+          <li href="" class="menu-item active">
+            <i class="fas fa-user"></i>
+            <a class="menu-item__link" href="./users.html">کاربران</a>
+          </li>
+          <li href="" class="menu-item">
+            <i class="fas fa-object-group"></i>
+            <a class="menu-item__link" href="#">دسته بندی ها</a>
+          </li>
+          <li href="" class="menu-item">
+            <i class="fas fa-blog"></i>
+            <a class="menu-item__link" href="#">مقالات</a>
+          </li>
+        </ul>
+        <div class="header__logo">
+          <img src="../../images/1e61c58b47ad48f1931e5a877ce259dc.png" alt="" />
+          <p class="logo__title">CASTRO</p>
+          <p class="logo__text">LIGHTING</p>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="add__new-user">
+          <form class="add-user" action="#">
+            <div class="right-section">
+              <label for="user__name-input">نام کاربر جدید</label>
+              <input
+                class="inputs user__name-input"
+                type="text"
+                placeholder="لطفا نام کاربر را وارد کنید..."
+              />
+              <label for="user__family-input">نام خانوادگی کاربر جدید</label>
+              <input
+                class="inputs user__family-input"
+                type="text"
+                placeholder="لطفا نام خانوادگی کاربر را وارد کنید..."
+              />
+              <label for="user__phone-input">شماره تلفن کاربر جدید</label>
+              <input
+                class="inputs user__phone-input"
+                type="tel"
+                placeholder="ex: 09123456789"
+              />
+            </div>
+            <div class="left-section">
+              <label for="user__email-input">ایمیل کاربر جدید</label>
+              <input
+                class="inputs user__email-input"
+                type="email"
+                placeholder="ex@gmail.com"
+              />
+              <label for="user__password-input">پسورد کاربر جدید</label>
+              <input
+                class="inputs user__password-input"
+                type="password"
+                placeholder="Enter password..."
+              />
+              <div class="btn-wrapper">
+                <button class="add__user-btn" type="submit">
+                  افزودن کاربر
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="table users-table">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>نام</th>
+                <th>نام خانوادگی</th>
+                <th>سمت</th>
+                <th>شماره تلفن</th>
+                <th>ایمیل</th>
+                <th>رمز عبور</th>
+                <th>ویرایش</th>
+                <th>حذف</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Data Loaded From JS -->
+              <tr>
+                <td>1</td>
+                <td>علی</td>
+                <td>حسینی</td>
+                <td>ادمین</td>
+                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
+                <td>ali@gmail.com</td>
+                <td>1234</td>
+                <td><button class="edit-btn">ویرایش</button></td>
+                <td><button class="delete-btn">حذف</button></td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>علی</td>
+                <td>حسینی</td>
+                <td>ادمین</td>
+                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
+                <td>ali@gmail.com</td>
+                <td>1234</td>
+                <td><button class="edit-btn">ویرایش</button></td>
+                <td><button class="delete-btn">حذف</button></td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>علی</td>
+                <td>حسینی</td>
+                <td>ادمین</td>
+                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
+                <td>ali@gmail.com</td>
+                <td>1234</td>
+                <td><button class="edit-btn">ویرایش</button></td>
+                <td><button class="delete-btn">حذف</button></td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>علی</td>
+                <td>حسینی</td>
+                <td>ادمین</td>
+                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
+                <td>ali@gmail.com</td>
+                <td>1234</td>
+                <td><button class="edit-btn">ویرایش</button></td>
+                <td><button class="delete-btn">حذف</button></td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>علی</td>
+                <td>حسینی</td>
+                <td>ادمین</td>
+                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
+                <td>ali@gmail.com</td>
+                <td>1234</td>
+                <td><button class="edit-btn">ویرایش</button></td>
+                <td><button class="delete-btn">حذف</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="../../vendor/FontAwesome5/all.min.js"></script>
+  <script src="../../vendor/SwiperSlider/swiper.js"></script>
+  <script src="./users.js" type="module"></script>
+  <script src="../js/shared.js" type="module"></script>
+  <!-- <script src="../js/utils.js" type="module"></script> -->
+</html>

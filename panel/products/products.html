@@ -31,7 +31,7 @@
           </li>
           <li href="" class="menu-item">
             <i class="fas fa-user"></i>
-            <a class="menu-item__link" href="#">کاربران</a>
+            <a class="menu-item__link" href="../users/users.html">کاربران</a>
           </li>
           <li href="" class="menu-item">
             <i class="fas fa-object-group"></i>
@@ -48,7 +48,7 @@
           <p class="logo__text">LIGHTING</p>
         </div>
       </div>
-      <div class="products-table">
+      <div class="products-table table">
         <table>
           <thead>
             <tr>
@@ -78,13 +78,31 @@
               >ستون مورد نظر را جهت تغییر انتخاب نمایید</label
             >
             <select name="field-selection" id="field-selection">
-              <option class="field" id="name-message" value="name">نام محصول</option>
-              <option class="field" id="category-message" value="category">دسته بندی محصول</option>
-              <option class="field" id="price-message" value="price">قیمت محصول</option>
-              <option class="field" id="score-message" value="score">امتیاز محصول</option>
-              <option class="field" id="count-message" value="count">تعداد محصول</option>
-              <option class="field" id="description-message" value="description">توضیحات محصول</option>
-              <option class="field" id="cover-message" value="cover">عکس محصول</option>
+              <option class="field" id="name-message" value="name">
+                نام محصول
+              </option>
+              <option class="field" id="category-message" value="category">
+                دسته بندی محصول
+              </option>
+              <option class="field" id="price-message" value="price">
+                قیمت محصول
+              </option>
+              <option class="field" id="score-message" value="score">
+                امتیاز محصول
+              </option>
+              <option class="field" id="count-message" value="count">
+                تعداد محصول
+              </option>
+              <option
+                class="field"
+                id="description-message"
+                value="description"
+              >
+                توضیحات محصول
+              </option>
+              <option class="field" id="cover-message" value="cover">
+                عکس محصول
+              </option>
             </select>
           </div>
           <div class="name-editor">
@@ -266,7 +284,9 @@
           ></textarea>
           <div class="btn-wrapper">
             <button type="submit" class="save-btn">ثبت محصول</button>
-            <button type="button" class="products__table-btn">مشاهده و ویرایش محصولات</button>
+            <button type="button" class="products__table-btn">
+              مشاهده و ویرایش محصولات
+            </button>
           </div>
         </div>
       </form>
@@ -285,5 +305,6 @@
   <script src="../../vendor/FontAwesome5/all.min.js"></script>
   <script src="../../vendor/SwiperSlider/swiper.js"></script>
   <script src="./products.js" type="module"></script>
+  <script src="../js/shared.js" type="module"></script>
   <script src="../js/utils.js" type="module"></script>
 </html>
