@@ -39,7 +39,9 @@
       <div class="register">
         <form action="#" class="register">
           <p class="title">ثبت نام کاربر</p>
-          <label for="reg__fullname-input">نام و نام خانوادگی خود را وارد کنید</label>
+          <label for="reg__fullname-input"
+            >نام و نام خانوادگی خود را وارد کنید</label
+          >
           <input
             class="reg__fullname-input"
             type="text"
@@ -65,7 +67,22 @@
           />
           <button class="register-btn" type="submit">ثبت نام</button>
         </form>
+        <div id="card" class="animated fadeIn status-modal">
+          <div id="upper-side">
+            <!-- Data Loaded From Js -->
+          </div>
+          <div id="lower-side">
+            <p id="message">
+                <!-- Data Loaded From Js -->
+            </p>
+            <a href="#" id="statusBtn">
+                <!-- Data Loaded From JS -->
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+
+    <script src="./js/register.js" type="module"></script>
   </body>
 </html>

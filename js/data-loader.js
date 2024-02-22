@@ -557,45 +557,45 @@ const insertMenuDropdownItemsHtmlTemplate = (categories, parentElement) => {
     })
 }
 
-const insertProductsGroupingHtmlTemplate = (products, parentElement) => {
-    parentElement.innerHTML = ''
-    products.forEach(item => {
-        parentElement.insertAdjacentHTML('beforeend', `
-        <div class="swiper-slide">
-            <div class="groupping__content-item">
-                <img class="category-cover" src="${item.cover}" alt="" />
-                <div class="content__item-text">
-                    <p>${item.name}</p>
-                    <div>
-                        <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        ` )
-    })
-}
+// const insertProductsGroupingHtmlTemplate = (products, parentElement) => {
+//     parentElement.innerHTML = ''
+//     products.forEach(item => {
+//         parentElement.insertAdjacentHTML('beforeend', `
+//         <div class="swiper-slide">
+//             <div class="groupping__content-item">
+//                 <img class="category-cover" src="${item.cover}" alt="" />
+//                 <div class="content__item-text">
+//                     <p>${item.name}</p>
+//                     <div>
+//                         <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//         ` )
+//     })
+// }
 
-const insertMobileProductsGroupingHtmlTemplate = (products, parentElement) => {
-    parentElement.innerHTML = ''
-    products.forEach(item => {
-        parentElement.insertAdjacentHTML('beforeend', `
-        <div class="groupping__content-item">
-            <img
-                class="content__item-img"
-                src="${item.cover}"
-                alt=""
-            />
-            <div class="content__item-text">
-                <p>${item.name}</p>
-                <div>
-                    <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
-                </div>
-            </div>
-        </div>
-        ` )
-    })
-}
+// const insertMobileProductsGroupingHtmlTemplate = (products, parentElement) => {
+//     parentElement.innerHTML = ''
+//     products.forEach(item => {
+//         parentElement.insertAdjacentHTML('beforeend', `
+//         <div class="groupping__content-item">
+//             <img
+//                 class="content__item-img"
+//                 src="${item.cover}"
+//                 alt=""
+//             />
+//             <div class="content__item-text">
+//                 <p>${item.name}</p>
+//                 <div>
+//                     <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+//                 </div>
+//             </div>
+//         </div>
+//         ` )
+//     })
+// }
 
 const insertNewProductsHtmlTemplate = (products, parentElement) => {
     parentElement.innerHTML = ''
@@ -782,9 +782,9 @@ export {
     getAllProducts,
     categories,
     insertMenuDropdownItemsHtmlTemplate,
-    insertMobileProductsGroupingHtmlTemplate,
+    // insertMobileProductsGroupingHtmlTemplate,
     insertNewProductsHtmlTemplate,
-    insertProductsGroupingHtmlTemplate,
+    // insertProductsGroupingHtmlTemplate,
     insertAllProductsHtmlTemplate,
     // shuffledArray,
     productsSorting,
