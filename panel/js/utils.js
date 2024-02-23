@@ -1,25 +1,4 @@
 import { supabase } from '../../js/database.js'
-import {
-  showProductsInTable,
-  updateBtn,
-  productNameEditorInput,
-  productPriceEditorInput,
-  productScoreEditorInput,
-  productCountEditorInput,
-  productNewDescriptionEditorInput,
-  productNewCategoryEditorInput,
-  productNewCoverSelection
-} from '../products/products.js'
-
-const getAllProducts = async () => {
-  let { data: products, error } = await supabase
-    .from('products')
-    .select('*')
-
-  let allProducts = await products
-
-  return allProducts
-}
 
 const $ = document
 
@@ -71,9 +50,8 @@ class="w-6 h-6"
 `
 const successColor = '#8BC34A'
 const dangerColor = '#c34a4a'
-let errorMessage = $.querySelectorAll('.error-message')
 
-const statusModalChanger = (status, message, topBgColor, icon, btnText) => {
+const statusModalChanger = (status, message, topBgColor, icon, btnText, func) => {
 
   let statusModal = $.querySelector('.status-modal')
   let modalMessageText = $.querySelector('#message')
@@ -95,48 +73,16 @@ const statusModalChanger = (status, message, topBgColor, icon, btnText) => {
   statusCardBtn.addEventListener('click', () => {
     statusModal.style.visibility = 'hidden';
     statusModal.style.opacity = '0';
-    showProductsInTable()
+    func()
   })
 
 }
 
-const productEditorHandler = async (inputName, obj, productID) => {
-  updateBtn.innerHTML = 'اعمال تغییرات...';
-  updateBtn.style.opacity = '0.8';
-
-  if (inputName.value.trim()) {
-    const { data, error } = await supabase
-      .from('products')
-      .update(obj)
-      .eq('id', productID)
-      .select()
-
-    if (data) {
-      updateBtn.innerHTML = 'ویرایش محصول';
-      updateBtn.style.opacity = '1';
-      statusModalChanger('SUCCESS', 'ویرایش محصول با موفقیت انجام شد', successColor, successIcon, 'ادامه')
-      productNameEditorInput.value = ''
-      productPriceEditorInput.value = ''
-      productScoreEditorInput.value = ''
-      productCountEditorInput.value = ''
-      productNewDescriptionEditorInput.value = ''
-      productNewCategoryEditorInput.value = ''
-      productNewCoverSelection.value = ''
-      errorMessage.forEach(error => {
-        error.style.visibility = 'hidden'
-      })
-    } else if (error) {
-      statusModalChanger('ERROR', 'خطایی هنگام ویرایش محصول رخ داد', dangerColor, dangerIcon, 'امتحان مجدد')
-    }
-
-  } else {
-    errorMessage.forEach(error => {
-      error.style.visibility = 'visible'
-    })
-    updateBtn.innerHTML = 'ویرایش محصول';
-    updateBtn.style.opacity = '1';
-  }
+const getUserRole = () => {
+  const isAdmin = JSON.parse(localStorage.getItem('sb-lsryhmojytjylpzwrwwt-auth-token'))
+  return isAdmin.user.user_metadata.role === 'admin' ? true : false;
 }
+
 
 export {
   statusModalChanger,
@@ -144,6 +90,5 @@ export {
   successIcon,
   dangerColor,
   dangerIcon,
-  productEditorHandler,
-  getAllProducts
+  getUserRole
 }

@@ -71,6 +71,7 @@ label {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    margin-top: 1rem;
 }
 
 .add__user-btn {
@@ -86,4 +87,88 @@ label {
     transition: all .2s ease;
     width: 120px;
 
+}
+
+.user-id {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+}
+
+.user-email {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+}
+
+.change-role {
+    border: none;
+    padding: .6rem .8rem;
+    border-radius: .5rem;
+    font-family: var(--primary-font);
+}
+
+.confirm-modal {
+    border-radius: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 200px;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    left: 0;
+    padding: 2rem;
+    margin: auto;
+    background-color: #f4f3f1;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all .4s ease;
+}
+
+.change__role-input {
+    padding: .6rem 1.2rem;
+    border-radius: .5rem;
+    outline: none;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: all .1s ease;
+    background-color: #ffffff;
+    margin-top: 1rem;
+    font-family: var(--primary-font);
+    color: #6f6f6e;
+}
+
+.btns-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cancel-action {
+    padding: .4rem 1rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #dbdbda;
+    font-size: 1.5rem;
+}
+
+.confirm-action {
+    padding: .4rem 1.2rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #3d5654;
+    color: #ffffff;
+    font-size: 1.5rem;
 }

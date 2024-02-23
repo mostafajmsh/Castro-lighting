@@ -5,9 +5,19 @@ import {
     dangerColor,
     dangerIcon,
     statusModalChanger,
+    getUserRole
+} from '../js/utils.js';
+import {
     productEditorHandler,
     getAllProducts
-} from '../js/utils.js';
+} from '../js/shared.js';
+
+window.addEventListener('load', () => {
+    console.log(getUserRole());
+    if (!getUserRole()) {
+        location.replace('../../register.html')
+    }
+})
 
 const $ = document
 let newProductFormElem = $.querySelector('.new-product-form');
@@ -51,7 +61,7 @@ saveBtnElem.addEventListener('click', async e => {
         .select()
     console.log(data, error)
     if (data) {
-        statusModalChanger('SUCCESS', 'محصول جدید با موفقیت ثبت شد', successColor, successIcon, 'ادامه')
+        statusModalChanger('SUCCESS', 'محصول جدید با موفقیت ثبت شد', successColor, successIcon, 'ادامه', getAllProducts)
         saveBtnElem.innerHTML = 'ثبت محصول';
         saveBtnElem.style.opacity = '1';
         nameInputElem.value = '';

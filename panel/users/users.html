@@ -60,12 +60,6 @@
                 type="text"
                 placeholder="لطفا نام کاربر را وارد کنید..."
               />
-              <label for="user__family-input">نام خانوادگی کاربر جدید</label>
-              <input
-                class="inputs user__family-input"
-                type="text"
-                placeholder="لطفا نام خانوادگی کاربر را وارد کنید..."
-              />
               <label for="user__phone-input">شماره تلفن کاربر جدید</label>
               <input
                 class="inputs user__phone-input"
@@ -99,75 +93,38 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>نام</th>
-                <th>نام خانوادگی</th>
-                <th>سمت</th>
+                <th>نام و نام خانوادگی</th>
+                <th>نقش</th>
                 <th>شماره تلفن</th>
                 <th>ایمیل</th>
-                <th>رمز عبور</th>
+                <th>تغییر نقش</th>
                 <th>ویرایش</th>
                 <th>حذف</th>
               </tr>
             </thead>
             <tbody>
               <!-- Data Loaded From JS -->
-              <tr>
-                <td>1</td>
-                <td>علی</td>
-                <td>حسینی</td>
-                <td>ادمین</td>
-                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
-                <td>ali@gmail.com</td>
-                <td>1234</td>
-                <td><button class="edit-btn">ویرایش</button></td>
-                <td><button class="delete-btn">حذف</button></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>علی</td>
-                <td>حسینی</td>
-                <td>ادمین</td>
-                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
-                <td>ali@gmail.com</td>
-                <td>1234</td>
-                <td><button class="edit-btn">ویرایش</button></td>
-                <td><button class="delete-btn">حذف</button></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>علی</td>
-                <td>حسینی</td>
-                <td>ادمین</td>
-                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
-                <td>ali@gmail.com</td>
-                <td>1234</td>
-                <td><button class="edit-btn">ویرایش</button></td>
-                <td><button class="delete-btn">حذف</button></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>علی</td>
-                <td>حسینی</td>
-                <td>ادمین</td>
-                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
-                <td>ali@gmail.com</td>
-                <td>1234</td>
-                <td><button class="edit-btn">ویرایش</button></td>
-                <td><button class="delete-btn">حذف</button></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>علی</td>
-                <td>حسینی</td>
-                <td>ادمین</td>
-                <td>۰۹۳۸۳۲۸۹۸۰۸</td>
-                <td>ali@gmail.com</td>
-                <td>1234</td>
-                <td><button class="edit-btn">ویرایش</button></td>
-                <td><button class="delete-btn">حذف</button></td>
-              </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div class="confirm-modal">
+        <form class="change__role-form" action="#">
+          <label for="change__role-input">نقش جدید را وارد کنید</label>
+          <input type="text" class="change__role-input" />
+          <div class="btns-wrapper">
+            <button type="button" class="cancel-action">بازگشت</button>
+            <button type="submit" class="confirm-action">تغییر نقش</button>
+          </div>
+        </form>
+      </div>
+      <div id="card" class="animated fadeIn status-modal">
+        <div id="upper-side">
+          <!-- Data Loaded From Js -->
+        </div>
+        <div id="lower-side">
+          <p id="message">محصول جدید با موفقیت اضافه شد</p>
+          <a href="#" id="statusBtn">ادامه</a>
         </div>
       </div>
     </div>
@@ -176,6 +133,6 @@
   <script src="../../vendor/FontAwesome5/all.min.js"></script>
   <script src="../../vendor/SwiperSlider/swiper.js"></script>
   <script src="./users.js" type="module"></script>
-  <script src="../js/shared.js" type="module"></script>
+  <!-- <script src="../js/shared.js" type="module"></script> -->
   <!-- <script src="../js/utils.js" type="module"></script> -->
 </html>

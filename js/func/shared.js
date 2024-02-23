@@ -104,7 +104,7 @@ const showNavbarProfile = () => {
 const userLogout = async () => {
 
   let { error } = await supabase.auth.signOut()
-  showNavbarProfile()
+  location.reload()
 
 }
 
