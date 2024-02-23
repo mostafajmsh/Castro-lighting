@@ -22,7 +22,7 @@ loginBtnElem.addEventListener('click', async e => {
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'
     } else {
-        statusModalChanger('SUCCESS', `${data.user.user_metadata.first_name} عزیز خوش آمدید :)`, successColor, successIcon, 'صفحه اصلی')
+        statusModalChanger('SUCCESS', `${data.user.user_metadata.first_name} عزیز خوش آمدید :)`, successColor, successIcon, 'ورود به پنل')
         console.log(data);
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'
@@ -64,6 +64,6 @@ registerBtnElem.addEventListener('click', async e => {
         }
         statusModalChanger('ERROR', `خطا هنگام ارتباط با سرور`, dangerColor, dangerIcon, 'امتحان دوباره')
     } else {
-        statusModalChanger('SUCCESS', `ثبت نام شما با موفقیت انجام شد`, successColor, successIcon, 'صفحه اصلی')
+        statusModalChanger('SUCCESS', `ثبت نام شما با موفقیت انجام شد`, successColor, successIcon, 'ورود به پنل')
     }
 })

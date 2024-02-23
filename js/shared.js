@@ -72,7 +72,7 @@ const statusModalChanger = (status, message, topBgColor, icon, btnText) => {
     statusModal.style.visibility = 'hidden';
     statusModal.style.opacity = '0';
     if (status === 'SUCCESS') {
-        location.replace('./index.html')        
+        location.replace('./userPanel/main/main.html')        
     }
   })
 
