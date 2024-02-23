@@ -7,6 +7,7 @@ import {
 }
     from "./data-loader.js"
 
+
 const productsGroupingElem = document.querySelector('.products__groupping-wrapper')
 const mobileProductsGroupingElem = document.querySelector('.mobile__grouping-content')
 const newProductsWrapper = document.querySelector('.products-wrapper')

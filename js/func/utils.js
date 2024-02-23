@@ -51,34 +51,45 @@ const dangerColor = '#c34a4a'
 
 const statusModalChanger = (status, message, topBgColor, icon, btnText) => {
 
-  let statusModal = $.querySelector('.status-modal')
-  let modalMessageText = $.querySelector('#message')
-  let modalTopSection = $.querySelector('#upper-side')
-  let statusCardBtn = $.querySelector('#statusBtn');
+    let statusModal = $.querySelector('.status-modal')
+    let modalMessageText = $.querySelector('#message')
+    let modalTopSection = $.querySelector('#upper-side')
+    let statusCardBtn = $.querySelector('#statusBtn');
 
 
-  statusModal.style.visibility = 'visible';
-  statusModal.style.opacity = '1';
-  modalTopSection.innerHTML = ''
-  modalTopSection.insertAdjacentHTML('afterbegin', `
+    statusModal.style.visibility = 'visible';
+    statusModal.style.opacity = '1';
+    modalTopSection.innerHTML = ''
+    modalTopSection.insertAdjacentHTML('afterbegin', `
       ${icon}
       <h3 id="status">${status}</h3>
     `)
-  modalMessageText.innerHTML = message
-  modalTopSection.style.backgroundColor = topBgColor
-  statusCardBtn.innerHTML = btnText
-  statusCardBtn.style.backgroundColor = topBgColor
-  statusCardBtn.addEventListener('click', () => {
-    statusModal.style.visibility = 'hidden';
-    statusModal.style.opacity = '0';
-    if (status === 'SUCCESS') {
-        location.replace('./userPanel/main/main.html')        
-    }
-  })
+    modalMessageText.innerHTML = message
+    modalTopSection.style.backgroundColor = topBgColor
+    statusCardBtn.innerHTML = btnText
+    statusCardBtn.style.backgroundColor = topBgColor
+    statusCardBtn.addEventListener('click', () => {
+        statusModal.style.visibility = 'hidden';
+        statusModal.style.opacity = '0';
+        if (status === 'SUCCESS') {
+            location.replace('./userPanel/main/main.html')
+        }
+    })
 
 }
 
+const getToken = () => {
+    const userInfos = JSON.parse(localStorage.getItem('sb-lsryhmojytjylpzwrwwt-auth-token'));
+    return userInfos ? userInfos.access_token : null;
+}
+
+const isLogin = () => {
+    const userInfos = localStorage.getItem("sb-lsryhmojytjylpzwrwwt-auth-token");
+    return userInfos ? true : false;
+};
+
 export {
+    isLogin,
     successColor,
     successIcon,
     dangerColor,

@@ -12,7 +12,8 @@ body {
     font-size: 24px;
 }
 
-button, a {
+button,
+a {
     cursor: pointer;
 }
 
@@ -312,6 +313,61 @@ button, a {
 .header__menu-icon {
     width: 32px;
     height: 32px;
+}
+
+.panel__link-wrapper {
+    position: absolute;
+    bottom: -18rem;
+    background-color: #cfad5f3e;
+    padding-top: 2rem;
+    border-radius: .5rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.header__menu-profile:hover .panel__link-wrapper {
+    bottom: -14rem;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.4s ease;
+}
+
+.user-name {
+    padding: 0.5rem 3rem;
+}
+
+.profile__menu-item {
+    position: relative;
+    padding: 0.5rem 3rem;
+    transition: all 0.4s ease;
+    width: 100%;
+}
+
+.profile__menu-item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    top: 3rem;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s linear;
+}
+
+.profile__menu-item:hover {
+    background-color: #f4f3f1a6;
+    transition: all 0.4s ease;
+}
+
+.profile__menu-item:hover::after {
+    width: 100%;
 }
 
 /*Finish Header Menu Styles */
@@ -2079,6 +2135,23 @@ footer {
         align-items: center;
     }
 
+    .user-name {
+        padding: .5rem 1rem;
+    }
+
+    .profile__menu-item {
+        font-size: 1rem;
+        padding: .5rem 1rem;
+    }
+
+    .panel__link-wrapper {
+        left: 2rem;
+    }
+
+    .header__menu-profile:hover .panel__link-wrapper {
+        bottom: -12rem;
+    }
+
     .header__landing {
         position: relative;
         flex-direction: column;
@@ -2888,6 +2961,7 @@ footer {
     .articles {
         margin-top: 22rem;
     }
+
     .footer__right img {
         width: 71px;
     }

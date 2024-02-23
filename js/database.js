@@ -7,6 +7,7 @@ const supabaseUrl = "https://lsryhmojytjylpzwrwwt.supabase.co";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 
+
 export {
     supabase
 }
