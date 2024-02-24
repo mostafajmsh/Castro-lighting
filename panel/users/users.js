@@ -65,7 +65,7 @@ const getAndShowAllUsers = async () => {
                 <td class="user-email">${user.email}</td>
                 <td><button class="change-role" onclick="roleChanger('${user.id}')">تغییر نقش</button></td>
                 <td><button class="edit-btn" onclick="userEditor('${user.id}')">ویرایش</button></td>
-                <td><button class="delete-btn" onclick="userDelete()">حذف</button></td>
+                <td><button class="delete-btn" onclick="userDelete('${user.id}')">حذف</button></td>
             </tr>
         `)
     });
@@ -106,6 +106,119 @@ const roleChanger = (userID) => {
 
 }
 
+const userEditorModal = document.querySelector('.user__editor-modal')
+const userNameEditorInput = document.querySelector('.change-name')
+const userEmailEditorInput = document.querySelector('.change-email')
+const userPhoneEditorInput = document.querySelector('.change-phone')
+const userPasswordEditorInput = document.querySelector('.change-password')
+const changeUserPasswordBtn = document.querySelector('.change__user-password')
+const confirmUserEditBtn = document.querySelector('.confirm-edit')
+const cancelUserEditBtn = document.querySelector('.cancel-edit')
+
+cancelUserEditBtn.addEventListener('click', () => {
+    userEditorModal.style.visibility = 'hidden';
+    userEditorModal.style.opacity = '0';
+})
+
+const changeUserInfosOnEditor = async (userID) => {
+    let userNameInfo = document.querySelector('.user-name')
+    let userEmailInfo = document.querySelector('.user__info-email')
+    let userPhoneInfo = document.querySelector('.user-phone')
+    userNameInfo.innerHTML = ''
+    userEmailInfo.innerHTML = ''
+    userPhoneInfo.innerHTML = ''
+
+    const { data, error } = await supabase.auth.admin.getUserById(userID)
+
+    userNameInfo.innerHTML = `
+        <span>نام و نام خانوادگی کاربر: </span>${data.user.user_metadata.full_name}
+    `
+    userEmailInfo.innerHTML = `
+        <span>ایمیل کاربر: </span>${data.user.email}
+    `
+    userPhoneInfo.innerHTML = `
+        <span>شماره تلفن کاربر: </span>${data.user.user_metadata.phone}
+    `
+    return data.user
+}
+
+const userEditor = (userID) => {
+    userEditorModal.style.visibility = 'visible';
+    userEditorModal.style.opacity = '1';
+    changeUserInfosOnEditor(userID)
+    confirmUserEditBtn.addEventListener('click', e => {
+        e.preventDefault()
+        confirmUserEditBtn.innerHTML = 'در حال بررسی';
+        confirmUserEditBtn.style.opacity = '0.8'
+
+        let userNameInputValue
+        let userEmailInputValue
+        let userPhoneInputValue
+        changeUserInfosOnEditor(userID).then(async chooseUser => {
+            userNameInputValue = userNameEditorInput.value.trim() ? userNameEditorInput.value.trim() : chooseUser.user_metadata.name
+            userEmailInputValue = userEmailEditorInput.value.trim() ? userEmailEditorInput.value.trim() : chooseUser.email
+            userPhoneInputValue = userPhoneEditorInput.value.trim() ? userPhoneEditorInput.value.trim() : chooseUser.user_metadata.phone
+
+            const { data: user, error } = await supabase.auth.admin.updateUserById(
+                userID,
+                {
+                    email: userEmailInputValue,
+                    user_metadata: {
+                        full_name: userNameInputValue,
+                        phone: userPhoneInputValue
+                    }
+                }
+            )
+            if (error) {
+                statusModalChanger('ERROR', 'خطا در ارتباط با سرور', dangerColor, dangerIcon, 'امتحان مجدد')
+                confirmUserEditBtn.innerHTML = 'ویرایش اطلاعات';
+                confirmUserEditBtn.style.opacity = '1'
+            } else {
+                statusModalChanger('SUCCESS', 'تغییرات جدید با موفقیت انجام شد', successColor, successIcon, 'ادامه', getAndShowAllUsers)
+                userEditorModal.style.visibility = 'hidden'
+                userEditorModal.style.opacity = '0'
+                confirmUserEditBtn.innerHTML = 'ویرایش اطلاعات';
+                confirmUserEditBtn.style.opacity = '1'
+            }
+
+        })
+
+    })
+
+    changeUserPasswordBtn.addEventListener('click', async e => {
+        e.preventDefault()
+        changeUserPasswordBtn.innerHTML = 'در حال بررسی';
+        changeUserPasswordBtn.style.opacity = '0.8'
+
+        if (userPasswordEditorInput.value.length<6) {
+            alert('!!!!!رمز عبور باید حداقل ۶ حرف داشته باشد')            
+        } else {
+            const { data: user, error } = await supabase.auth.admin.updateUserById(
+                userID,
+                { password: userPasswordEditorInput.value }
+            )
+            if (error) {
+                statusModalChanger('ERROR', 'خطا در ارتباط با سرور', dangerColor, dangerIcon, 'امتحان مجدد')
+                changeUserPasswordBtn.innerHTML = 'تغییر رمز';
+                changeUserPasswordBtn.style.opacity = '1'
+            } else {
+                statusModalChanger('SUCCESS', 'تغییر رمز عبور با موفقیت انجام شد', successColor, successIcon, 'ادامه', getAndShowAllUsers)
+                userEditorModal.style.visibility = 'hidden'
+                userEditorModal.style.opacity = '0'
+                changeUserPasswordBtn.innerHTML = 'تغییر رمز';
+                changeUserPasswordBtn.style.opacity = '1'
+            }
+        }
+    })
+
+}
+
+
+const userDelete = (userID) => {
+    
+}
+
 window.roleChanger = roleChanger
+window.userEditor = userEditor
 
 getAndShowAllUsers()

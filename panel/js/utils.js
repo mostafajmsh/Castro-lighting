@@ -80,11 +80,12 @@ const statusModalChanger = (status, message, topBgColor, icon, btnText, func) =>
 
 const getUserRole = () => {
   const isAdmin = JSON.parse(localStorage.getItem('sb-lsryhmojytjylpzwrwwt-auth-token'))
-  return isAdmin.user.user_metadata.role === 'admin' ? true : false;
+
+  return isAdmin && isAdmin.user.user_metadata.role === 'admin' ? true : false;
+
 }
 
 const getUserInfo = async () => {
-
   const { data: { user } } = await supabase.auth.getUser()
   return user
 }

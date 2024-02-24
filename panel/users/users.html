@@ -111,6 +111,63 @@
             </tbody>
           </table>
         </div>
+        <div class="user__editor-modal">
+          <p class="title">ویرایش اطلاعات کاربر</p>
+          <form class="user__editor-form" action="#">
+            <div class="user__editor-right">
+              <div>
+                <p class="user-name">
+                  <!-- Data Loaded From JS -->
+                </p>
+                <input
+                  class="change-name"
+                  type="text"
+                  placeholder="نام جدید را وارد کنید"
+                />
+              </div>
+              <div>
+                <p class="user-phone">
+                  <!-- Data Loaded From JS -->
+                </p>
+                <input
+                  class="change-phone"
+                  type="tel"
+                  placeholder="شماره تلفن جدید را وارد کنید"
+                />
+              </div>
+              <div>
+                <p class="user__info-email">
+                  <!-- Data Loaded From JS -->
+                </p>
+                <input
+                  class="change-email"
+                  type="text"
+                  placeholder="ایمیل جدید را وارد کنید"
+                />
+              </div>
+            </div>
+            <div class="user__editor-left">
+              <div>
+                <p>تغییر رمز عبور کاربر</p>
+                <input
+                  class="change-password"
+                  type="password"
+                  placeholder="رمز عبور جدید را وارد کنید"
+                  minlength="6"
+                />
+                <button class="change__user-password" type="submit">
+                  تغییر رمز
+                </button>
+              </div>
+              <div class="edit__btn-wrapper">
+                <button class="confirm-edit" type="submit">
+                  ویرایش اطلاعات
+                </button>
+                <button class="cancel-edit" type="button">بازگشت</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="confirm-modal">
         <form class="change__role-form" action="#">
