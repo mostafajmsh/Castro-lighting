@@ -7,13 +7,19 @@ import {
     dangerIcon,
     statusModalChanger,
     getUserRole,
+    getUserInfo,
 } from '../js/utils.js';
 
 window.addEventListener('load', () => {
-    console.log(getUserRole());
     if (!getUserRole()) {
         location.replace('../../register.html')
     }
+    getUserInfo().then(user => {
+        const profileTitle = document.querySelector('.profile-title')
+        const profileEmail = document.querySelector('.profile-email')
+        profileTitle.innerHTML = user.user_metadata.full_name
+        profileEmail.innerHTML = user.email
+    })
 })
 
 const userNameInput = document.querySelector('.user__name-input')
@@ -58,7 +64,7 @@ const getAndShowAllUsers = async () => {
                 <td>${user.user_metadata.phone}</td>
                 <td class="user-email">${user.email}</td>
                 <td><button class="change-role" onclick="roleChanger('${user.id}')">تغییر نقش</button></td>
-                <td><button class="edit-btn" onclick="userEditor()">ویرایش</button></td>
+                <td><button class="edit-btn" onclick="userEditor('${user.id}')">ویرایش</button></td>
                 <td><button class="delete-btn" onclick="userDelete()">حذف</button></td>
             </tr>
         `)

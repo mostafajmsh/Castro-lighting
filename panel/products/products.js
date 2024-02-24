@@ -5,7 +5,8 @@ import {
     dangerColor,
     dangerIcon,
     statusModalChanger,
-    getUserRole
+    getUserRole,
+    getUserInfo
 } from '../js/utils.js';
 import {
     productEditorHandler,
@@ -13,10 +14,15 @@ import {
 } from '../js/shared.js';
 
 window.addEventListener('load', () => {
-    console.log(getUserRole());
     if (!getUserRole()) {
         location.replace('../../register.html')
     }
+    getUserInfo().then(user => {
+        const profileTitle = document.querySelector('.profile-title')
+        const profileEmail = document.querySelector('.profile-email')
+        profileTitle.innerHTML = user.user_metadata.full_name
+        profileEmail.innerHTML = user.email
+    })
 })
 
 const $ = document

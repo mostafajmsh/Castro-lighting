@@ -83,6 +83,12 @@ const getUserRole = () => {
   return isAdmin.user.user_metadata.role === 'admin' ? true : false;
 }
 
+const getUserInfo = async () => {
+
+  const { data: { user } } = await supabase.auth.getUser()
+  return user
+}
+
 
 export {
   statusModalChanger,
@@ -90,5 +96,6 @@ export {
   successIcon,
   dangerColor,
   dangerIcon,
-  getUserRole
+  getUserRole,
+  getUserInfo
 }
