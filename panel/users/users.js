@@ -190,8 +190,8 @@ const userEditor = (userID) => {
         changeUserPasswordBtn.innerHTML = 'در حال بررسی';
         changeUserPasswordBtn.style.opacity = '0.8'
 
-        if (userPasswordEditorInput.value.length<6) {
-            alert('!!!!!رمز عبور باید حداقل ۶ حرف داشته باشد')            
+        if (userPasswordEditorInput.value.length < 6) {
+            alert('!!!!!رمز عبور باید حداقل ۶ حرف داشته باشد')
         } else {
             const { data: user, error } = await supabase.auth.admin.updateUserById(
                 userID,
@@ -213,12 +213,38 @@ const userEditor = (userID) => {
 
 }
 
+const confirmDeleteModal = document.querySelector('.confirm__delete-modal')
+const cancelDeleteBtn = document.querySelector('.cancel-delete')
+const confirmDeleteBtn = document.querySelector('.confirm-delete')
+
 
 const userDelete = (userID) => {
-    
+    confirmDeleteModal.style.visibility = 'visible'
+    confirmDeleteModal.style.opacity = '1'
+
+    confirmDeleteBtn.addEventListener('click', async () => {
+        confirmDeleteBtn.innerHTML = 'در حال حذف'
+        confirmDeleteBtn.style.opacity = '0.8'
+
+        const { data, error } = await supabase.auth.admin.deleteUser(
+            userID
+        )
+        if (error) {
+            statusModalChanger('ERROR', 'خطا در ارتباط با سرور', dangerColor, dangerIcon, 'امتحان مجدد')
+            confirmDeleteBtn.innerHTML = 'بله'
+            confirmDeleteBtn.style.opacity = '1'
+        } else {
+            statusModalChanger('SUCCESS', 'حذف کاربر با موفقیت انجام شد', successColor, successIcon, 'ادامه', getAndShowAllUsers)
+            confirmDeleteBtn.innerHTML = 'بله'
+            confirmDeleteBtn.style.opacity = '1'
+            confirmDeleteModal.style.visibility = 'hidden'
+            confirmDeleteModal.style.opacity = '0'
+        }
+    })
 }
 
 window.roleChanger = roleChanger
 window.userEditor = userEditor
+window.userDelete = userDelete
 
 getAndShowAllUsers()
