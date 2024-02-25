@@ -1,7 +1,5 @@
 import { supabase } from '../../js/database.js'
 
-const $ = document
-
 const successIcon = `
 <svg
 version="1.1"
@@ -51,29 +49,29 @@ class="w-6 h-6"
 const successColor = '#8BC34A'
 const dangerColor = '#c34a4a'
 
-const statusModalChanger = (status, message, topBgColor, icon, btnText, func) => {
+const statusModalChanger = (status, message, btnText, func) => {
 
-  let statusModal = $.querySelector('.status-modal')
-  let modalMessageText = $.querySelector('#message')
-  let modalTopSection = $.querySelector('#upper-side')
-  let statusCardBtn = $.querySelector('#statusBtn');
+  let statusModal = document.querySelector('.status-modal')
+  let modalMessageText = document.querySelector('#message')
+  let modalTopSection = document.querySelector('#upper-side')
+  let statusCardBtn = document.querySelector('#statusBtn');
 
 
   statusModal.style.visibility = 'visible';
   statusModal.style.opacity = '1';
   modalTopSection.innerHTML = ''
   modalTopSection.insertAdjacentHTML('afterbegin', `
-      ${icon}
+      ${status === 'SUCCESS' ? successIcon : dangerIcon}
       <h3 id="status">${status}</h3>
     `)
   modalMessageText.innerHTML = message
-  modalTopSection.style.backgroundColor = topBgColor
+  modalTopSection.style.backgroundColor = status === 'SUCCESS' ? successColor : dangerColor
   statusCardBtn.innerHTML = btnText
-  statusCardBtn.style.backgroundColor = topBgColor
+  statusCardBtn.style.backgroundColor = status === 'SUCCESS' ? successColor : dangerColor
   statusCardBtn.addEventListener('click', () => {
     statusModal.style.visibility = 'hidden';
     statusModal.style.opacity = '0';
-    func()
+    func
   })
 
 }

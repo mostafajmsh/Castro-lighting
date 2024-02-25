@@ -1,20 +1,7 @@
 import { supabase } from '../../js/database.js'
-import {
-    updateBtn,
-    productNameEditorInput,
-    productPriceEditorInput,
-    productScoreEditorInput,
-    productCountEditorInput,
-    productNewDescriptionEditorInput,
-    productNewCategoryEditorInput,
-    productNewCoverSelection
-} from '../products/products.js'
-
-const $ = document
-
-let errorMessage = $.querySelectorAll('.error-message')
 
 const getAllProducts = async () => {
+
     let { data: products, error } = await supabase
         .from('products')
         .select('*')
@@ -24,8 +11,7 @@ const getAllProducts = async () => {
     return allProducts
 }
 
-
-const productEditorHandler = async (inputName, obj, productID) => {
+const productEditorHandler = async (updateBtn, inputName, obj, productID, elementsArray, errorMessage) => {
     updateBtn.innerHTML = 'اعمال تغییرات...';
     updateBtn.style.opacity = '0.8';
 
@@ -40,13 +26,9 @@ const productEditorHandler = async (inputName, obj, productID) => {
             updateBtn.innerHTML = 'ویرایش محصول';
             updateBtn.style.opacity = '1';
             statusModalChanger('SUCCESS', 'ویرایش محصول با موفقیت انجام شد', successColor, successIcon, 'ادامه')
-            productNameEditorInput.value = ''
-            productPriceEditorInput.value = ''
-            productScoreEditorInput.value = ''
-            productCountEditorInput.value = ''
-            productNewDescriptionEditorInput.value = ''
-            productNewCategoryEditorInput.value = ''
-            productNewCoverSelection.value = ''
+            elementsArray.forEach(element => {
+                element.value = ''
+            })
             errorMessage.forEach(error => {
                 error.style.visibility = 'hidden'
             })
@@ -63,7 +45,27 @@ const productEditorHandler = async (inputName, obj, productID) => {
     }
 }
 
+const getAllUsers = async () => {
+    const { data: { users }, error } = await supabase.auth.admin.listUsers()
+
+    let AllUsers = users
+
+    return AllUsers
+}
+
+const getAllCategories = async () => {
+
+    let { data: categories, error } = await supabase
+        .from('categories')
+        .select('*')
+    let allCategories = categories
+
+    return allCategories
+}
+
 export {
     getAllProducts,
-    productEditorHandler
+    getAllUsers,
+    productEditorHandler,
+    getAllCategories
 }

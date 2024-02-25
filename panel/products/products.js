@@ -1,13 +1,10 @@
 import { supabase } from '../../js/database.js'
 import {
-    successColor,
-    successIcon,
-    dangerColor,
-    dangerIcon,
     statusModalChanger,
     getUserRole,
-    getUserInfo
+    getUserInfo,
 } from '../js/utils.js';
+
 import {
     productEditorHandler,
     getAllProducts
@@ -23,6 +20,8 @@ window.addEventListener('load', () => {
         profileTitle.innerHTML = user.user_metadata.full_name
         profileEmail.innerHTML = user.email
     })
+    tableBody.innerHTML = ''
+    showProductsInTable()
 })
 
 const $ = document
@@ -36,6 +35,14 @@ let confirmDeleteModal = $.querySelector('.confirm__delete-modal');
 let cancelDeleteBtn = $.querySelector('.cancel-delete');
 let confirmDeleteBtn = $.querySelector('.confirm-delete');
 
+let productCover = null
+
+let coverInputElem = $.querySelector('.cover-selection');
+
+coverInputElem.addEventListener("change", event => {
+    productCover = event.target.files[0].name
+});
+
 // Save New Products In Database
 saveBtnElem.addEventListener('click', async e => {
     e.preventDefault()
@@ -45,10 +52,10 @@ saveBtnElem.addEventListener('click', async e => {
     let priceInputElem = $.querySelector('.price-input');
     let scoreInputElem = $.querySelector('.score-input');
     let descriptionInputElem = $.querySelector('#product-description');
-    let coverInputElem = $.querySelector('.cover-selection');
     let category = $.querySelector('.category').value.trim();
     let categoryName = $.querySelector(`option.${category}`).innerHTML;
     let countInputElem = $.querySelector('.count-input')
+
 
     const { data, error } = await supabase
         .from('products')
@@ -56,7 +63,7 @@ saveBtnElem.addEventListener('click', async e => {
             {
                 name: nameInputElem.value.trim(),
                 price: priceInputElem.value.trim(),
-                cover: coverInputElem.value.trim(),
+                cover: productCover,
                 category,
                 score: scoreInputElem.value.trim(),
                 categoryName,
@@ -67,7 +74,7 @@ saveBtnElem.addEventListener('click', async e => {
         .select()
     console.log(data, error)
     if (data) {
-        statusModalChanger('SUCCESS', 'محصول جدید با موفقیت ثبت شد', successColor, successIcon, 'ادامه', getAllProducts)
+        statusModalChanger('SUCCESS', 'محصول جدید با موفقیت ثبت شد', 'ادامه', showProductsInTable())
         saveBtnElem.innerHTML = 'ثبت محصول';
         saveBtnElem.style.opacity = '1';
         nameInputElem.value = '';
@@ -77,7 +84,7 @@ saveBtnElem.addEventListener('click', async e => {
         descriptionInputElem.value = '';
         coverInputElem.value = '';
     } else {
-        statusModalChanger('ERROR', 'خطا در ارتباط با سرور', dangerColor, dangerIcon, 'امتحان مجدد')
+        statusModalChanger('ERROR', 'خطا در ارتباط با سرور', 'امتحان مجدد')
         saveBtnElem.innerHTML = 'ثبت محصول';
         saveBtnElem.style.opacity = '1';
     }
@@ -117,11 +124,6 @@ const showProductsInTable = () => {
     })
 }
 
-window.addEventListener('load', () => {
-    tableBody.innerHTML = ''
-    showProductsInTable()
-})
-
 // Delete Btn Logic
 
 const deleteProduct = (productID) => {
@@ -138,10 +140,9 @@ const deleteProduct = (productID) => {
             .delete()
             .eq('id', productID)
         if (error) {
-            statusModalChanger('ERROR', 'خطایی هنگام حذف محصول رخ داد', dangerColor, dangerIcon, 'امتحان مجدد')
+            statusModalChanger('ERROR', 'خطایی هنگام حذف محصول رخ داد', 'امتحان مجدد')
         } else {
-            console.log('ok');
-            statusModalChanger('SUCCESS', 'حذف محصول با موفقیت انجام شد', successColor, successIcon, 'ادامه')
+            statusModalChanger('SUCCESS', 'حذف محصول با موفقیت انجام شد', 'ادامه', showProductsInTable())
             confirmDeleteBtn.innerHTML = 'بله';
             confirmDeleteBtn.style.opacity = '1';
         }
@@ -245,6 +246,18 @@ let productNewCategoryEditorInput = $.querySelector('.product-new-category')
 let productNewCoverSelection = $.querySelector('.new-cover-selection')
 let updateBtn = $.querySelector('.update-btn')
 let closeEditorBtn = $.querySelector('.close-editor')
+let errorMessage = document.querySelectorAll('.error-message')
+
+
+let elementsArray = [
+    productNameEditorInput,
+    productPriceEditorInput,
+    productScoreEditorInput,
+    productCountEditorInput,
+    productNewDescriptionEditorInput,
+    productNewCategoryEditorInput,
+    productNewCoverSelection
+]
 
 closeEditorBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -268,52 +281,40 @@ const editProduct = (productID) => {
 
         if (nameEditorElem.style.display === 'flex') {
             let nameObj = { name: productNameEditorInput.value.trim() }
-            productEditorHandler(productNameEditorInput, nameObj, productID)
+            productEditorHandler(updateBtn, productNameEditorInput, nameObj, productID, elementsArray, errorMessage)
         }
 
         if (priceEditorElem.style.display === 'flex') {
             let priceObj = { price: productPriceEditorInput.value.trim() }
-            productEditorHandler(productPriceEditorInput, priceObj, productID)
+            productEditorHandler(updateBtn, productPriceEditorInput, priceObj, productID, elementsArray, errorMessage)
         }
 
         if (scoreEditorElem.style.display === 'flex') {
             let scoreObj = { score: productScoreEditorInput.value.trim() }
-            productEditorHandler(productScoreEditorInput, scoreObj, productID)
+            productEditorHandler(updateBtn, productScoreEditorInput, scoreObj, productID, elementsArray, errorMessage)
         }
 
         if (countEditorElem.style.display === 'flex') {
             let countObj = { count: productCountEditorInput.value.trim() }
-            productEditorHandler(productCountEditorInput, countObj, productID)
+            productEditorHandler(updateBtn, productCountEditorInput, countObj, productID, elementsArray, errorMessage)
         }
 
         if (descriptionEditorElem.style.display === 'flex') {
             let descriptionObj = { description: productNewDescriptionEditorInput.value.trim() }
-            productEditorHandler(productNewDescriptionEditorInput, descriptionObj, productID)
+            productEditorHandler(updateBtn, productNewDescriptionEditorInput, descriptionObj, productID, elementsArray, errorMessage)
         }
 
         if (categoryEditorElem.style.display === 'flex') {
             let categoryObj = { category: productNewCategoryEditorInput.value.trim() }
-            productEditorHandler(productNewCategoryEditorInput, categoryObj, productID)
+            productEditorHandler(updateBtn, productNewCategoryEditorInput, categoryObj, productID, elementsArray, errorMessage)
         }
 
         if (coverEditorElem.style.display === 'flex') {
             let coverObj = { cover: productNewCoverSelection.value }
-            productEditorHandler(productPriceEditorInput, coverObj, productID)
+            productEditorHandler(updateBtn, productPriceEditorInput, coverObj, productID, elementsArray, errorMessage)
         }
 
     })
 }
 
 window.editProduct = editProduct
-
-export {
-    showProductsInTable,
-    updateBtn,
-    productNameEditorInput,
-    productPriceEditorInput,
-    productScoreEditorInput,
-    productCountEditorInput,
-    productNewDescriptionEditorInput,
-    productNewCategoryEditorInput,
-    productNewCoverSelection
-}

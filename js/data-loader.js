@@ -499,37 +499,31 @@ import { supabase } from "./database.js";
 // ]
 let categories = [
     {
-        id: 1,
         title: "modern",
         name: "لوستر مدرن",
         cover: "./images/b3f52d55d84e4c58c49299579239c615cadb9771_1633519730.webp"
     },
     {
-        id: 2,
         title: "crystal",
         name: "لوستر کریستالی",
         cover: "./images/6972cf58777c1ed8bccb2db492a1be4da46085b2_1628109931.webp"
     },
     {
-        id: 3,
         title: "rostik",
         name: "لوستر روستیک",
         cover: "./images/210438cfc59c1719a9deba5dc66d5c69.jpg"
     },
     {
-        id: 4,
         title: "molecular",
         name: "لوستر ملکولی",
         cover: "./images/molecular-chandelier-for-interior-decoration-13.jpg"
     },
     {
-        id: 5,
         title: "table",
         name: "چراغ رومیزی",
         cover: "./images/f7f4fdf5df418217a66c8fa85ce4f58f878de82c_1675184062.jpg"
     },
     {
-        id: 6,
         title: "wall",
         name: "چراغ دیواری",
         cover: "./images/65ee000e6f764024d098aa2e08763e5b.jpg"
@@ -636,7 +630,7 @@ const insertAllProductsHtmlTemplate = (products, parentElement) => {
         <div class="products-item__image-box">
           <img
             class="product-cover"
-            src="${product.cover}"
+            src="./images/${product.cover}"
             alt=""
           />
         </div>
@@ -738,46 +732,6 @@ const productsCategorySelection = (array, categorySelect) => {
     return outputArray;
 };
 
-const getUrlParam = (key) => {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(key);
-};
-
-const addParamToUrl = (param, value) => {
-    console.log(param, value)
-    let url = new URL(location.href)
-    let searchParams = url.searchParams
-
-    searchParams.set(param, value)
-    url.search = searchParams.toString()
-    location.href = url.toString()
-}
-
-const paginateItems = (array, itemsPerPage, paginateParentElem, currentPage) => {
-    paginateParentElem.innerHTML = ''
-    let endIndex = itemsPerPage * currentPage
-    let startIndex = endIndex - itemsPerPage
-    let paginatedItems = array.slice(startIndex, endIndex)
-    let paginatedCount = Math.ceil(array.length / itemsPerPage)
-
-    for (let i = 1; i < paginatedCount + 1; i++) {
-        paginateParentElem.insertAdjacentHTML('beforeend', `
-        <li class="products__pagination-item">
-          ${i === +currentPage ?
-                `
-              <a class="products__pagination-link products__pagination-link--active" onclick="addParamToUrl('page', ${i})">${i}</a>
-            ` :
-                `
-              <a class="products__pagination-link" onclick="addParamToUrl('page', ${i})">${i}</a>
-            `
-            }
-        </li>
-      `)
-    }
-
-    return paginatedItems
-}
-
 export {
     getAllProducts,
     categories,
@@ -789,7 +743,4 @@ export {
     // shuffledArray,
     productsSorting,
     productsCategorySelection,
-    addParamToUrl,
-    getUrlParam,
-    paginateItems
 }

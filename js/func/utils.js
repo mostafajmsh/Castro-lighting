@@ -51,48 +51,150 @@ const dangerColor = '#c34a4a'
 
 const statusModalChanger = (status, message, topBgColor, icon, btnText) => {
 
-    let statusModal = $.querySelector('.status-modal')
-    let modalMessageText = $.querySelector('#message')
-    let modalTopSection = $.querySelector('#upper-side')
-    let statusCardBtn = $.querySelector('#statusBtn');
+  let statusModal = $.querySelector('.status-modal')
+  let modalMessageText = $.querySelector('#message')
+  let modalTopSection = $.querySelector('#upper-side')
+  let statusCardBtn = $.querySelector('#statusBtn');
 
 
-    statusModal.style.visibility = 'visible';
-    statusModal.style.opacity = '1';
-    modalTopSection.innerHTML = ''
-    modalTopSection.insertAdjacentHTML('afterbegin', `
+  statusModal.style.visibility = 'visible';
+  statusModal.style.opacity = '1';
+  modalTopSection.innerHTML = ''
+  modalTopSection.insertAdjacentHTML('afterbegin', `
       ${icon}
       <h3 id="status">${status}</h3>
     `)
-    modalMessageText.innerHTML = message
-    modalTopSection.style.backgroundColor = topBgColor
-    statusCardBtn.innerHTML = btnText
-    statusCardBtn.style.backgroundColor = topBgColor
-    statusCardBtn.addEventListener('click', () => {
-        statusModal.style.visibility = 'hidden';
-        statusModal.style.opacity = '0';
-        if (status === 'SUCCESS') {
-            location.replace('./userPanel/main/main.html')
-        }
-    })
+  modalMessageText.innerHTML = message
+  modalTopSection.style.backgroundColor = topBgColor
+  statusCardBtn.innerHTML = btnText
+  statusCardBtn.style.backgroundColor = topBgColor
+  statusCardBtn.addEventListener('click', () => {
+    statusModal.style.visibility = 'hidden';
+    statusModal.style.opacity = '0';
+    if (status === 'SUCCESS') {
+      location.replace('./userPanel/main/main.html')
+    }
+  })
 
+}
+
+const productsFilteringHandler = (productsFilteringSelections, selectionTitleElem, sortFunc, products, template, allProductsWrapper) => {
+  productsFilteringSelections.forEach((productFilteringSelection) => {
+    productFilteringSelection.addEventListener("click", (event) => {
+      productsFilteringSelections.forEach((selectionElem) =>
+        selectionElem.classList.remove(
+          "products-top-bar__selection-item--active"
+        )
+      );
+
+      event.target.classList.add("products-top-bar__selection-item--active");
+
+      selectionTitleElem.innerHTML = "";
+      selectionTitleElem.insertAdjacentHTML(
+        "beforeend",
+        `
+          ${event.target.innerHTML}
+          <i class="fas fa-angle-down products-top-bar__selection-icon"></i>
+      `
+      );
+
+      let userFilteringSelection = event.target.dataset.key;
+      let shownFilteredProducts = sortFunc([...products], userFilteringSelection);
+      template([...shownFilteredProducts], allProductsWrapper)
+
+    });
+  });
+}
+
+const productsCategoryHandler = (productsCategorySelections, categorySelectionTitleElem, selectionMethod, products, template, allProductsWrapper) => {
+  productsCategorySelections.forEach((productsCategory) => {
+    productsCategory.addEventListener("click", (event) => {
+      productsCategorySelections.forEach((selectionElem) =>
+        selectionElem.classList.remove(
+          "products-category__selection-item--active"
+        )
+      );
+
+      event.target.classList.add("products-category__selection-item--active");
+
+      categorySelectionTitleElem.innerHTML = "";
+      categorySelectionTitleElem.insertAdjacentHTML(
+        "beforeend",
+        `
+          ${event.target.innerHTML}
+          <i class="fas fa-angle-down products-category__selection-icon"></i>
+      `
+      );
+
+      let userCategorySelection = event.target.dataset.key;
+      let shownSelectedCategoryProducts = selectionMethod([...products], userCategorySelection);
+      template([...shownSelectedCategoryProducts], allProductsWrapper)
+    });
+  });
 }
 
 const getToken = () => {
-    const userInfos = JSON.parse(localStorage.getItem('sb-lsryhmojytjylpzwrwwt-auth-token'));
-    return userInfos ? userInfos.access_token : null;
+  const userInfos = JSON.parse(localStorage.getItem('sb-lsryhmojytjylpzwrwwt-auth-token'));
+  return userInfos ? userInfos.access_token : null;
 }
 
 const isLogin = () => {
-    const userInfos = localStorage.getItem("sb-lsryhmojytjylpzwrwwt-auth-token");
-    return userInfos ? true : false;
+  const userInfos = localStorage.getItem("sb-lsryhmojytjylpzwrwwt-auth-token");
+  return userInfos ? true : false;
 };
 
+const getUrlParam = (key) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(key);
+};
+
+const addParamToUrl = (param, value) => {
+  console.log(param, value)
+  let url = new URL(location.href)
+  let searchParams = url.searchParams
+
+  searchParams.set(param, value)
+  url.search = searchParams.toString()
+  location.href = url.toString()
+}
+
+const paginateItems = (array, itemsPerPage, paginateParentElem, currentPage) => {
+  paginateParentElem.innerHTML = ''
+  let endIndex = itemsPerPage * currentPage
+  let startIndex = endIndex - itemsPerPage
+  let paginatedItems = array.slice(startIndex, endIndex)
+  let paginatedCount = Math.ceil(array.length / itemsPerPage)
+
+  for (let i = 1; i < paginatedCount + 1; i++) {
+    paginateParentElem.insertAdjacentHTML('beforeend', `
+      <li class="products__pagination-item">
+        ${i === +currentPage ?
+        `
+            <a class="products__pagination-link products__pagination-link--active" onclick="addParamToUrl('page', ${i})">${i}</a>
+          ` :
+        `
+            <a class="products__pagination-link" onclick="addParamToUrl('page', ${i})">${i}</a>
+          `
+      }
+      </li>
+    `)
+  }
+
+  return paginatedItems
+}
+
+window.addParamToUrl = addParamToUrl
+
 export {
-    isLogin,
-    successColor,
-    successIcon,
-    dangerColor,
-    dangerIcon,
-    statusModalChanger
+  isLogin,
+  successColor,
+  successIcon,
+  dangerColor,
+  dangerIcon,
+  statusModalChanger,
+  getUrlParam,
+  addParamToUrl,
+  paginateItems,
+  productsFilteringHandler,
+  productsCategoryHandler
 }

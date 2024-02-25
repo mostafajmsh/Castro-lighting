@@ -47,6 +47,7 @@ td {
     margin-top: .5rem;
     font-family: var(--primary-font);
     color: #6f6f6e;
+    width: 100%;
 }
 
 .inputs::placeholder {
