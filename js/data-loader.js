@@ -1,5 +1,4 @@
 import { supabase } from "./database.js";
-import { getUrlParam } from "./func/utils.js";
 
 // let products = [
 //     {
@@ -498,38 +497,38 @@ import { getUrlParam } from "./func/utils.js";
 //         cover: "./images/fd821c1a1fd97aab09cd972739face2c75db96fb_1660284382.webp"
 //     }
 // ]
-let categories = [
-    {
-        title: "modern",
-        name: "لوستر مدرن",
-        cover: "./images/b3f52d55d84e4c58c49299579239c615cadb9771_1633519730.webp"
-    },
-    {
-        title: "crystal",
-        name: "لوستر کریستالی",
-        cover: "./images/6972cf58777c1ed8bccb2db492a1be4da46085b2_1628109931.webp"
-    },
-    {
-        title: "rostik",
-        name: "لوستر روستیک",
-        cover: "./images/210438cfc59c1719a9deba5dc66d5c69.jpg"
-    },
-    {
-        title: "molecular",
-        name: "لوستر ملکولی",
-        cover: "./images/molecular-chandelier-for-interior-decoration-13.jpg"
-    },
-    {
-        title: "table",
-        name: "چراغ رومیزی",
-        cover: "./images/f7f4fdf5df418217a66c8fa85ce4f58f878de82c_1675184062.jpg"
-    },
-    {
-        title: "wall",
-        name: "چراغ دیواری",
-        cover: "./images/65ee000e6f764024d098aa2e08763e5b.jpg"
-    }
-]
+// let categories = [
+//     {
+//         title: "modern",
+//         name: "لوستر مدرن",
+//         cover: "./images/b3f52d55d84e4c58c49299579239c615cadb9771_1633519730.webp"
+//     },
+//     {
+//         title: "crystal",
+//         name: "لوستر کریستالی",
+//         cover: "./images/6972cf58777c1ed8bccb2db492a1be4da46085b2_1628109931.webp"
+//     },
+//     {
+//         title: "rostik",
+//         name: "لوستر روستیک",
+//         cover: "./images/210438cfc59c1719a9deba5dc66d5c69.jpg"
+//     },
+//     {
+//         title: "molecular",
+//         name: "لوستر ملکولی",
+//         cover: "./images/molecular-chandelier-for-interior-decoration-13.jpg"
+//     },
+//     {
+//         title: "table",
+//         name: "چراغ رومیزی",
+//         cover: "./images/f7f4fdf5df418217a66c8fa85ce4f58f878de82c_1675184062.jpg"
+//     },
+//     {
+//         title: "wall",
+//         name: "چراغ دیواری",
+//         cover: "./images/65ee000e6f764024d098aa2e08763e5b.jpg"
+//     }
+// ]
 
 const getAllProducts = async () => {
     let { data: products, error } = await supabase
@@ -584,13 +583,15 @@ const insertProductsGroupingHtmlTemplate = (products, parentElement) => {
         parentElement.insertAdjacentHTML('beforeend', `
         <div class="swiper-slide">
             <div class="groupping__content-item">
-                <img class="category-cover" src="./images/${item.cover}" alt="" />
-                <div class="content__item-text">
-                    <p>${item.title}</p>
-                    <div>
-                        <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                <a class="groupping__content-link" href="./category.html?cat=${item.name}&page=1">
+                    <img class="category-cover" src="./images/${item.cover}" alt="" />
+                    <div class="content__item-text">
+                        <p>${item.title}</p>
+                        <div>
+                            <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         ` )
@@ -602,17 +603,19 @@ const insertMobileProductsGroupingHtmlTemplate = (products, parentElement) => {
     products.forEach(item => {
         parentElement.insertAdjacentHTML('beforeend', `
         <div class="groupping__content-item">
-            <img
-                class="content__item-img"
-                src="./images/${item.cover}"
-                alt=""
-            />
-            <div class="content__item-text">
-                <p>${item.title}</p>
-                <div>
-                    <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+            <a class="groupping__content-link" href="./category.html?cat=${item.name}&page=1">
+                <img
+                    class="content__item-img"
+                    src="./images/${item.cover}"
+                    alt=""
+                />
+                <div class="content__item-text">
+                    <p>${item.title}</p>
+                    <div>
+                        <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         ` )
     })
@@ -761,7 +764,6 @@ const productsCategorySelection = (array, categorySelect) => {
 export {
     getAllProducts,
     getAllCategories,
-    categories,
     getProductsByCategory,
     insertMenuDropdownItemsHtmlTemplate,
     insertMobileProductsGroupingHtmlTemplate,

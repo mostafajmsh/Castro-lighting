@@ -589,6 +589,10 @@ a {
 
 .groupping__content-item {
     display: flex;
+    height: 100%;
+}
+.groupping__content-link {
+    display: flex;
     flex-direction: column;
     height: 100%;
 }
