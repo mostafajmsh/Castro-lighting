@@ -7,7 +7,9 @@ import {
 
 import {
     productEditorHandler,
-    getAllProducts
+    getAllProducts,
+    getAllCategories,
+    ShowCategoriesOnCategorySelection
 } from '../js/shared.js';
 
 window.addEventListener('load', () => {
@@ -21,6 +23,8 @@ window.addEventListener('load', () => {
         profileEmail.innerHTML = user.email
     })
     tableBody.innerHTML = ''
+    ShowCategoriesOnCategorySelection(categorySelectionInput)
+    ShowCategoriesOnCategorySelection(productNewCategoryEditorInput)
     showProductsInTable()
 })
 
@@ -44,6 +48,28 @@ coverInputElem.addEventListener("change", event => {
 });
 
 // Save New Products In Database
+
+let categorySelectionInput = $.querySelector('.category')
+
+let categoryID = null
+
+let categoryTitle = null
+
+categorySelectionInput.addEventListener('change', (event) => {
+    categoryID = event.target.value
+    getAllCategories().then(categories => {
+        let filteredCategory = categories.filter(category => {
+            if (category.id === categoryID) {
+                return category
+            }
+        })
+        categoryTitle = filteredCategory[0].title
+        console.log(categoryID, categoryTitle);
+        return categoryTitle
+    })
+    return categoryTitle
+})
+
 saveBtnElem.addEventListener('click', async e => {
     e.preventDefault()
     saveBtnElem.innerHTML = 'در حال ثبت...';
@@ -52,10 +78,7 @@ saveBtnElem.addEventListener('click', async e => {
     let priceInputElem = $.querySelector('.price-input');
     let scoreInputElem = $.querySelector('.score-input');
     let descriptionInputElem = $.querySelector('#product-description');
-    let category = $.querySelector('.category').value.trim();
-    let categoryName = $.querySelector(`option.${category}`).innerHTML;
     let countInputElem = $.querySelector('.count-input')
-
 
     const { data, error } = await supabase
         .from('products')
@@ -64,9 +87,9 @@ saveBtnElem.addEventListener('click', async e => {
                 name: nameInputElem.value.trim(),
                 price: priceInputElem.value.trim(),
                 cover: productCover,
-                category,
+                categoryID: categoryID,
                 score: scoreInputElem.value.trim(),
-                categoryName,
+                categoryTitle,
                 description: descriptionInputElem.value.trim(),
                 count: countInputElem.value.trim()
             },
@@ -107,13 +130,14 @@ backBtn.addEventListener('click', () => {
 const showProductsInTable = () => {
     tableBody.innerHTML = ''
     getAllProducts().then(productsArray => {
+        tableBody.innerHTML = ''
         productsArray.forEach(product => {
             tableBody.insertAdjacentHTML('beforeend', `
             <tr>
                 <td id="product-id">${product.id}</td>
                 <td>${product.name}</td>
                 <td>${product.price}</td>
-                <td>${product.categoryName}</td>
+                <td>${product.categoryTitle}</td>
                 <td>${product.count}</td>
                 <td><button class="edit-btn" onclick="editProduct('${product.id}')">ویرایش محصول</button></td>
                 <td><button class="delete-btn" onclick="deleteProduct('${product.id}')">حذف محصول</button></td>
@@ -264,13 +288,22 @@ closeEditorBtn.addEventListener('click', (e) => {
     editProductModal.style.visibility = 'hidden';
     editProductModal.style.opacity = '0';
     errorMessage.forEach(error => error.style.visibility = 'hidden')
-    productNameEditorInput.value = ''
-    productPriceEditorInput.value = ''
-    productScoreEditorInput.value = ''
-    productCountEditorInput.value = ''
-    productNewDescriptionEditorInput.value = ''
-    productNewCategoryEditorInput.value = ''
-    productNewCoverSelection.value = ''
+    elementsArray.forEach(element => element.value = '')
+})
+
+productNewCategoryEditorInput.addEventListener('change', (event) => {
+    categoryID = event.target.value
+    getAllCategories().then(categories => {
+        let filteredCategory = categories.filter(category => {
+            if (category.id === categoryID) {
+                return category
+            }
+        })
+        categoryTitle = filteredCategory[0].title
+        console.log(categoryID, categoryTitle);
+        return categoryTitle
+    })
+    return categoryTitle
 })
 
 const editProduct = (productID) => {
@@ -281,37 +314,44 @@ const editProduct = (productID) => {
 
         if (nameEditorElem.style.display === 'flex') {
             let nameObj = { name: productNameEditorInput.value.trim() }
-            productEditorHandler(updateBtn, productNameEditorInput, nameObj, productID, elementsArray, errorMessage)
+            productEditorHandler(updateBtn, productNameEditorInput, nameObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
         }
 
         if (priceEditorElem.style.display === 'flex') {
             let priceObj = { price: productPriceEditorInput.value.trim() }
-            productEditorHandler(updateBtn, productPriceEditorInput, priceObj, productID, elementsArray, errorMessage)
+            productEditorHandler(updateBtn, productPriceEditorInput, priceObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
         }
 
         if (scoreEditorElem.style.display === 'flex') {
             let scoreObj = { score: productScoreEditorInput.value.trim() }
-            productEditorHandler(updateBtn, productScoreEditorInput, scoreObj, productID, elementsArray, errorMessage)
+            productEditorHandler(updateBtn, productScoreEditorInput, scoreObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
         }
 
         if (countEditorElem.style.display === 'flex') {
             let countObj = { count: productCountEditorInput.value.trim() }
-            productEditorHandler(updateBtn, productCountEditorInput, countObj, productID, elementsArray, errorMessage)
+            productEditorHandler(updateBtn, productCountEditorInput, countObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
         }
 
         if (descriptionEditorElem.style.display === 'flex') {
             let descriptionObj = { description: productNewDescriptionEditorInput.value.trim() }
-            productEditorHandler(updateBtn, productNewDescriptionEditorInput, descriptionObj, productID, elementsArray, errorMessage)
+            productEditorHandler(updateBtn, productNewDescriptionEditorInput, descriptionObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
         }
 
         if (categoryEditorElem.style.display === 'flex') {
-            let categoryObj = { category: productNewCategoryEditorInput.value.trim() }
-            productEditorHandler(updateBtn, productNewCategoryEditorInput, categoryObj, productID, elementsArray, errorMessage)
+            let categoryObj = {
+                categoryID: productNewCategoryEditorInput.value.trim()
+            }
+            let categoryTitleObj = {
+                categoryTitle
+            }
+            productEditorHandler(updateBtn, productNewCategoryEditorInput, categoryObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
+            productEditorHandler(updateBtn, productNewCategoryEditorInput, categoryTitleObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
+
         }
 
         if (coverEditorElem.style.display === 'flex') {
             let coverObj = { cover: productNewCoverSelection.value }
-            productEditorHandler(updateBtn, productPriceEditorInput, coverObj, productID, elementsArray, errorMessage)
+            productEditorHandler(updateBtn, productPriceEditorInput, coverObj, productID, elementsArray, errorMessage, editProductModal, showProductsInTable())
         }
 
     })

@@ -1,4 +1,5 @@
 import { supabase } from "./database.js";
+import { getUrlParam } from "./func/utils.js";
 
 // let products = [
 //     {
@@ -336,7 +337,7 @@ import { supabase } from "./database.js";
 //     },
 //     {
 //         id: 38,
-//         name: "چراغ رومیزی مدل کریستالی مدل استوانه",
+//         name: "چراغ رومیزی کریستالی مدل استوانه",
 //         categoryName: "چراغ رومیزی",
 //         category: "table",
 //         price: 320000,
@@ -435,7 +436,7 @@ import { supabase } from "./database.js";
 //     },
 //     {
 //         id: 49,
-//         name: "چراغ دیواری لوستر ماد مدل D1p101",
+//         name: "چراغ دیواری ماد مدل D1p101",
 //         categoryName: "چراغ دیواری",
 //         category: "wall",
 //         price: 59000,
@@ -540,56 +541,82 @@ const getAllProducts = async () => {
     return allProducts
 }
 
-const insertMenuDropdownItemsHtmlTemplate = (categories, parentElement) => {
+const getAllCategories = async () => {
+
+    let { data: categories, error } = await supabase
+        .from('categories')
+        .select('*')
+    let allCategories = categories
+
+    return allCategories
+}
+
+const insertMenuDropdownItemsHtmlTemplate = (parentElement) => {
     parentElement.innerHTML = ''
-    categories.forEach(cat => {
-        parentElement.forEach(parent => {
-            parent.insertAdjacentHTML('beforeend', `
-            <li class="dropdown-item"><a href="#">${cat.name}</a></li>
-        ` )
+
+    getAllCategories().then(categories => {
+        categories.forEach(cat => {
+            parentElement.forEach(parent => {
+                parent.insertAdjacentHTML('beforeend', `
+                <li class="dropdown-item"><a href="./category.html?cat=${cat.name}&page=1">${cat.title}</a></li>
+            ` )
+            })
         })
+    })
+
+}
+
+const getProductsByCategory = async (categoryID) => {
+
+    let { data: products, error } = await supabase
+        .from('products')
+        .select("*")
+        .eq('categoryID', categoryID)
+
+    let categoryProducts = products
+    console.log(categoryProducts);
+    return categoryProducts
+}
+
+const insertProductsGroupingHtmlTemplate = (products, parentElement) => {
+    parentElement.innerHTML = ''
+    products.forEach(item => {
+        parentElement.insertAdjacentHTML('beforeend', `
+        <div class="swiper-slide">
+            <div class="groupping__content-item">
+                <img class="category-cover" src="./images/${item.cover}" alt="" />
+                <div class="content__item-text">
+                    <p>${item.title}</p>
+                    <div>
+                        <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        ` )
     })
 }
 
-// const insertProductsGroupingHtmlTemplate = (products, parentElement) => {
-//     parentElement.innerHTML = ''
-//     products.forEach(item => {
-//         parentElement.insertAdjacentHTML('beforeend', `
-//         <div class="swiper-slide">
-//             <div class="groupping__content-item">
-//                 <img class="category-cover" src="${item.cover}" alt="" />
-//                 <div class="content__item-text">
-//                     <p>${item.name}</p>
-//                     <div>
-//                         <img src="images/Iconsax/Outline/arrowleft.png" alt="" />
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//         ` )
-//     })
-// }
-
-// const insertMobileProductsGroupingHtmlTemplate = (products, parentElement) => {
-//     parentElement.innerHTML = ''
-//     products.forEach(item => {
-//         parentElement.insertAdjacentHTML('beforeend', `
-//         <div class="groupping__content-item">
-//             <img
-//                 class="content__item-img"
-//                 src="${item.cover}"
-//                 alt=""
-//             />
-//             <div class="content__item-text">
-//                 <p>${item.name}</p>
-//                 <div>
-//                     <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
-//                 </div>
-//             </div>
-//         </div>
-//         ` )
-//     })
-// }
+const insertMobileProductsGroupingHtmlTemplate = (products, parentElement) => {
+    parentElement.innerHTML = ''
+    products.forEach(item => {
+        parentElement.insertAdjacentHTML('beforeend', `
+        <div class="groupping__content-item">
+            <img
+                class="content__item-img"
+                src="./images/${item.cover}"
+                alt=""
+            />
+            <div class="content__item-text">
+                <p>${item.title}</p>
+                <div>
+                    <img src="images//Iconsax/Outline/arrowleft.svg" alt="" />
+                </div>
+            </div>
+        </div>
+        ` )
+    })
+}
 
 const insertNewProductsHtmlTemplate = (products, parentElement) => {
     parentElement.innerHTML = ''
@@ -598,13 +625,13 @@ const insertNewProductsHtmlTemplate = (products, parentElement) => {
         <div class="swiper-slide">
             <div class="products__item">
                 <div class="item__image-wrapper">
-                    <img class="products__item-cover" src="${product.cover}" alt="" />
+                    <img class="products__item-cover" src="./images/${product.cover}" alt="" />
                 </div>
                 <p class="products__item-title">${product.name}</p>
                 <div class="products__item-score">
                     <span>${product.score}</span>
                     <img src="images/Iconsax/Bold/star1.png" alt="" />
-                    <p>_ ${product.categoryName}</p>
+                    <p>_ ${product.categoryTitle}</p>
                 </div>
                 <div class="products__item-price">
                     <div>
@@ -637,7 +664,7 @@ const insertAllProductsHtmlTemplate = (products, parentElement) => {
         <div class="products-item__content">
           <p class="product-title">${product.name}</p>
           <div class="products__item-category">
-            <p>_ ${product.categoryName}</p>
+            <p>_ ${product.categoryTitle}</p>
             <div class="products__item-score">
               <span>${product.score}</span>
               <img src="images/Iconsax/Bold/star1.png" alt="" />
@@ -662,7 +689,6 @@ const insertAllProductsHtmlTemplate = (products, parentElement) => {
     })
 }
 
-// const shuffledArray = products.sort((a, b) => 0.5 - Math.random());
 
 const productsSorting = (array, filterMethod) => {
     let outputArray = [];
@@ -734,13 +760,14 @@ const productsCategorySelection = (array, categorySelect) => {
 
 export {
     getAllProducts,
+    getAllCategories,
     categories,
+    getProductsByCategory,
     insertMenuDropdownItemsHtmlTemplate,
-    // insertMobileProductsGroupingHtmlTemplate,
+    insertMobileProductsGroupingHtmlTemplate,
     insertNewProductsHtmlTemplate,
-    // insertProductsGroupingHtmlTemplate,
+    insertProductsGroupingHtmlTemplate,
     insertAllProductsHtmlTemplate,
-    // shuffledArray,
     productsSorting,
     productsCategorySelection,
 }

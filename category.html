@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>categories</title>
     <link rel="stylesheet" href="./vendor/FontAwesome5/all.min.css" />
-    <link rel="stylesheet" href="css/products.css" />
+    <link rel="stylesheet" href="css/category.css" />
   </head>
   <body>
     <header class="header">
@@ -234,7 +234,9 @@
     <main>
       <section class="products-section">
         <div class="products__section-top-bar container">
-          <p class="products__top-bar-title">محصولات ما</p>
+          <p class="products__top-bar-title">
+            <!-- Data Loaded From JS -->
+          </p>
           <img class="after-title" src="images/Ornament 26.png" alt="" />
           <p class="products__top-bar-subtitle">
             طرح های نورپردازی چشم نواز برای ترکیب فضای زندگی شما
@@ -263,55 +265,6 @@
                   </li>
                   <li class="products-top-bar__selection-item" data-key="expensive">
                     مرتب سازی بر اساس گران ترین
-                  </li>
-                </ul>
-              </div>
-              <div class="products__category-selection">
-                <span class="products-category__selection-title">
-                  نمایش همه محصولات
-                  <i
-                    class="fas fa-angle-down products-category__selection-icon"
-                  ></i>
-                </span>
-                <ul class="products-category__selection-list">
-                  <li
-                    class="products-category__selection-item products-category__selection-item--active"
-                    data-key="all"
-                  >
-                    نمایش همه محصولات
-                  </li>
-                  <li
-                    class="products-category__selection-item"
-                    data-key="modern"
-                  >
-                    لوستر مدرن
-                  </li>
-                  <li
-                    class="products-category__selection-item"
-                    data-key="crystal"
-                  >
-                    لوستر کریستالی
-                  </li>
-                  <li
-                    class="products-category__selection-item"
-                    data-key="rostik"
-                  >
-                    لوستر روستیک
-                  </li>
-                  <li
-                    class="products-category__selection-item"
-                    data-key="molecular"
-                  >
-                    لوستر مولکولی
-                  </li>
-                  <li
-                    class="products-category__selection-item"
-                    data-key="table"
-                  >
-                    چراغ رومیزی
-                  </li>
-                  <li class="products-category__selection-item" data-key="wall">
-                    چراغ دیواری
                   </li>
                 </ul>
               </div>
@@ -457,5 +410,7 @@
     <script src="./js/data-loader.js" type="module"></script>
     <script src="./js/menu-data.js" type="module"></script>
     <script src="./js/category.js" type="module"></script>
+    <script src="./js/func/shared.js" type="module"></script>
+
   </body>
 </html>

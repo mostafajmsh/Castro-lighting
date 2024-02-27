@@ -1,0 +1,5 @@
+@import url(./products.css);
+
+.products__top-bar-filtering {
+    justify-content: space-between;
+}

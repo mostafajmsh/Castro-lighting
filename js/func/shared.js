@@ -1,5 +1,9 @@
 import { supabase } from '../../js/database.js'
+import { insertMenuDropdownItemsHtmlTemplate } from "../data-loader.js";
 import { isLogin } from './utils.js'
+
+
+const menuDropdownElem = document.querySelectorAll('.dropdown')
 
 const showNavbarProfile = () => {
   const headerProfileBtnElem = document.querySelectorAll('.header__menu-profile')
@@ -112,8 +116,5 @@ window.userLogout = userLogout
 
 window.addEventListener('load', async e => {
   showNavbarProfile()
+  insertMenuDropdownItemsHtmlTemplate(menuDropdownElem)
 })
-
-export {
-
-}

@@ -1,9 +1,9 @@
 import {
-    categories,
-    // insertMobileProductsGroupingHtmlTemplate,
+    getAllCategories,
+    getAllProducts,
+    insertMobileProductsGroupingHtmlTemplate,
     insertNewProductsHtmlTemplate,
-    // insertProductsGroupingHtmlTemplate,
-    // shuffledArray
+    insertProductsGroupingHtmlTemplate,
 }
     from "./data-loader.js"
 
@@ -13,7 +13,16 @@ const mobileProductsGroupingElem = document.querySelector('.mobile__grouping-con
 const newProductsWrapper = document.querySelector('.products-wrapper')
 
 window.addEventListener('load', () => {
-    // insertProductsGroupingHtmlTemplate(categories, productsGroupingElem)
-    // insertMobileProductsGroupingHtmlTemplate(categories, mobileProductsGroupingElem)
-    // insertNewProductsHtmlTemplate(shuffledArray, newProductsWrapper)
+    getAllCategories().then(categories => {
+        insertProductsGroupingHtmlTemplate(categories, productsGroupingElem)
+        insertMobileProductsGroupingHtmlTemplate(categories, mobileProductsGroupingElem)
+
+    })
+    getAllProducts().then(products => {
+
+        const shuffledArray = products.sort((a, b) => 0.5 - Math.random());
+
+        insertNewProductsHtmlTemplate(shuffledArray, newProductsWrapper)
+
+    })
 })

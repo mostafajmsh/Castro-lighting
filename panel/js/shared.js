@@ -1,4 +1,5 @@
 import { supabase } from '../../js/database.js'
+import { statusModalChanger } from './utils.js'
 
 const getAllProducts = async () => {
 
@@ -11,7 +12,19 @@ const getAllProducts = async () => {
     return allProducts
 }
 
-const productEditorHandler = async (updateBtn, inputName, obj, productID, elementsArray, errorMessage) => {
+const ShowCategoriesOnCategorySelection = (inputElem) => {
+    inputElem.innerHTML = ''
+    getAllCategories().then(categories => {
+        categories.forEach(category => {
+            inputElem.insertAdjacentHTML('beforeend', `
+                <option class="${category.name}" value="${category.id}">${category.title}</option>
+            `)
+
+        })
+    })
+}
+
+const productEditorHandler = async (updateBtn, inputName, obj, productID, elementsArray, errorMessage, modal, func) => {
     updateBtn.innerHTML = 'اعمال تغییرات...';
     updateBtn.style.opacity = '0.8';
 
@@ -25,15 +38,18 @@ const productEditorHandler = async (updateBtn, inputName, obj, productID, elemen
         if (data) {
             updateBtn.innerHTML = 'ویرایش محصول';
             updateBtn.style.opacity = '1';
-            statusModalChanger('SUCCESS', 'ویرایش محصول با موفقیت انجام شد', successColor, successIcon, 'ادامه')
+            statusModalChanger('SUCCESS', 'ویرایش محصول با موفقیت انجام شد', 'ادامه')
             elementsArray.forEach(element => {
                 element.value = ''
             })
             errorMessage.forEach(error => {
                 error.style.visibility = 'hidden'
             })
+            modal.style.visibility = 'hidden'
+            modal.style.opacity = '0'
+            func
         } else if (error) {
-            statusModalChanger('ERROR', 'خطایی هنگام ویرایش محصول رخ داد', dangerColor, dangerIcon, 'امتحان مجدد')
+            statusModalChanger('ERROR', 'خطایی هنگام ویرایش محصول رخ داد', 'امتحان مجدد')
         }
 
     } else {
@@ -67,5 +83,6 @@ export {
     getAllProducts,
     getAllUsers,
     productEditorHandler,
+    ShowCategoriesOnCategorySelection,
     getAllCategories
 }
