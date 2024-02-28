@@ -114,6 +114,7 @@
     justify-content: space-between;
     padding: 2rem;
     gap: 3rem;
+    margin-right: 2rem;
 }
 
 .product-count span {

@@ -638,11 +638,13 @@ const insertNewProductsHtmlTemplate = (products, parentElement) => {
                 </div>
                 <div class="products__item-price">
                     <div>
-                        <img
-                        class="basket-icon"
-                        src="images/Iconsax/Outline/bag2.png"
-                        alt=""
-                        />
+                        <a href="./product.html?name=${product.href}">
+                            <img
+                            class="basket-icon"
+                            src="images/Iconsax/Outline/bag2.png"
+                            alt=""
+                            />
+                        </a>
                     </div>
                     <p lang="fa-IR">${product.price.toLocaleString()} <span>تومان</span></p>
                 </div>
@@ -677,7 +679,7 @@ const insertAllProductsHtmlTemplate = (products, parentElement) => {
             <p class="product__price-label">قیمت:</p>
             <p class="product-price">${product.price.toLocaleString()} <span>تومان</span></p>
           </div>
-          <a class="item__more-info" href="#">
+          <a class="item__more-info" href="./product.html?name=${product.href}">
             <img
               class="basket-icon"
               src="images/Iconsax/Outline/bag2.png"
@@ -691,7 +693,6 @@ const insertAllProductsHtmlTemplate = (products, parentElement) => {
         ` )
     })
 }
-
 
 const productsSorting = (array, filterMethod) => {
     let outputArray = [];
@@ -761,6 +762,70 @@ const productsCategorySelection = (array, categorySelect) => {
     return outputArray;
 };
 
+const getProductByUrl = async (productUrl) => {
+
+    let { data: products, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('href', productUrl)
+
+    let product = products
+
+    return product
+
+}
+
+const addProductInfosToProductPage = (
+    product,
+    productTitleElem,
+    productImageElem,
+    productNameElem,
+    productScoreElem,
+    productCategoryElem,
+    productPriceElem,
+    productCountElem,
+    productDescriptionElem) => {
+    productTitleElem.innerHTML = product[0].name
+    productImageElem.innerHTML = `
+        <img
+            src="./images/${product[0].cover}"
+            alt=""
+        />
+    `
+    productNameElem.innerHTML = `
+        <p>
+            <span>نام محصول: </span>
+            ${product[0].name}
+        </p>
+    `
+    productScoreElem.innerHTML = `
+        <p>
+            <span>امتیاز محصول: </span>
+            ${product[0].score}
+        </p>
+    `
+    productCategoryElem.innerHTML = `
+        <p>
+            <span>دسته بندی محصول: </span>
+            ${product[0].categoryTitle}
+        </p>
+    `
+    productPriceElem.innerHTML = `
+        <p>
+            <span>قیمت محصول: </span>
+            ${product[0].price.toLocaleString()}
+            <span>تومان</span>
+        </p>
+    `
+    productCountElem.innerHTML = `
+
+        <span>موجود در انبار: </span>
+        ${product[0].count}
+        <span> عدد</span>
+    `
+    productDescriptionElem.innerHTML = product[0].description
+}
+
 export {
     getAllProducts,
     getAllCategories,
@@ -772,4 +837,6 @@ export {
     insertAllProductsHtmlTemplate,
     productsSorting,
     productsCategorySelection,
+    getProductByUrl,
+    addProductInfosToProductPage
 }
