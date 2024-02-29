@@ -89,7 +89,11 @@
               <label for="age-input">سن خود را وارد کنید</label>
               <input type="text" class="age-input" />
               <label for="password-input">رمز عبور جدید خود را وارد کنید</label>
-              <input type="password" class="password-input" placeholder="رمز جدید را وارد نمایید..."/>
+              <input
+                type="password"
+                class="password-input"
+                placeholder="رمز جدید را وارد نمایید..."
+              />
               <button type="submit" class="submit-password">
                 تغییر رمز عبور
               </button>
@@ -110,9 +114,29 @@
             </div>
           </form>
         </div>
+        <div class="change-address-modal">
+          <label for="address-input">آدرس کامل خود را وارد کنید</label>
+          <input
+            class="address-input"
+            type="text"
+            placeholder="آدرس را وارد کنید"
+          />
+          <label for="post-input">کد پستی خود را وارد کنید</label>
+          <input
+            class="post-input"
+            type="text"
+            minlength="10"
+            maxlength="10"
+            placeholder="9861768855"
+          />
+          <div class="btns-wrapper">
+            <button type="submit" class="submit-address">افزودن آدرس</button>
+            <button type="button" class="close-address-modal">بازگشت</button>
+          </div>
+        </div>
         <div class="user-location">
           <p class="title">آدرس شما</p>
-          <p class="address">هنوز هیچ آدرسی وارد نکرده اید!</p>
+          <p class="user-address">هنوز هیچ آدرسی وارد نکرده اید!</p>
           <div class="btn-wrapper">
             <button class="add-address">افزودن آدرس جدید</button>
           </div>

@@ -22,7 +22,7 @@ const showUserInfosOnDashboard = (
     phoneNumberElem.innerHTML = `
         <span>شماره تلفن: </span>${user.user_metadata.phone ? user.user_metadata.phone : '----'}</p>
     `
-    userAddressElem.innerHTML = user.user_metadata.address ? user.user_metadata.address : 'هنوز هیچ آدرسی وارد نکرده اید!'
+    userAddressElem.innerHTML = user.user_metadata.address ? `${user.user_metadata.address} (کد پستی: ${user.user_metadata.post_code})` : 'هنوز هیچ آدرسی وارد نکرده اید!'
 }
 
 export {

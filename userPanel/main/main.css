@@ -281,7 +281,7 @@ body {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.address {
+.user-address {
     margin-top: 2rem;
     font-size: 1.2rem;
 }
@@ -343,7 +343,8 @@ input:focus {
 }
 
 .submit-changes,
-.submit-password {
+.submit-password,
+.submit-address {
     margin-top: 2rem;
     border-radius: 2rem;
     background-color: #3d5654;
@@ -358,13 +359,15 @@ input:focus {
 }
 
 .submit-changes:hover,
-.submit-password:hover {
+.submit-password:hover,
+.submit-address:hover {
     color: #3d5654;
     background-color: #ffffff;
     transition: all .2s ease;
 }
 
-.close-editor-modal {
+.close-editor-modal,
+.close-address-modal {
     margin-top: 1rem;
     border-radius: 2rem;
     color: #3d5654;
@@ -378,7 +381,8 @@ input:focus {
     transition: all .2s ease;
 }
 
-.close-editor-modal:hover {
+.close-editor-modal:hover,
+.close-address-modal:hover {
     background-color: #3d5654;
     color: #ffffff;
     transition: all .2s ease;
@@ -478,4 +482,28 @@ input:focus {
     -moz-transition: all .4s ease;
     -o-transition: all .4s ease;
     transition: all .4s ease;
+}
+
+.change-address-modal {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f4f3f1;
+    padding: 2rem;
+    border-radius: 1rem;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+    position: absolute;
+}
+
+.btns-wrapper {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.close-address-modal {
+    margin-top: 2rem;
 }

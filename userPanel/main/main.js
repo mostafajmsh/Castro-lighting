@@ -9,7 +9,7 @@ const fullNameElem = document.querySelector('.full-name')
 const userAgeElem = document.querySelector('.user-age')
 const emailAddressElem = document.querySelector('.email-address')
 const phoneNumberElem = document.querySelector('.phone-number')
-const userAddressElem = document.querySelector('.address')
+const userAddressElem = document.querySelector('.user-address')
 
 window.addEventListener('load', () => {
     getUserInfo().then(user => {
@@ -124,7 +124,7 @@ submitPasswordBtn.addEventListener('click', e => {
     submitPasswordBtn.innerHTML = 'در حال بررسی...'
     submitPasswordBtn.style.opacity = '0.8'
 
-    getUserInfo().then(async user => {
+    getUserInfo().then(async () => {
 
         const { data, error } = await supabase.auth.updateUser({
             password: passwordInputElem.value.trim(),
@@ -153,4 +153,76 @@ submitPasswordBtn.addEventListener('click', e => {
             submitPasswordBtn.style.opacity = '1'
         }
     })
+})
+
+const addNewAddressBtn = document.querySelector('.add-address')
+const changeAddressModal = document.querySelector('.change-address-modal')
+const closeAddressModalBtn = document.querySelector('.close-address-modal')
+const addressInputElem = document.querySelector('.address-input')
+const postInputElem = document.querySelector('.post-input')
+const submitAddressElem = document.querySelector('.submit-address')
+
+closeAddressModalBtn.addEventListener('click', () => {
+    changeAddressModal.style.visibility = 'hidden'
+    changeAddressModal.style.opacity = '0'
+    changeAddressModal.style.top = '0'
+})
+
+addNewAddressBtn.addEventListener('click', () => {
+    changeAddressModal.style.visibility = 'visible'
+    changeAddressModal.style.opacity = '1'
+    changeAddressModal.style.top = '25%'
+})
+
+submitAddressElem.addEventListener('click', e => {
+    e.preventDefault()
+
+    submitAddressElem.style.opacity = '0.8'
+    submitAddressElem.innerHTML = 'در حال بررسی...'
+
+    if (!addressInputElem.value || !postInputElem.value) {
+        statusModalChanger('ERROR', 'آدرس یا کد پستی کامل نیست!!!!', 'امتحان مجدد')
+        submitAddressElem.innerHTML = 'افزودن آدرس'
+        submitAddressElem.style.opacity = '1'
+    } else {
+        getUserInfo().then(async user => {
+
+            const { data, error } = await supabase.auth.updateUser({
+                data: {
+                    address: addressInputElem.value.trim(),
+                    post_code: postInputElem.value.trim()
+                }
+            })
+            if (error) {
+                statusModalChanger(
+                    'ERROR',
+                    'خطایی هنگام اعمال تغییرات رخ داد',
+                    'امتحان مجدد')
+                submitAddressElem.innerHTML = 'افزودن آدرس'
+                submitAddressElem.style.opacity = '1'
+            } else {
+                console.log(data);
+                statusModalChanger(
+                    'SUCCESS',
+                    'آدرس شما با موفقیت ثبت شد',
+                    'ادامه',
+                    showUserInfosOnDashboard(
+                        user,
+                        profileTitle,
+                        profileEmail,
+                        fullNameElem,
+                        userAgeElem,
+                        emailAddressElem,
+                        phoneNumberElem,
+                        userAddressElem)
+                )
+                changeAddressModal.style.visibility = 'hidden'
+                changeAddressModal.style.opacity = '0'
+                changeAddressModal.style.top = '0'
+                submitAddressElem.innerHTML = 'افزودن آدرس'
+                submitAddressElem.style.opacity = '1'
+            }
+        })
+    }
+
 })
