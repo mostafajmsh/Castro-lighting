@@ -1,5 +1,5 @@
 import { supabase } from '../../js/database.js'
-import { successColor, successIcon, dangerIcon, dangerColor, statusModalChanger } from './utils.js'
+import { redirectToHomePage, statusModalChanger } from './utils.js'
 import { loginBtnElem } from '../login.js'
 
 const userRegister = async () => {
@@ -41,11 +41,11 @@ const userLogin = async () => {
     })
 
     if (error) {
-        statusModalChanger('ERROR', `نام کاربری یا رمز عبور اشتباه است`, dangerColor, dangerIcon, 'امتحان دوباره')
+        statusModalChanger('ERROR', `نام کاربری یا رمز عبور اشتباه است`, 'امتحان دوباره')
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'
     } else {
-        statusModalChanger('SUCCESS', `${data.user.user_metadata.first_name} عزیز خوش آمدید :)`, successColor, successIcon, 'ورود به پنل')
+        statusModalChanger('SUCCESS', `${data.user.user_metadata.full_name} عزیز خوش آمدید :)`, 'ورود به پنل', setInterval(redirectToHomePage(), 10000))
         console.log(data);
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'

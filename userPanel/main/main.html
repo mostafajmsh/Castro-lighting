@@ -15,7 +15,10 @@
       <div class="menu">
         <div class="profile">
           <div class="profile-image">
-            <img src="../img/IMG_9692.png" alt="" />
+            <img
+              src="../images/—Pngtree—user vector avatar_4830521.png"
+              alt=""
+            />
           </div>
           <p class="profile-title">مصطفی جمشیدی</p>
           <p class="profile-email">mostafajamshidi@info.com</p>
@@ -54,20 +57,58 @@
           <div class="personal__info-content">
             <div class="personal-right">
               <p class="full-name">
-                <span>نام و نام خانوادگی: </span>مصطفی جمشیدی
+                <!-- Data Loaded From JS -->
               </p>
-              <p class="user-age"><span>سن شما: </span>---- <span>سال</span></p>
+              <p class="user-age">
+                <!-- Data Loaded From JS -->
+              </p>
             </div>
             <div class="personal-left">
               <p class="email-address">
-                <span>آدرس ایمیل: </span>mostafajamshidi7394@gmail.com
+                <!-- Data Loaded From JS -->
               </p>
-              <p class="phone-number"><span>شماره تلفن: </span>09019919182</p>
+              <p class="phone-number">
+                <!-- Data Loaded From JS -->
+              </p>
+
               <div class="btn-wrapper">
                 <button class="change-info">تغییر مشخصات</button>
               </div>
             </div>
           </div>
+        </div>
+        <div class="editor-modal">
+          <form action="#" class="editor-form">
+            <div class="form-right">
+              <label for="full-name-input">نام و نام خانوادگی</label>
+              <input
+                type="text"
+                class="full-name-input"
+                placeholder="نام و نام خانوادگی خود را وارد کنید..."
+              />
+              <label for="age-input">سن خود را وارد کنید</label>
+              <input type="text" class="age-input" />
+              <label for="password-input">رمز عبور جدید خود را وارد کنید</label>
+              <input type="password" class="password-input" placeholder="رمز جدید را وارد نمایید..."/>
+              <button type="submit" class="submit-password">
+                تغییر رمز عبور
+              </button>
+            </div>
+            <div class="form-left">
+              <label for="email-input">تغییر آدرس ایمیل</label>
+              <input
+                type="email"
+                class="email-input"
+                placeholder="ex@email.com"
+              />
+              <label for="phone-input">تغییر شماره تلفن</label>
+              <input type="tel" class="phone-input" placeholder="09123456789" />
+              <button type="submit" class="submit-changes">
+                اعمال تغییرات
+              </button>
+              <button type="button" class="close-editor-modal">بازگشت</button>
+            </div>
+          </form>
         </div>
         <div class="user-location">
           <p class="title">آدرس شما</p>
@@ -77,11 +118,24 @@
           </div>
         </div>
       </div>
+      <div id="card" class="animated fadeIn status-modal">
+        <div id="upper-side">
+          <!-- Data Loaded From Js -->
+        </div>
+        <div id="lower-side">
+          <p id="message">
+            <!-- Data Loaded From Js -->
+          </p>
+          <a href="#" id="statusBtn">
+            <!-- Data Loaded From Js -->
+          </a>
+        </div>
+      </div>
     </div>
   </body>
 
   <script src="../../vendor/FontAwesome5/all.min.js"></script>
   <script src="../../vendor/SwiperSlider/swiper.js"></script>
   <script src="../js/shared.js" type="module"></script>
-  <script src="../../js/func/utils.js"></script>
+  <script src="./main.js" type="module"></script>
 </html>

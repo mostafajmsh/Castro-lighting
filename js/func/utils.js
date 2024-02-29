@@ -1,3 +1,4 @@
+import { supabase } from "../database.js"
 const $ = document
 
 const successIcon = `
@@ -49,31 +50,29 @@ class="w-6 h-6"
 const successColor = '#8BC34A'
 const dangerColor = '#c34a4a'
 
-const statusModalChanger = (status, message, topBgColor, icon, btnText) => {
+const statusModalChanger = (status, message, btnText, func) => {
 
-  let statusModal = $.querySelector('.status-modal')
-  let modalMessageText = $.querySelector('#message')
-  let modalTopSection = $.querySelector('#upper-side')
-  let statusCardBtn = $.querySelector('#statusBtn');
+  let statusModal = document.querySelector('.status-modal')
+  let modalMessageText = document.querySelector('#message')
+  let modalTopSection = document.querySelector('#upper-side')
+  let statusCardBtn = document.querySelector('#statusBtn');
 
 
   statusModal.style.visibility = 'visible';
   statusModal.style.opacity = '1';
   modalTopSection.innerHTML = ''
   modalTopSection.insertAdjacentHTML('afterbegin', `
-      ${icon}
+      ${status === 'SUCCESS' ? successIcon : dangerIcon}
       <h3 id="status">${status}</h3>
     `)
   modalMessageText.innerHTML = message
-  modalTopSection.style.backgroundColor = topBgColor
+  modalTopSection.style.backgroundColor = status === 'SUCCESS' ? successColor : dangerColor
   statusCardBtn.innerHTML = btnText
-  statusCardBtn.style.backgroundColor = topBgColor
+  statusCardBtn.style.backgroundColor = status === 'SUCCESS' ? successColor : dangerColor
   statusCardBtn.addEventListener('click', () => {
     statusModal.style.visibility = 'hidden';
     statusModal.style.opacity = '0';
-    if (status === 'SUCCESS') {
-      location.replace('./userPanel/main/main.html')
-    }
+    func
   })
 
 }
@@ -133,6 +132,10 @@ const productsCategoryHandler = (productsCategorySelections, categorySelectionTi
   });
 }
 
+const redirectToHomePage = () => {
+  location.href = '../../userPanel/main/main.html'
+}
+
 const getToken = () => {
   const userInfos = JSON.parse(localStorage.getItem('sb-lsryhmojytjylpzwrwwt-auth-token'));
   return userInfos ? userInfos.access_token : null;
@@ -183,6 +186,11 @@ const paginateItems = (array, itemsPerPage, paginateParentElem, currentPage) => 
   return paginatedItems
 }
 
+const getUserInfo = async () => {
+  const { data: { user } } = await supabase.auth.getUser()
+  return user
+}
+
 window.addParamToUrl = addParamToUrl
 
 export {
@@ -196,5 +204,7 @@ export {
   addParamToUrl,
   paginateItems,
   productsFilteringHandler,
-  productsCategoryHandler
+  productsCategoryHandler,
+  redirectToHomePage,
+  getUserInfo
 }

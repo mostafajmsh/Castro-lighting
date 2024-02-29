@@ -7,7 +7,6 @@ const loginBtnElem = document.querySelector('.login-btn')
 loginBtnElem.addEventListener('click', async e => {
     e.preventDefault()
     userLogin()
-
 })
 
 export {
