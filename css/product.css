@@ -323,6 +323,10 @@ label {
         margin: 3rem 2.5rem;
     }
 
+    .product__comments {
+        margin: 3rem 2.5rem;
+    }
+
     .other__infos-wrapper {
         flex-direction: column;
         flex: 1;
@@ -390,6 +394,10 @@ label {
     .product-price {
         font-size: 1rem;
     }
+
+    .product__comments {
+        margin: 3rem 1.5rem;
+    }
 }
 
 @media only screen and (max-width: 650px) {
@@ -403,6 +411,14 @@ label {
     .other__infos-wrapper {
         margin-top: 2rem;
         margin-right: 0;
+    }
+
+    .title-wrapper img {
+        width: 60px;
+    }
+
+    .title-wrapper .title {
+        font-size: 2rem;
     }
 
     .product__first-infos {
@@ -451,8 +467,6 @@ label {
         padding: 1rem;
     }
 
-
-
     .product-name span {
         font-size: 12px;
         color: var(--dark-color);
@@ -489,18 +503,16 @@ label {
         margin-right: 0;
     }
 
-
-
-    .title-wrapper img {
-        display: none;
-    }
-
     .title {
         font-size: 2rem;
     }
 
     .product__comments {
         margin: 4rem 1.5rem;
+    }
+
+    .title-wrapper img {
+        display: none;
     }
 
 }
