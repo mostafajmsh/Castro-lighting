@@ -71,7 +71,7 @@ const statusModalChanger = (status, message, btnText, func) => {
   statusCardBtn.addEventListener('click', () => {
     statusModal.style.visibility = 'hidden';
     statusModal.style.opacity = '0';
-    func
+    func ? func() : null
   })
 
 }

@@ -72,7 +72,7 @@ const statusModalChanger = (status, message, btnText, func) => {
   statusCardBtn.addEventListener('click', () => {
     statusModal.style.visibility = 'hidden';
     statusModal.style.opacity = '0';
-    func
+    func ? func() : null
   })
 
 }
@@ -132,7 +132,7 @@ const productsCategoryHandler = (productsCategorySelections, categorySelectionTi
   });
 }
 
-const redirectToHomePage = () => {
+const redirectToUserPanel = () => {
   location.href = '../../userPanel/main/main.html'
 }
 
@@ -205,6 +205,6 @@ export {
   paginateItems,
   productsFilteringHandler,
   productsCategoryHandler,
-  redirectToHomePage,
+  redirectToUserPanel,
   getUserInfo
 }

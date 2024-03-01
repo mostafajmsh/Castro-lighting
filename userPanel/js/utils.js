@@ -6,6 +6,12 @@ const getUserInfo = async () => {
     return user
 }
 
+const reSignUser = async () => {
+    let { error } = await supabase.auth.signOut()
+    location.href = '../../register.html'
+}
+
 export {
-    getUserInfo
+    getUserInfo,
+    reSignUser
 }

@@ -1,4 +1,4 @@
-import { getUserInfo } from "../js/utils.js"
+import { getUserInfo, reSignUser } from "../js/utils.js"
 import { supabase } from "../../js/database.js"
 import { statusModalChanger } from "../../js/func/utils.js"
 import { showUserInfosOnDashboard } from "../js/shared.js"
@@ -114,11 +114,6 @@ submitChangesBtnElem.addEventListener('click', e => {
 
 })
 
-const reSignUser = async () => {
-    let { error } = await supabase.auth.signOut()
-    location.href = '../../register.html'
-}
-
 submitPasswordBtn.addEventListener('click', e => {
     e.preventDefault()
     submitPasswordBtn.innerHTML = 'در حال بررسی...'
@@ -142,10 +137,7 @@ submitPasswordBtn.addEventListener('click', e => {
                 'SUCCESS',
                 'رمز عبور شما با موفقیت تغییر یافت \n لطفا مجددا وارد حساب خود شوید',
                 'ادامه',
-                setInterval(
-                    reSignUser()
-                    , 10000
-                ))
+                reSignUser)
             editorModalElem.style.visibility = 'hidden'
             editorModalElem.style.opacity = '0'
             editorModalElem.style.top = '0'
@@ -205,17 +197,9 @@ submitAddressElem.addEventListener('click', e => {
                 statusModalChanger(
                     'SUCCESS',
                     'آدرس شما با موفقیت ثبت شد',
-                    'ادامه',
-                    showUserInfosOnDashboard(
-                        user,
-                        profileTitle,
-                        profileEmail,
-                        fullNameElem,
-                        userAgeElem,
-                        emailAddressElem,
-                        phoneNumberElem,
-                        userAddressElem)
+                    'ادامه'
                 )
+                userAddressElem.innerHTML = `${data.user.user_metadata.address} (${data.user.user_metadata.post_code})`
                 changeAddressModal.style.visibility = 'hidden'
                 changeAddressModal.style.opacity = '0'
                 changeAddressModal.style.top = '0'
