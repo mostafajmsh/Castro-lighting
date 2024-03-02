@@ -133,7 +133,7 @@ const productsCategoryHandler = (productsCategorySelections, categorySelectionTi
 }
 
 const redirectToUserPanel = () => {
-  location.href = '../../userPanel/main/main.html'
+  location.replace('../../userPanel/main/main.html')
 }
 
 const getToken = () => {
