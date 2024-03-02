@@ -1,6 +1,6 @@
-@import url(../../css/variables.css);
-@import url(../../css/fonts.css);
-@import url(../../css/reset.css);
+@import url(./variables.css);
+@import url(./fonts.css);
+@import url(./reset.css);
 
 html {
     font-family: var(--primary-font);
