@@ -401,6 +401,11 @@ label {
 }
 
 @media only screen and (max-width: 650px) {
+
+    .product-title {
+        font-size: 2rem;
+    }
+
     .product__main-top {
         flex-direction: column;
         justify-content: center;
@@ -461,6 +466,10 @@ label {
 }
 
 @media only screen and (max-width: 360px) {
+
+    .product-title {
+        font-size: 1rem;
+    }
 
     .product__main-top {
         flex-wrap: wrap;
