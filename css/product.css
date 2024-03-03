@@ -252,7 +252,7 @@ label {
     flex-direction: column;
 }
 
-.user-name {
+.comment-writer {
     padding: 0;
     font-size: 1rem;
     display: flex;
@@ -261,7 +261,7 @@ label {
     line-height: 5px;
 }
 
-.user-name svg {
+.comment-writer svg {
     color: var(--primary-color);
 }
 
@@ -519,7 +519,7 @@ label {
         font-size: 1.2rem;
     }
 
-    .user-name {
+    .comment-writer {
         font-size: 12px;
     }
 
