@@ -1,5 +1,5 @@
 import { supabase } from '../../js/database.js'
-import { redirectToUserPanel, statusModalChanger } from './utils.js'
+import { backToPrevPage, statusModalChanger } from './utils.js'
 import { loginBtnElem } from '../login.js'
 
 const userRegister = async () => {
@@ -45,7 +45,7 @@ const userLogin = async () => {
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'
     } else {
-        statusModalChanger('SUCCESS', `${data.user.user_metadata.full_name} عزیز خوش آمدید :)`, 'ورود به پنل', redirectToUserPanel)
+        statusModalChanger('SUCCESS', `${data.user.user_metadata.full_name} عزیز خوش آمدید :)`, 'ورود به پنل', backToPrevPage)
         console.log(data);
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'

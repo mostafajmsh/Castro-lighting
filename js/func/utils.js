@@ -132,8 +132,8 @@ const productsCategoryHandler = (productsCategorySelections, categorySelectionTi
   });
 }
 
-const redirectToUserPanel = () => {
-  location.replace('../userPanel/main/main.html')
+const backToPrevPage = () => {
+  history.back()
 }
 
 const getToken = () => {
@@ -205,6 +205,6 @@ export {
   paginateItems,
   productsFilteringHandler,
   productsCategoryHandler,
-  redirectToUserPanel,
-  getUserInfo
+  backToPrevPage,
+  getUserInfo,
 }
