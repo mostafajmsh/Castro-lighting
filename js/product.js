@@ -1,5 +1,5 @@
 import { addProductInfosToProductPage, getProductByUrl } from "./data-loader.js"
-import { getUrlParam } from "./func/utils.js"
+import { getUrlParam, isLogin } from "./func/utils.js"
 
 const productTitleElem = document.querySelector('.product-title')
 const productImageElem = document.querySelector('.product__image-wrapper')
@@ -81,3 +81,10 @@ minusBtnElem.addEventListener('click', () => {
     totalPriceElem.innerHTML = totalPrice * +orderCountNumber.innerHTML
 })
 
+addOrderBtnElem.addEventListener('click', () => {
+    if (!isLogin) {
+        
+    } else {
+        
+    }
+})

@@ -133,7 +133,7 @@ const productsCategoryHandler = (productsCategorySelections, categorySelectionTi
 }
 
 const backToPrevPage = () => {
-  history.back()
+  window.history.back()
 }
 
 const getToken = () => {

@@ -45,7 +45,7 @@ const userLogin = async () => {
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'
     } else {
-        statusModalChanger('SUCCESS', `${data.user.user_metadata.full_name} عزیز خوش آمدید :)`, 'ورود به پنل', backToPrevPage)
+        statusModalChanger('SUCCESS', `${data.user.user_metadata.full_name} عزیز خوش آمدید :)`, 'ادامه', backToPrevPage)
         console.log(data);
         loginBtnElem.innerHTML = 'ورود'
         loginBtnElem.style.opacity = '1'
