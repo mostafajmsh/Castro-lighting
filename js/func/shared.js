@@ -44,7 +44,7 @@ const showNavbarProfile = () => {
             <a class="profile__menu-item" style="display: flex; align-items: center; gap: 10px;" href="./userPanel/main/main.html">
             <img width="32px" src="./images/Iconsax/icons8-user-profile-32.png" alt="">
             ورود به پنل کاربری</a>
-            <a class="profile__menu-item" style="display: flex; align-items: center; gap: 10px;" href="#">
+            <a class="profile__menu-item" style="display: flex; align-items: center; gap: 10px;" href="./userPanel/cart/cart.html">
             <svg
             width="32"
             height="32"

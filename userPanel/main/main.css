@@ -38,7 +38,7 @@ body {
     padding-left: 2rem;
     gap: 2rem;
     width: fit-content;
-    margin: 10% auto;
+    margin: 5% auto;
 
 }
 
@@ -158,15 +158,12 @@ body {
 
 .header__logo {
     background-color: #3d5654;
-    margin-top: 6.5rem;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    /* width: clamp(96px, 207px, 15%); */
-    /* width: 14.643%; */
     max-width: 120px;
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -649,6 +646,7 @@ input:focus {
 @media only screen and (max-width: 650px) {
     .container {
         margin: 35% 1.5rem;
+        margin-bottom: 3rem;
     }
 
     .header__logo {
