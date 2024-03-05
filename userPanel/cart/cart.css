@@ -1,5 +1,9 @@
 @import url(../main/main.css);
 
+.container {
+    margin: 5% 2.5rem;
+}
+
 .cart-content {
     display: flex;
     gap: 2rem;
@@ -105,6 +109,12 @@
     border-radius: 1rem;
 }
 
+.total__cart-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .buy-products {
     border: none;
     background-color: var(--primary-color);
@@ -117,4 +127,134 @@
     gap: 10px;
     font-family: var(--primary-font);
     font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .container {
+        gap: 1rem;
+        padding-left: 1rem;
+    }
+
+    .cart-content {
+        gap: 1rem;
+    }
+
+    .order-wrapper {
+        padding: 1rem;
+        height: 550px;
+    }
+
+    .order-box {
+        padding: 1rem;
+    }
+
+    .profile-title {
+        font-size: 1.2rem;
+    }
+
+    .profile-email {
+        font-size: 10px;
+    }
+
+    .menu-item {
+        font-size: 1.2rem;
+    }
+
+    .order-right {
+        width: fit-content;
+    }
+
+    .order-infos p {
+        font-size: 12px;
+    }
+
+    .order-count {
+        gap: .5rem;
+        justify-content: space-between;
+    }
+
+    .plus-btn,
+    .minus-btn {
+        width: 15px;
+        height: 15px;
+        padding: .8rem;
+        font-size: 12px;
+    }
+
+    .total-cart-info {
+        padding: 1rem;
+    }
+
+    .total-cart-info p {
+        font-size: 12px;
+        text-wrap: nowrap;
+    }
+
+    .buy-products {
+        font-size: 12px;
+        gap: 5px;
+        padding: .5rem .8rem;
+    }
+}
+
+@media only screen and (max-width: 804px) {
+
+    .container {
+        margin: 0 1.5rem;
+        margin-top: 10rem;
+        margin-bottom: 6rem;
+    }
+
+    .cart-content {
+        gap: 1rem;
+        flex-direction: column;
+        position: relative;
+    }
+
+
+
+    .total-cart-info {
+        margin-top: 0;
+        margin-bottom: 0;
+        position: fixed;
+        bottom: 0;
+        background-color: #f4f3f1;
+        width: 100%;
+        left: 0;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 0;
+    }
+
+    .total-cart-info p {
+        font-size: 14px;
+    }
+
+    .order__total-price {
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .container {
+        margin-top: 6rem;
+        margin-bottom: 10rem;
+    }
+
+    .total__cart-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .total-cart-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
 }

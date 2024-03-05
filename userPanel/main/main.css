@@ -532,7 +532,7 @@ input:focus {
     .container {
         flex-direction: column;
         width: 100%;
-        margin: 15% 1.5rem;
+        margin: 10rem 1.5rem;
         padding-left: 0;
         padding-right: 0;
         justify-content: center;
@@ -584,7 +584,7 @@ input:focus {
     .header__logo {
         /* display: none; */
         position: absolute;
-        top: 14rem;
+        top: 1rem;
         right: 0;
         left: 0;
         margin: auto;
@@ -667,11 +667,12 @@ input:focus {
 
     .container {
         margin: 4rem 1.5rem;
+        margin-top: 6rem;
     }
 
     .header__logo {
         max-width: 90px;
-        top: 9rem;
+        top: 1rem;
     }
 
     .page-content {
