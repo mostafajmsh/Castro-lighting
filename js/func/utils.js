@@ -191,6 +191,10 @@ const getUserInfo = async () => {
   return user
 }
 
+const addToLocalStorage = (key, value) => {
+  return localStorage.setItem(key, JSON.stringify(value));
+}
+
 window.addParamToUrl = addParamToUrl
 
 export {
@@ -207,4 +211,5 @@ export {
   productsCategoryHandler,
   backToPrevPage,
   getUserInfo,
+  addToLocalStorage
 }

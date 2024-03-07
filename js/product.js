@@ -1,5 +1,5 @@
 import { addProductInfosToProductPage, getProductByUrl } from "./data-loader.js"
-import { getUrlParam, isLogin } from "./func/utils.js"
+import { addToLocalStorage, getUrlParam, isLogin, statusModalChanger } from "./func/utils.js"
 
 const productTitleElem = document.querySelector('.product-title')
 const productImageElem = document.querySelector('.product__image-wrapper')
@@ -11,6 +11,7 @@ const productCountElem = document.querySelector('.product-count')
 const productDescriptionElem = document.querySelector('.product-description')
 let totalPrice = 0
 let maxCount = 0
+let productID = null
 
 window.addEventListener('load', () => {
     const productUrl = getUrlParam('name')
@@ -27,6 +28,7 @@ window.addEventListener('load', () => {
             productDescriptionElem)
         totalPrice = product[0].price
         maxCount = product[0].count
+        productID = product[0].id
     })
 })
 
@@ -81,10 +83,38 @@ minusBtnElem.addEventListener('click', () => {
     totalPriceElem.innerHTML = totalPrice * +orderCountNumber.innerHTML
 })
 
+let orderObj = {}
+let cartTotalOrdersArray = []
+
 addOrderBtnElem.addEventListener('click', () => {
     if (!isLogin) {
-        
+        statusModalChanger('ERROR', 'لطفا ابتدا وارد حساب کاربری خود شوید', 'ورود به حساب')
     } else {
-        
+        const productUrl = getUrlParam('name')
+        getProductByUrl(productUrl).then(product => {
+            orderObj = {
+                id: product[0].id,
+                count: orderCountNumber.innerHTML,
+                name: product[0].name,
+                score: product[0].score,
+                category: product[0].categoryTitle,
+                price: product[0].price,
+                cover: product[0].cover
+            }
+            cartTotalOrdersArray.push(orderObj)
+            addToLocalStorage('order', cartTotalOrdersArray)
+        })
+
+    }
+})
+
+window.addEventListener('load', () => {
+    let localStorageOrders = JSON.parse(localStorage.getItem('order'))
+    console.log(localStorageOrders);
+    if (localStorageOrders) {
+        cartTotalOrdersArray = localStorageOrders
+        console.log(cartTotalOrdersArray);
+    } else {
+        cartTotalOrdersArray = []
     }
 })

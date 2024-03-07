@@ -26,5 +26,5 @@ const showUserInfosOnDashboard = (
 }
 
 export {
-    showUserInfosOnDashboard
+    showUserInfosOnDashboard,
 }

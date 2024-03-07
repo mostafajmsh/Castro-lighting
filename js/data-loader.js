@@ -838,5 +838,5 @@ export {
     productsSorting,
     productsCategorySelection,
     getProductByUrl,
-    addProductInfosToProductPage
+    addProductInfosToProductPage,
 }
