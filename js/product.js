@@ -13,25 +13,6 @@ let totalPrice = 0
 let maxCount = 0
 let productID = null
 
-window.addEventListener('load', () => {
-    const productUrl = getUrlParam('name')
-    getProductByUrl(productUrl).then(product => {
-        addProductInfosToProductPage(
-            product,
-            productTitleElem,
-            productImageElem,
-            productNameElem,
-            productScoreElem,
-            productCategoryElem,
-            productPriceElem,
-            productCountElem,
-            productDescriptionElem)
-        totalPrice = product[0].price
-        maxCount = product[0].count
-        productID = product[0].id
-    })
-})
-
 const addToCartBtn = document.querySelector('.add-to-cart')
 const orderWrapperElem = document.querySelector('.order-wrapper')
 const plusBtnElem = document.querySelector('.plus-btn')
@@ -105,11 +86,28 @@ addOrderBtnElem.addEventListener('click', () => {
             cartTotalOrdersArray.push(orderObj)
             addToLocalStorage('order', cartTotalOrdersArray)
         })
-
+        statusModalChanger('SUCCESS', 'محصول با موفقیت به سبد خرید اضافه شد', 'ادامه')
     }
 })
 
 window.addEventListener('load', () => {
+    const productUrl = getUrlParam('name')
+    getProductByUrl(productUrl).then(product => {
+        addProductInfosToProductPage(
+            product,
+            productTitleElem,
+            productImageElem,
+            productNameElem,
+            productScoreElem,
+            productCategoryElem,
+            productPriceElem,
+            productCountElem,
+            productDescriptionElem)
+        totalPrice = product[0].price
+        maxCount = product[0].count
+        productID = product[0].id
+    })
+
     let localStorageOrders = JSON.parse(localStorage.getItem('order'))
     console.log(localStorageOrders);
     if (localStorageOrders) {

@@ -150,6 +150,13 @@
     font-size: 1.2rem;
 }
 
+.empty-cart-message {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
 @media only screen and (max-width: 1000px) {
 
     .container {
