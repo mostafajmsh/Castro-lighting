@@ -1,13 +1,25 @@
+import { getUserInfo } from "../js/utils.js"
+import { showUserInfosOnDashboard } from "../js/shared.js"
 
 const allOrdersWrapper = document.querySelector('.order-wrapper')
 const orderTotalCountNumber = document.querySelector('.order-total-count span')
 const orderTotalPriceNumber = document.querySelector('.order__total-price span')
+const profileTitle = document.querySelector('.profile-title')
+const profileEmail = document.querySelector('.profile-email')
 
 let totalCount = 0
 let totalPrice = 0
 let localStorageOrders = JSON.parse(localStorage.getItem('order'))
 
 window.addEventListener('load', () => {
+
+    getUserInfo().then(user => {
+
+        showUserInfosOnDashboard(
+            user,
+            profileTitle,
+            profileEmail)
+    })
 
     if (!localStorageOrders) {
         allOrdersWrapper.innerHTML = 'محصولی انتخاب نشده است!!!'
@@ -54,7 +66,7 @@ window.addEventListener('load', () => {
             }, 0);
             orderTotalCountNumber.innerHTML = totalCount
 
-            totalPrice = localStorageOrders.reduce(function(accumulator, currentValue) {
+            totalPrice = localStorageOrders.reduce(function (accumulator, currentValue) {
                 var count = parseInt(currentValue.count);
                 var price = parseInt(currentValue.price);
                 return accumulator + (count * price);
