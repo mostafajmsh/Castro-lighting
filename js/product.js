@@ -99,7 +99,8 @@ addOrderBtnElem.addEventListener('click', () => {
                 score: product[0].score,
                 category: product[0].categoryTitle,
                 price: product[0].price,
-                cover: product[0].cover
+                cover: product[0].cover,
+                maxCount: product[0].count
             }
             cartTotalOrdersArray.push(orderObj)
             addToLocalStorage('order', cartTotalOrdersArray)

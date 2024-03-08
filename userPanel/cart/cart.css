@@ -63,7 +63,7 @@
 .order-count {
     display: flex;
     width: 100%;
-    gap: 1rem;
+    gap: .5rem;
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
@@ -90,6 +90,11 @@
     line-height: normal;
 }
 
+.order-count {
+    display: flex;
+    text-wrap: nowrap;
+}
+
 .order-infos {
     display: flex;
     flex-direction: column;
@@ -107,6 +112,11 @@
 
 .product-score img {
     width: 16px;
+}
+
+.product-price span {
+    color: var(--primary-color);
+    font-size: 1rem;
 }
 
 .total-cart-info {
