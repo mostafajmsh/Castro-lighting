@@ -2,9 +2,10 @@ import { supabase } from '../../js/database.js'
 import { insertMenuDropdownItemsHtmlTemplate } from "../data-loader.js";
 import { getUserInfo, isLogin } from './utils.js'
 
-
 const menuDropdownElem = document.querySelectorAll('.dropdown')
 
+
+let cartCounterNotificationHandler
 const showNavbarProfile = () => {
   const headerProfileBtnElem = document.querySelectorAll('.header__menu-profile')
   const isUserLogin = isLogin()
@@ -20,7 +21,7 @@ const showNavbarProfile = () => {
   } else {
     getUserInfo().then(user => {
       headerProfileBtnElem.forEach(element => {
-        element.innerHTML = `
+        element.insertAdjacentHTML('beforeend', `
         <a href="#">
           <svg
             class="header__menu-icon"
@@ -62,6 +63,9 @@ const showNavbarProfile = () => {
             />
           </svg>
             سبد خرید
+            <div class="cart-counter" style="right:85%;">
+              1
+            </div>
             </a>
             <a class="profile__menu-item" style="display: flex; align-items: center; gap: 10px;" onclick="userLogout()">
               <svg
@@ -99,9 +103,43 @@ const showNavbarProfile = () => {
               <span>خروج از حساب کاربری</span>
             </a>
           </div>
+          <div class="cart-counter">
+            1
+          </div>
         </a>
-        `
+        `)
+
       })
+      let cartCounterElem = document.querySelectorAll('.cart-counter')
+      console.log(cartCounterElem);
+      let totalCount = 0
+      cartCounterNotificationHandler = () => {
+        let localStorageOrderArray = JSON.parse(localStorage.getItem('order'))
+
+        if (!localStorageOrderArray) {
+          cartCounterElem.forEach(counter => {
+            counter.style.visibility = 'hidden'
+          })
+          cartCounterElem.forEach(counter => {
+            counter.style.opacity = '0'
+          })
+        } else {
+          cartCounterElem.forEach(counter => {
+            counter.style.visibility = 'visible'
+          })
+          cartCounterElem.forEach(counter => {
+            counter.style.opacity = '1'
+          })
+          totalCount = localStorageOrderArray.reduce(function (accumulator, currentValue) {
+            return accumulator + parseInt(currentValue.count);
+          }, 0);
+
+          cartCounterElem.forEach(counter => {
+            counter.innerHTML = totalCount
+          })
+        }
+      }
+      cartCounterNotificationHandler()
     })
 
   }
@@ -117,7 +155,12 @@ const userLogout = async () => {
 
 window.userLogout = userLogout
 
-window.addEventListener('load', async e => {
+window.addEventListener('load', () => {
   showNavbarProfile()
   insertMenuDropdownItemsHtmlTemplate(menuDropdownElem)
+
 })
+
+export {
+  cartCounterNotificationHandler
+}

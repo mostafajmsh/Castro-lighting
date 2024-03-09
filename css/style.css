@@ -370,6 +370,26 @@ a {
     width: 100%;
 }
 
+.cart-counter {
+    position: absolute;
+    background-color: var(--primary-color);
+    right: -10px;
+    border-radius: 3px;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    padding: 8px;
+    padding-top: 10px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--primary-font);
+    /* visibility: hidden;
+    opacity: 0; */
+    z-index: 999;
+}
+
 /*Finish Header Menu Styles */
 
 /*Start Landing Section Styles */

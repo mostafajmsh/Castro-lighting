@@ -1,4 +1,5 @@
 import { addProductInfosToProductPage, getProductByUrl } from "./data-loader.js"
+import { cartCounterNotificationHandler } from "./func/shared.js"
 import { addToLocalStorage, getUrlParam, isLogin, statusModalChanger } from "./func/utils.js"
 
 const productTitleElem = document.querySelector('.product-title')
@@ -86,7 +87,9 @@ addOrderBtnElem.addEventListener('click', () => {
             cartTotalOrdersArray.push(orderObj)
             addToLocalStorage('order', cartTotalOrdersArray)
         })
-        statusModalChanger('SUCCESS', 'محصول با موفقیت به سبد خرید اضافه شد', 'ادامه')
+        statusModalChanger('SUCCESS', 'محصول با موفقیت به سبد خرید اضافه شد', 'ادامه', cartCounterNotificationHandler)
+        addToCartBtn.style.display = 'flex'
+        orderWrapperElem.style.display = 'none'
     }
 })
 
