@@ -1,6 +1,6 @@
 import { addProductInfosToProductPage, getProductByUrl } from "./data-loader.js"
 import { cartCounterNotificationHandler } from "./func/shared.js"
-import { addToLocalStorage, getUrlParam, isLogin, statusModalChanger } from "./func/utils.js"
+import { addToLocalStorage, getUrlParam, goToRegisterPage, isLogin, statusModalChanger } from "./func/utils.js"
 
 const productTitleElem = document.querySelector('.product-title')
 const productImageElem = document.querySelector('.product__image-wrapper')
@@ -69,8 +69,9 @@ let orderObj = {}
 let cartTotalOrdersArray = []
 
 addOrderBtnElem.addEventListener('click', () => {
-    if (!isLogin) {
-        statusModalChanger('ERROR', 'لطفا ابتدا وارد حساب کاربری خود شوید', 'ورود به حساب')
+    let isUserLogin = isLogin()
+    if (!isUserLogin) {
+        statusModalChanger('ERROR', 'لطفا ابتدا وارد حساب کاربری خود شوید', 'ورود به حساب', goToRegisterPage)
     } else {
         const productUrl = getUrlParam('name')
         getProductByUrl(productUrl).then(product => {

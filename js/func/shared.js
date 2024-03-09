@@ -116,7 +116,7 @@ const showNavbarProfile = () => {
       cartCounterNotificationHandler = () => {
         let localStorageOrderArray = JSON.parse(localStorage.getItem('order'))
 
-        if (!localStorageOrderArray) {
+        if (!localStorageOrderArray.length) {
           cartCounterElem.forEach(counter => {
             counter.style.visibility = 'hidden'
           })

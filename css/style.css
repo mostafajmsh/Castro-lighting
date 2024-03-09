@@ -385,8 +385,8 @@ a {
     justify-content: center;
     align-items: center;
     font-family: var(--primary-font);
-    /* visibility: hidden;
-    opacity: 0; */
+    visibility: hidden;
+    opacity: 0;
     z-index: 999;
 }
 

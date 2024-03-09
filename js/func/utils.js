@@ -127,14 +127,15 @@ const productsCategoryHandler = (productsCategorySelections, categorySelectionTi
 
       let userCategorySelection = event.target.dataset.key;
       let shownSelectedCategoryProducts = selectionMethod([...products], userCategorySelection);
-      template([...shownSelectedCategoryProducts], allProductsWrapper)
+      shownSelectedCategoryProducts.then(selectedProducts => template([...selectedProducts], allProductsWrapper)
+      )
     });
   });
 }
 
-const backToPrevPage = () => {
-  window.history.back()
-}
+const backToPrevPage = () => window.history.back();
+
+const goToRegisterPage = () => location.href = './register.html';
 
 const getToken = () => {
   const userInfos = JSON.parse(localStorage.getItem('sb-lsryhmojytjylpzwrwwt-auth-token'));
@@ -211,5 +212,6 @@ export {
   productsCategoryHandler,
   backToPrevPage,
   getUserInfo,
-  addToLocalStorage
+  addToLocalStorage,
+  goToRegisterPage
 }
