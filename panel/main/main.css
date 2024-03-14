@@ -10,16 +10,19 @@
 
 html {
     /* overflow-y: hidden; */
-    position: relative;
     width: 100%;
     height: 100%;
     scroll-behavior: smooth;
 }
 
 body {
+    position: relative;
     background-color: #f4f3f1;
     font-family: var(--primary-font);
     color: #3d5654;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -158,8 +161,6 @@ body {
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    /* width: clamp(96px, 207px, 15%); */
-    /* width: 14.643%; */
     max-width: 120px;
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -204,16 +205,18 @@ body {
     justify-content: space-between;
     width: 100%;
     gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
 }
 
 .status-wrapper {
     border-radius: 2rem;
-    margin: 2rem 0;
     /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); */
+    flex: 1;
 }
 
 .status-text__wrapper {
-    border-radius: 2rem;
+    border-radius: 1rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
     padding: 2rem;
 }
@@ -261,7 +264,200 @@ body {
     color: red;
 }
 
+.chart-wrapper {
+    border-radius: 1rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+
+}
+
 .chart {
     border-radius: 2rem;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    height: fit-content;
+}
+
+@media only screen and (max-width: 1250px) {
+
+    .container {
+        margin: 4rem 2.5rem;
+        height: 652.8px;
+    }
+
+    .page-content {
+        gap: 1rem;
+    }
+
+    .page-content__top {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .status-text__wrapper {
+        padding: 1rem;
+    }
+
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .status-text {
+        margin-top: .5rem;
+    }
+
+    .duration {
+        margin-top: .5rem;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .page-content__top {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 804px) {
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        margin: 10rem 1.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+        align-items: center;
+        height: unset;
+    }
+
+    .page-content {
+        box-shadow: none;
+    }
+
+    .menu {
+        width: 100%;
+        flex-direction: row;
+        padding: 1rem 4rem;
+    }
+
+    .profile {
+        display: none;
+    }
+
+    .menu-list {
+        gap: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu-item {
+        margin-right: 0;
+        padding: 1rem;
+        width: fit-content;
+    }
+
+    .menu-item__link {
+        display: none;
+    }
+
+    .active {
+        border-radius: 5px;
+    }
+
+    .header__logo {
+        /* display: none; */
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    .personal-info,
+    .user-location {
+        padding: 1rem;
+    }
+
+    .page-content {
+        margin: 1rem;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .bg-circle-one {
+        height: 40%;
+    }
+
+    .chart-wrapper {
+        max-width: 100%;
+    }
+
+    .chart {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+    #card {
+        width: 100%;
+    }
+
+    .container {
+        margin: 4rem 1.5rem;
+        margin-top: 8rem;
+        gap: 1rem;
+        overflow: hidden;
+    }
+
+    .header__logo {
+        max-width: 90px;
+        top: 1rem;
+    }
+
+    .page-content {
+        margin: 0;
+        padding: 1rem;
+        padding-top: 0;
+    }
+
+    .logo__title {
+        font-size: .6rem;
+    }
+
+    .logo__text {
+        letter-spacing: 2px;
+    }
+
+    .menu-list {
+        gap: 0;
+    }
+
+    .menu-item {
+        font-size: 1rem;
+        padding: .5rem;
+    }
+
+    .menu {
+        padding: 1rem .5rem;
+    }
+
+    .page-content__top {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .status-text__wrapper {
+        padding: 1rem;
+    }
+
+    .chart-wrapper {
+        overflow-x: scroll;
+    }
+
+    .chart {
+        width: unset;
+    }
 }

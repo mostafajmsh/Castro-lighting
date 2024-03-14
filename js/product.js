@@ -1,6 +1,17 @@
-import { addProductInfosToProductPage, getProductByUrl } from "./data-loader.js"
-import { cartCounterNotificationHandler } from "./func/shared.js"
-import { addToLocalStorage, getUrlParam, goToRegisterPage, isLogin, statusModalChanger } from "./func/utils.js"
+import {
+    addProductInfosToProductPage,
+    getProductByUrl
+} from "./data-loader.js";
+
+import { cartCounterNotificationHandler } from "./func/shared.js";
+
+import {
+    addToLocalStorage,
+    getUrlParam,
+    goToRegisterPage,
+    isLogin,
+    statusModalChanger
+} from "./func/utils.js";
 
 const productTitleElem = document.querySelector('.product-title')
 const productImageElem = document.querySelector('.product__image-wrapper')
@@ -10,9 +21,9 @@ const productCategoryElem = document.querySelector('.product-category')
 const productPriceElem = document.querySelector('.product-price')
 const productCountElem = document.querySelector('.product-count')
 const productDescriptionElem = document.querySelector('.product-description')
-let totalPrice = 0
-let maxCount = 0
-let productID = null
+let totalPrice = 0;
+let maxCount = 0;
+let productID = null;
 
 const addToCartBtn = document.querySelector('.add-to-cart')
 const orderWrapperElem = document.querySelector('.order-wrapper')
