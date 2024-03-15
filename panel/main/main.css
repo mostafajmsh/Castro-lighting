@@ -125,7 +125,7 @@ body {
 .profile-email {
     margin-top: .5rem;
     font-size: .8rem;
-    font-size: 'GilroyReg';
+    font-family: 'GilroyReg';
 }
 
 .menu-list {

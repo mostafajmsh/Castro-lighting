@@ -294,8 +294,7 @@ button {
 
     .container {
         flex-direction: column;
-        margin-top: 15%;
-        margin-bottom: 4rem;
+        margin: 15% 1.5rem 4rem 1.5rem;
         width: max-content;
     }
 
@@ -344,8 +343,13 @@ button {
 
 @media only screen and (max-width: 400px) {
 
+    #card {
+        width: 100%;
+    }
+
     .container {
-        margin: 35% 1.5rem;
+        width: 100%;
+        margin-top: 35%;
         padding: 1rem;
     }
 

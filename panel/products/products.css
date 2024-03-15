@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-.container {
-    /* position: relative; */
-}
-
 button {
     cursor: pointer;
     font-family: var(--primary-font);
