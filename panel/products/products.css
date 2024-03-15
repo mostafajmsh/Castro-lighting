@@ -1,7 +1,13 @@
 @import url(../main/main.css);
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .container {
-    position: relative;
+    /* position: relative; */
 }
 
 button {
@@ -15,6 +21,10 @@ button {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+.new-product-form {
+    width: 100%;
 }
 
 .form-title {
@@ -53,6 +63,7 @@ button {
     width: 100%;
     font-size: 1.2rem;
     gap: .8rem;
+    flex: 1;
 }
 
 .price-input,
@@ -177,7 +188,7 @@ button {
     left: 0;
     right: 0;
     margin: auto;
-    top: 6rem;
+    top: 30%;
     transition: all .4s ease;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
@@ -337,8 +348,14 @@ tbody {
 
 td {
     text-align: center;
-    padding: 1rem 0;
-    max-width: 150px;
+    padding: 1rem;
+    max-width: 100px;
+}
+
+#product-id {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .edit-btn {
@@ -370,7 +387,7 @@ td {
     border: none;
     border-radius: 2rem;
     position: absolute;
-    bottom: 3rem;
+    bottom: 6rem;
     right: 17.5rem;
     transition: all .2s ease;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
@@ -390,7 +407,7 @@ td {
     height: 200px;
     font-size: 1.5rem;
     position: absolute;
-    top: 20%;
+    top: 30%;
     right: 0;
     left: 0;
     padding: 2rem;
@@ -437,7 +454,7 @@ td {
     position: absolute;
     background-color: #ffffff;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-    top: 20%;
+    top: 30%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -549,4 +566,242 @@ td {
     font-size: .6rem;
     margin-top: 1rem;
     visibility: hidden;
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .form-top {
+        gap: 1rem;
+    }
+
+    .form__top-left,
+    .form__top-right,
+    .form-center {
+        padding: 1rem;
+    }
+
+    .container {
+        gap: 1rem;
+        padding-left: 1rem;
+    }
+
+    .profile {
+        padding: 1rem;
+    }
+
+    .menu-item {
+        margin-right: 1rem;
+    }
+
+    .table {
+        padding: 0;
+    }
+
+    th {
+        padding: 1rem .5rem;
+    }
+
+    td {
+        padding: .5rem;
+        font-size: 14px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        font-size: 12px;
+        padding: .5rem;
+    }
+}
+
+@media only screen and (max-width: 804px) {
+
+    #card {
+        top: 40%;
+    }
+
+    .container {
+        padding-left: 0;
+    }
+
+    .form-top {
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .form-center {
+        width: 100%;
+    }
+
+    .form__center-top {
+        gap: 1rem;
+    }
+
+    .form__top-left,
+    .form__top-right,
+    .form-center {
+        padding: 1rem;
+    }
+
+    .new-product-form {
+        padding: 1rem;
+    }
+
+    .edit__product-modal {
+        width: 80%;
+    }
+
+    .edit__product-modal label {
+        font-size: 12px;
+    }
+
+    .editor-btn-wrapper {
+        flex-direction: column;
+    }
+
+    .update-btn {
+        width: 100%;
+    }
+
+    .close-editor {
+        margin: 0;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .table {
+        max-width: 700px;
+        width: 90%;
+        margin: 0;
+        overflow-x: scroll;
+        position: relative;
+        background-color: #ffffff;
+        padding-bottom: 0;
+    }
+
+    table {
+        display: flex;
+        width: 100%;
+
+    }
+
+    tbody {
+        display: flex;
+        height: 100%;
+    }
+
+    tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    thead {
+        border: none;
+        padding-bottom: 0;
+        border-left: 1px dashed rgb(219, 213, 213);
+    }
+
+    thead tr::before {
+        display: none;
+    }
+
+    th {
+        padding: 1rem;
+        font-size: 12px;
+    }
+
+    td {
+        padding: 1.3rem 1rem;
+        font-size: 12px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        font-size: 10px;
+    }
+
+    tr {
+        border-bottom: none;
+        border-left: 1px dashed rgb(219, 213, 213);
+        position: relative;
+    }
+
+    tr::after {
+        top: -0.5rem;
+    }
+
+    tr::before {
+        bottom: -0.5rem;
+    }
+
+    .back-btn {
+        position: unset;
+        margin-bottom: 2rem;
+    }
+
+    .confirm__delete-modal {
+        top: 40%;
+    }
+
+    .edit__product-modal {
+        top: 40%;
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+    .form-top {
+        flex-wrap: wrap;
+    }
+
+    .form-title {
+        font-size: 1.2rem;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    .form__center-top {
+        flex-wrap: wrap;
+    }
+
+    .new-product-form {
+        width: 100%;
+        margin: 1rem;
+        padding: 1rem;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .save-btn {
+        width: 100%;
+    }
+
+    .products__table-btn {
+        width: 100%;
+        margin-top: 1rem;
+        margin-right: 0;
+    }
+
+    .confirm__delete-modal {
+        width: 80%;
+    }
+
+    .price-input::placeholder,
+    .score-input::placeholder,
+    .name-input::placeholder,
+    .count-input::placeholder,
+    #product-description::placeholder {
+        font-size: 10px;
+    }
+
+    .save-btn,
+    .products__table-btn {
+        font-size: 12px;
+    }
+
+    #card {
+        width: 80%;
+    }
 }

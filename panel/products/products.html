@@ -35,7 +35,9 @@
           </li>
           <li href="" class="menu-item">
             <i class="fas fa-object-group"></i>
-            <a class="menu-item__link" href="../categories/categories.html">دسته بندی ها</a>
+            <a class="menu-item__link" href="../categories/categories.html"
+              >دسته بندی ها</a
+            >
           </li>
           <li href="" class="menu-item">
             <i class="fas fa-blog"></i>
@@ -78,6 +80,7 @@
               >ستون مورد نظر را جهت تغییر انتخاب نمایید</label
             >
             <select name="field-selection" id="field-selection">
+              <option value="-1">یک مورد جهت تغییر انتخاب کنید</option>
               <option class="field" id="name-message" value="name">
                 نام محصول
               </option>
@@ -123,6 +126,7 @@
               >دسته بندی جدید محصول را وارد کنید</label
             >
             <select name="category" class="product-new-category">
+              <option value="-1">انتخاب دسته بندی</option>
               <!-- Data Loaded From JS -->
             </select>
           </div>
@@ -231,6 +235,7 @@
             <div class="category-selector">
               <label class="label" for="category">دسته بندی محصول</label>
               <select name="category" class="category">
+                <option value="-1">انتخاب دسته بندی</option>
                 <!-- Data Loaded From JS -->
               </select>
             </div>
@@ -266,7 +271,7 @@
           <textarea
             name=""
             id="product-description"
-            cols="80"
+            cols="50"
             rows="5"
             placeholder="توضیحات محصول را وارد کنید..."
           ></textarea>

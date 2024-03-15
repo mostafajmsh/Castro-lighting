@@ -13,7 +13,7 @@ const getAllProducts = async () => {
 }
 
 const ShowCategoriesOnCategorySelection = (inputElem) => {
-    inputElem.innerHTML = ''
+    // inputElem.innerHTML = ''
     getAllCategories().then(categories => {
         categories.forEach(category => {
             inputElem.insertAdjacentHTML('beforeend', `

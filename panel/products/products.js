@@ -78,7 +78,7 @@ saveBtnElem.addEventListener('click', async e => {
     let priceInputElem = $.querySelector('.price-input');
     let scoreInputElem = $.querySelector('.score-input');
     let descriptionInputElem = $.querySelector('#product-description');
-    let countInputElem = $.querySelector('.count-input')
+    let countInputElem = $.querySelector('.count-input');
 
     const { data, error } = await supabase
         .from('products')
@@ -202,7 +202,15 @@ if (columnSelectionElem.value === 'name') {
 
 columnSelectionElem.addEventListener('change', () => {
 
-    if (columnSelectionElem.value === 'name') {
+    if (+columnSelectionElem.value === -1) {
+        nameEditorElem.style.display = 'none'
+        categoryEditorElem.style.display = 'none'
+        priceEditorElem.style.display = 'none'
+        scoreEditorElem.style.display = 'none'
+        countEditorElem.style.display = 'none'
+        descriptionEditorElem.style.display = 'none'
+        coverEditorElem.style.display = 'none'
+    } else if (columnSelectionElem.value === 'name') {
         nameEditorElem.style.display = 'flex'
         categoryEditorElem.style.display = 'none'
         priceEditorElem.style.display = 'none'
